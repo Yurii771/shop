@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Controller;
+namespace Guest\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
