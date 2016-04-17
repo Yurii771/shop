@@ -2,10 +2,9 @@
 
 namespace Guest;
 
-use Zend\Mvc\ModuleRouteListener;
-use Zend\Mvc\MvcEvent;
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 
-class Module
+class Module implements AutoloaderProviderInterface
 {
     public function getConfig()
     {

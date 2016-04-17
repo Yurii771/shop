@@ -45,7 +45,9 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Admin\Controller\Index' => 'Admin\Controller\IndexController',
-            'Admin\Controller\Auth' => 'Admin\Controller\AuthController',
+        ),
+        'factories' => array(
+            'Admin\Controller\Auth' => 'Admin\Factory\AuthControllerFactory',
         ),
     ),
     
@@ -68,4 +70,19 @@ return array(
             'default' => 'layout/admin',
         ),
      ),
+    
+    'admin_guard' => array(
+        'allow' => array(
+            array(array('admin', 'guest'), 'Guest'),
+            array(array('admin'), 'Admin'),
+            array(array('admin'), 'Admin\Controller\Auth', 'logout'),
+            array(array('guest'), 'Admin\Controller\Auth', 'index'),
+        ),
+        'deny' => array(
+            array(array('guest'), 'Admin'),
+            array(array('admin','guest'), 'Admin\Controller\Auth'),
+        ),
+        'admin_name_hash' => '$2y$10$h3UP2FK0r3DOdZyQDksPv.Qkcp6szX9C0lGh8DnA4PDA0Y3vtg0/q', //'admin'
+        'admin_password_hash' => '$2y$10$FacpCw6CVAw/FYKBkL/.AuXYFwVICQhVXKaL8WW9aU6PR4WgpLdR2', //'test'
+    ),
 );
