@@ -1,0 +1,108 @@
+<?php
+
+namespace Admin\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Orders
+ *
+ * @ORM\Table(name="orders", indexes={@ORM\Index(name="delivery_id", columns={"delivery_id"}), @ORM\Index(name="payment_id", columns={"payment_id"}), @ORM\Index(name="order_status_id", columns={"order_status_id"}), @ORM\Index(name="city_id", columns={"city_id"})})
+ * @ORM\Entity
+ */
+class Orders
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="order", type="text", length=65535, nullable=false)
+     */
+    private $order;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="customer_name", type="string", length=255, nullable=false)
+     */
+    private $customerName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="customer_surname", type="string", length=255, nullable=false)
+     */
+    private $customerSurname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adress", type="string", length=255, nullable=false)
+     */
+    private $adress;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="customer_email", type="string", length=255, nullable=false)
+     */
+    private $customerEmail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="customer_phone", type="string", length=30, nullable=false)
+     */
+    private $customerPhone;
+
+    /**
+     * @var \Admin\Entity\Payment
+     *
+     * @ORM\ManyToOne(targetEntity="Admin\Entity\Payment")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="payment_id", referencedColumnName="id")
+     * })
+     */
+    private $payment;
+
+    /**
+     * @var \Admin\Entity\Delivery
+     *
+     * @ORM\ManyToOne(targetEntity="Admin\Entity\Delivery")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="delivery_id", referencedColumnName="id")
+     * })
+     */
+    private $delivery;
+
+    /**
+     * @var \Admin\Entity\OrderStatus
+     *
+     * @ORM\ManyToOne(targetEntity="Admin\Entity\OrderStatus")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="order_status_id", referencedColumnName="id")
+     * })
+     */
+    private $orderStatus;
+
+    /**
+     * @var \Admin\Entity\Cities
+     *
+     * @ORM\ManyToOne(targetEntity="Admin\Entity\Cities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     * })
+     */
+    private $city;
+
+
+}
+

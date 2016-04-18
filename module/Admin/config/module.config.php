@@ -24,31 +24,60 @@ return array(
     'router' => array(
         'routes' => array(
             'admin' => array(
-                'type'    => 'Segment',
+                'type'    => 'literal',
                 'options' => array(
-                    'route'    => '/admin[/:controller[/:action[/:id]]]',
-                    'constraints' => array(
-                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id'     => '[0-9]+',
-                    ),
+                    'route'    => '/admin',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'Admin\Controller',
-                        'controller'    => 'Index',
+						'controller' => 'Admin\Controller\Index',
                         'action'        => 'index',
                     ),
                 ),
+				'may_terminate' => true,
+				'child_routes' => array(
+					'category' => array(
+						'type' => 'segment',
+						'options' => array(
+							'route' => '/category[/:action][/:id]',
+							'defaults' => array(
+								'controller' => 'Admin\Controller\Category',
+								'action' => 'index',
+							),
+						),
+					),
+				), //child_routes
             ),
         ),
     ),
     
-    'controllers' => array(
+//	'router' => array(
+//        'routes' => array(
+//            'admin' => array(
+//                'type'    => 'Segment',
+//                'options' => array(
+//                    'route'    => '/admin[/:controller[/:action[/:id]]]',
+//                    'constraints' => array(
+//                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+//                        'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+//                        'id'     => '[0-9]+',
+//                    ),
+//                    'defaults' => array(
+//                        '__NAMESPACE__' => 'Admin\Controller',
+//                        'controller'    => 'Index',
+//                        'action'        => 'index',
+//                    ),
+//                ),
+//            ),
+//        ),
+//    ),
+	
+	'controllers' => array(
         'invokables' => array(
             'Admin\Controller\Index' => 'Admin\Controller\IndexController',
             'Admin\Controller\Auth' => 'Admin\Controller\AuthController',
+			'Admin\Controller\Category' => 'Admin\Controller\CategoryController',
         ),
     ),
-    
+	
     'view_manager' => array(
         'template_path_stack' => array(
             'Admin' => __DIR__ . '/../view',
