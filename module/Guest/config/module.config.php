@@ -12,6 +12,36 @@ return array(
                     ),
                 ),
             ),
+			'payment' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/payment',
+                    'defaults' => array(
+                        'controller' => 'Guest\Controller\Index',
+                        'action'     => 'payment',
+                    ),
+                ),
+            ),
+            'about' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/about',
+                    'defaults' => array(
+                        'controller' => 'Guest\Controller\Index',
+                        'action'     => 'about',
+                    ),
+                ),
+            ),
+            'contacts' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/contacts',
+                    'defaults' => array(
+                        'controller' => 'Guest\Controller\Index',
+                        'action'     => 'contacts',
+                    ),
+                ),
+            ),
             'guest' => array(
                 'type'    => 'Segment',
                 'options' => array(
