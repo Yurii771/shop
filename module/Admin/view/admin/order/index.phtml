@@ -7,16 +7,18 @@
             <th>Заказ</th>
             <th>Клиент</th>
             <th>Контактный телефон</th>
+            <th>Статус</th>
             <th> </th>
         </tr>
         <?php
             foreach($orders as $order){
                 echo "<tr>
-                    <td>{$order->getId()}</td>
-                    <td>{$order->getOrder()}</td>
-                    <td>{$order->getCustomerName()}</td>
-                    <td>{$order->getCustomerPhone()}</td>";
-               echo '<td><a href="'.$this->url('admin', array('action'=>'edit','id'=>$order->getId())).'">Детали</a></td>';
+                    <td>{$order[0]->getId()}</td>
+                    <td>{$order[0]->getOrder()}</td>
+                    <td>{$order[0]->getCustomerName()}</td>
+                    <td>{$order[0]->getCustomerPhone()}</td>
+                    <td>{$order['orderStatus']}</td>";
+               echo '<td><a href="'.$this->url('admin', array('action'=>'edit','id'=>$order[0]->getId())).'">Детали</a></td>';
                         
             }
         ?>
