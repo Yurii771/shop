@@ -1,18 +1,18 @@
 <div class="bs-docs-section">
 	<div class="well">
 <?php
-$form->setAttribute('action', $this->url('admin/category', array('action' => 'add')));
+$form->setAttribute('action', $this->url('admin', array('controller'=>'category', 'action' => 'edit', 'id' => $id)));
 $form->prepare();
 
 echo $this->form()->openTag($form);
-	echo '<fieldset><legend>Добавление категории</legend>';
+	echo '<fieldset><legend>Редактирование категории</legend>';
 	foreach ($form as $element){
 		echo '<div class="form-group">';
 		$attributes = $element->getAttributes();
 		if($element->getLabel()){
 			$element->setLabelAttributes(array('class' => 'col-lg-2 control-label'));
 			if(isset($attributes['required'])){
-				$element->setLabel($element->getLebel() . ' *');
+				$element->setLabel($element->getLabel() . ' *');
 			}
 		}
 		if(isset($attributes['type']) && $attributes['type'] == 'text'){
@@ -38,7 +38,7 @@ echo $this->form()->openTag($form);
 		echo '</div>';
 	}
 echo '</fieldset>';
-echo $this->form->closeTag();
+echo $this->form()->closeTag();
 ?>
 	</div>
 </div>

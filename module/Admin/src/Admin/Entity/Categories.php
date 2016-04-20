@@ -102,7 +102,7 @@ class Categories
 	{
 		foreach ($data as $key => $val){
 			if(property_exists($this, $key)){
-				$this->key = ($val !== null) ? $val : null;
+				$this->$key = ($val) ? $val : null;
 			}
 		}
 	}

@@ -20,7 +20,7 @@ class CategoryAddForm extends Form {
 
 		$this->add(array(
 			'name' => 'name',
-			'type' => 'Text',
+			'type' => 'text',
 			'options' => array(
 				'label' => 'Name',
 				'min' => 3,
@@ -34,7 +34,7 @@ class CategoryAddForm extends Form {
 		));
 		$this->add(array(
 			'name' => 'parent',
-			'type' => 'Text',
+			'type' => 'text',
 			'options' => array(
 				'label' => 'Parent',
 				'min' => 3,

@@ -16,7 +16,7 @@ class CategoryController extends BaseController
 		return array('categories' => $rows);
     }
 	
-	public function addIndex()
+	public function addAction()
 	{
 		$form = new CategoryAddForm();
 		$status = $message = '';
@@ -44,7 +44,7 @@ class CategoryController extends BaseController
 					->addMessage($message);
 		}
 		
-		return $this->redirect()->toRoute('admin/category');
+		return $this->redirect()->toRoute('admin', array('controller' => 'category'));
 	}
 	
 	public function editAction()
@@ -60,7 +60,7 @@ class CategoryController extends BaseController
 			$this->flashMessenger()
 					->setNamespace($status)
 					->addMessage($message);
-			return $this->redirect()->toRoute('admin/category');
+			return $this->redirect()->toRoute('admin', array('controller' => 'category'));
 		}
 		$form->bind($category);
 		$request = $this->getRequest();
@@ -83,11 +83,12 @@ class CategoryController extends BaseController
 		}else{
 			return array('form' => $form, 'id' => $id);
 		}
+                return $this->redirect()->toRoute('admin', array('controller' => 'category'));
 	}
 	
 	public function deleteAction()
 	{
-		$id = (int) $this->params()->fromRoute('id', 0);
+		$id = (int) $this->params()->fromRoute('id');
 		$em = $this->getEntityManager();
 		$status = 'Success!';
 		$message = 'Категория удалена';
@@ -95,7 +96,7 @@ class CategoryController extends BaseController
 			$repository = $em->getRepository('Admin\Entity\Categories');
 			$category = $repository->find($id);
 			$em->remove($category);
-			$em->fllush();
+			$em->flush();
 		} catch (\Exception $ex) {
 			$status = 'error';
 			$message = 'Ошибка удаления категории: ' . $ex->getMessage();
@@ -103,7 +104,7 @@ class CategoryController extends BaseController
 		$this->flashMessenger()
 					->setNamespace($status)
 					->addMessage($message);
-		return $this->redirect()->toRoute('admin/category');
+		return $this->redirect()->toRoute('admin', array('controller' => 'category'));
 	}
 	
 }

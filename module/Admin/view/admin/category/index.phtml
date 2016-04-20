@@ -27,16 +27,18 @@
 		<?php foreach($categories as $item): ?>
 		<tr>
 			<td><?php echo $count++; ?></td>
-			<td><?php echo $item->getName() ?></td>
+			<td><?php 
+//                                var_dump($item); die();
+                        echo $item->getName() ?></td>
 			<td><?php echo $item->getParent() ?></td>
 			<td>
-				<a href="<?php $this->url('admin/category', array('action' => 'edit', 'id' => $item->getId())) ?>">Edit</a>
-				<a href="<?php $this->url('admin/category', array('action' => 'delete', 'id' => $item->getId())) ?>" onclick="if(confirm('Are u sure?')){document.location = this.href;} return false;">Delete</a>
+				<a href="<?= $this->url('admin', array('controller'=>'category', 'action' => 'edit', 'id' => $item->getId())) ?>">Edit</a>
+				<a href="<?= $this->url('admin', array('controller'=>'category', 'action' => 'delete', 'id' => $item->getId())) ?>" onclick="if(confirm('Are u sure?')){document.location = this.href;} return false;">Delete</a>
 			</td>
 		</tr>	
 		<?php endforeach; ?>
 	</tbody>
 </table>
-<a href="<?php $this->url('admin/category', array('action' => 'add')) ?>" class="btn btn-info">Add</a>
+<a href="<?= $this->url('admin', array('controller'=>'category', 'action' => 'add')) ?>" class="btn btn-info">Add</a>
 <!--<a href="/admin/category/add/">Add</a>-->
-<a href="<?php $this->url('admin/category', array('controller'=>'category', 'action' => 'add')) ?>" class="btn btn-info">Add</a>
+<a href="<?= $this->url('admin', array('controller'=>'category', 'action' => 'add')) ?>" class="btn btn-info">Add</a>
