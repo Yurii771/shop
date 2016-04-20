@@ -41,7 +41,7 @@ return array(
             ),
         ),
     ),
-    
+	
     'controllers' => array(
         'invokables' => array(
             'Admin\Controller\Index' => 'Admin\Controller\IndexController',
@@ -49,8 +49,11 @@ return array(
         'factories' => array(
             'Admin\Controller\Auth' => 'Admin\Factory\AuthControllerFactory',
         ),
+        'factories' => array(
+            'Admin\Controller\Category' => 'Admin\Factory\CategoryControllerFactory',
+        ),
     ),
-    
+	
     'view_manager' => array(
         'template_path_stack' => array(
             'Admin' => __DIR__ . '/../view',

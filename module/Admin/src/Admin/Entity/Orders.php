@@ -64,16 +64,6 @@ class Orders
     private $customerPhone;
 
     /**
-     * @var \Admin\Entity\Cities
-     *
-     * @ORM\ManyToOne(targetEntity="Admin\Entity\Cities")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
-     * })
-     */
-    private $city;
-
-    /**
      * @var \Admin\Entity\Payment
      *
      * @ORM\ManyToOne(targetEntity="Admin\Entity\Payment")
@@ -102,6 +92,16 @@ class Orders
      * })
      */
     private $orderStatus;
+
+    /**
+     * @var \Admin\Entity\Cities
+     *
+     * @ORM\ManyToOne(targetEntity="Admin\Entity\Cities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     * })
+     */
+    private $city;
 
 
 
@@ -260,30 +260,6 @@ class Orders
     }
 
     /**
-     * Set city
-     *
-     * @param \Admin\Entity\Cities $city
-     *
-     * @return Orders
-     */
-    public function setCity(\Admin\Entity\Cities $city = null)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return \Admin\Entity\Cities
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
      * Set payment
      *
      * @param \Admin\Entity\Payment $payment
@@ -353,5 +329,29 @@ class Orders
     public function getOrderStatus()
     {
         return $this->orderStatus;
+    }
+
+    /**
+     * Set city
+     *
+     * @param \Admin\Entity\Cities $city
+     *
+     * @return Orders
+     */
+    public function setCity(\Admin\Entity\Cities $city = null)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return \Admin\Entity\Cities
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 }

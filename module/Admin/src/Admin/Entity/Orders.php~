@@ -64,16 +64,7 @@ class Orders
     private $customerPhone;
 
     /**
-     * @var \Admin\Entity\Cities
-     *
-     * @ORM\ManyToOne(targetEntity="Admin\Entity\Cities")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
-     * })
-     */
-    private $city;
 
-    /**
      * @var \Admin\Entity\Payment
      *
      * @ORM\ManyToOne(targetEntity="Admin\Entity\Payment")
@@ -102,6 +93,18 @@ class Orders
      * })
      */
     private $orderStatus;
+
+
+    /**
+     * @var \Admin\Entity\Cities
+     *
+     * @ORM\ManyToOne(targetEntity="Admin\Entity\Cities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     * })
+     */
+    private $city;
+
 
 
 }

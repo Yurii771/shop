@@ -9,6 +9,7 @@ class Module
             $controller      = $e->getTarget();
             $controllerClass = get_class($controller);
             $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
+            
             $config          = $e->getApplication()->getServiceManager()->get('config');
 
             $routeMatch = $e->getRouteMatch();
