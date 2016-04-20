@@ -26,25 +26,8 @@ class GoodsController extends BaseController
     
     public function viewAction()
     {
-         $id = (int) $this->params()->fromRoute('id', 0);
+        $id = (int) $this->params()->fromRoute('id', 0);
         $goods = $this->getObjectManager()->find('\Admin\Entity\Goods', $id);
-
-        if ($this->request->isPost()) {
-            $goods->setName($this->getRequest()->getPost('name'));
-            $goods->setShortDescription($this->getRequest()->getPost('short_description'));
-            $goods->setDescription($this->getRequest()->getPost('description'));
-            $goods->setCost($this->getRequest()->getPost('cost'));
-            $goods->setCount($this->getRequest()->getPost('count'));
-
-            $goods->setPhoto($this->getRequest()->getPost('photo'));
-
-            $this->getObjectManager()->persist($goods);
-            $this->getObjectManager()->flush();
-
-            return $this->redirect()->toRoute('admin');
-        }
-
-
         return new ViewModel(array('goods' => $goods));
     }
         
