@@ -48,8 +48,6 @@ return array(
         ),
         'factories' => array(
             'Admin\Controller\Auth' => 'Admin\Factory\AuthControllerFactory',
-        ),
-        'factories' => array(
             'Admin\Controller\Category' => 'Admin\Factory\CategoryControllerFactory',
         ),
     ),
