@@ -35,6 +35,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Guest\Controller\Index' => 'Guest\Controller\IndexController',
+            'Guest\Controller\Goods' => 'Guest\Controller\GoodsController',
         ),
     ),
     'view_manager' => array(
@@ -43,6 +44,7 @@ return array(
         ),
         'template_map' => array(
             'layout/guest'  => __DIR__ . '/../view/layout/guest.phtml',
+            
         ),
     ),
     

@@ -1,0 +1,17 @@
+<?php 
+foreach($goods as $key):?>
+    <h2><?php echo $key->getName()?></h2>
+    <img src="<?= $key->getPhoto()?>" height="100px">
+    <p><?= $key->getShortDescription()?></p>
+   <a href="/guest/goods/view/<?= $key->getId() ?>"><button>Go</button></a>
+<?php endforeach;?>
+
+
+
+
+
+
+    
+    
+
+ 
