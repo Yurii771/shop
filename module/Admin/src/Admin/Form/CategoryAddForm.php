@@ -15,14 +15,11 @@ class CategoryAddForm extends Form {
 		parent::__construct('categoryAddForm');
 		$this->setAttribute('method', 'post');
 		$this->setAttribute('class', 'bs-example form-horizontal');
-		
-		//$this->setInputFilter(new CategoryAddInputFilter());
-
 		$this->add(array(
 			'name' => 'name',
 			'type' => 'text',
 			'options' => array(
-				'label' => 'Name',
+				'label' => 'Название категории',
 				'min' => 3,
 				'max' => 100,
 			),
@@ -34,14 +31,11 @@ class CategoryAddForm extends Form {
 		));
 		$this->add(array(
 			'name' => 'parent',
-			'type' => 'text',
+			'type' => 'select',
 			'options' => array(
-				'label' => 'Parent',
-				'min' => 3,
-				'max' => 100,
+                            'label' => 'Родительская категория',
 			),
 			'attributes' => array(
-				'placeholder' => 'Parent',
 				'class' => 'form-control',
 			),
 		));
@@ -49,7 +43,7 @@ class CategoryAddForm extends Form {
 			'name' => 'submit',
 			'type' => 'Submit',
 			'attributes' => array(
-				'value' => 'Save',
+				'value' => 'Добавить',
 				'class' => 'btn btn-info',
 			),
 		));

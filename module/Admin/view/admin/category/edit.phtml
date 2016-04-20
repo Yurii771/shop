@@ -3,6 +3,7 @@
 <?php
 $form->setAttribute('action', $this->url('admin', array('controller'=>'category', 'action' => 'edit', 'id' => $id)));
 $form->prepare();
+$form->get('submit')->setAttributes(array('value'=>'Принять'));
 
 echo $this->form()->openTag($form);
 	echo '<fieldset><legend>Редактирование категории</legend>';
@@ -10,31 +11,40 @@ echo $this->form()->openTag($form);
 		echo '<div class="form-group">';
 		$attributes = $element->getAttributes();
 		if($element->getLabel()){
-			$element->setLabelAttributes(array('class' => 'col-lg-2 control-label'));
+			$element->setLabelAttributes(array('class' => 'col-lg-3 control-label'));
 			if(isset($attributes['required'])){
 				$element->setLabel($element->getLabel() . ' *');
 			}
 		}
 		if(isset($attributes['type']) && $attributes['type'] == 'text'){
 			echo $this->formLabel($element);
-			echo '<div class="col-lg-10">';
+			echo '<div class="col-lg-9">';
 				echo $this->formInput($element);
 			echo '</div>';
 		}elseif(isset($attributes['type']) && $attributes['type'] == 'textarea'){
 			echo $this->formLabel($element);
-			echo '<div class="col-lg-10">';
+			echo '<div class="col-lg-9">';
 				echo $this->formTextArea($element);
 			echo '</div>';
 		}elseif(isset($attributes['type']) && $attributes['type'] == 'file'){
 			echo $this->formLabel($element);
-			echo '<div class="col-lg-10">';
+			echo '<div class="col-lg-9">';
 				echo $this->formFile($element);
 			echo '</div>';
-		}else{
-			echo '<div class="col-lg-10">';
-				echo $this->formRow($element);
+                }elseif(isset($attributes['type']) && $attributes['type'] == 'select'){
+                        echo $this->formLabel($element);
+			echo '<div class="col-lg-9">';
+				echo $this->formSelect($element);
 			echo '</div>';
-		}
+                }else{
+			echo '<div class="col-lg-offset-2 col-lg-1">';
+                            echo $this->formRow($element);
+			echo '</div>';
+                        echo '<div class="col-lg-1"></div>';
+                        echo '<div class="col-lg-1">';
+                            echo '<a class="btn btn-default" href="'.$this->url('admin', array('controller'=>'category')).'">Отмена</a>';
+                        echo '</div>';
+                }
 		echo '</div>';
 	}
 echo '</fieldset>';
