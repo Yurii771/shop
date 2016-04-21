@@ -1,0 +1,40 @@
+<h1>Категории</h1>
+
+<?php
+	$flash = $this->flashMessenger();
+	$flash->setMessageOpenFormat('<div%s>
+			<button type="button" class="close" data-dismiss="alert" aria-hidden"true">
+				&times;
+			</button>
+			<ul><li>')
+			->setMessageSeparatorString('</li><li>')
+			->setMessageCloseString('</li></ul></div>');
+	
+	echo $flash->render('error', array('alert', 'alert-dismissable', 'alert-danger'));
+	echo $flash->render('info', array('alert', 'alert-dismissable', 'alert-info'));
+	echo $flash->render('warning', array('alert', 'alert-dismissable', 'alert-warning'));
+	echo $flash->render('success', array('alert', 'alert-dismissable', 'alert-success'));
+?>
+<table class="table table-striped table-hover">
+	<tbody>
+		<tr>
+			<th>№</th>
+			<th>Название</th>
+			<th>Родительская</th>
+			<th></th>
+		</tr>
+		<?php $count = 1;  ?>
+		<?php foreach($categories as $item): ?>
+		<tr>
+			<td><?php echo $count++; ?></td>
+			<td><?php echo $item->getName() ?></td>
+                        <td><?php if($item->getParent()){echo $item->getParent()->getName();}?></td>
+			<td>
+				<a href="<?= $this->url('admin', array('controller'=>'category', 'action' => 'edit', 'id' => $item->getId())) ?>">Редактировать</a>
+				<a href="<?= $this->url('admin', array('controller'=>'category', 'action' => 'delete', 'id' => $item->getId())) ?>" onclick="if(confirm('Вы уверены?')){document.location = this.href;} return false;">Удалить</a>
+			</td>
+		</tr>	
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<a href="<?= $this->url('admin', array('controller'=>'category', 'action' => 'add')) ?>" class="btn btn-info">Добавить категорию</a>
