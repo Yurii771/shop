@@ -12,10 +12,9 @@ return array(
         'ZendDeveloperTools',
         'DoctrineModule',
         'DoctrineORMModule',
-        'EdpModuleLayouts',
-        
-        'Admin',
+        'EdpModuleLayouts', 
         'Guest',
+        'Admin',
 
     ),
 
