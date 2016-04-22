@@ -2,20 +2,10 @@
 return array(
     'router' => array(
         'routes' => array(
-            'home' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/',
-                    'defaults' => array(
-                        'controller' => 'Guest\Controller\Index',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
             'guest' => array(
                 'type'    => 'Segment',
                 'options' => array(
-                    'route'    => '/guest[/:controller[/:action[/:id]]]',
+                    'route'    => '/[:controller[/:action[/:id]]]',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Guest\Controller',
                         'controller'    => 'Index',
@@ -36,6 +26,9 @@ return array(
         'invokables' => array(
             'Guest\Controller\Index' => 'Guest\Controller\IndexController',
             'Guest\Controller\Goods' => 'Guest\Controller\GoodsController',
+        ),
+        'factories' => array(
+            'Guest\Controller\Category' => 'Guest\Factory\CategoryControllerFactory',
         ),
     ),
     'view_manager' => array(
