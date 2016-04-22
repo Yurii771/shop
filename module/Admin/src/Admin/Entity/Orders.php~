@@ -64,6 +64,7 @@ class Orders
     private $customerPhone;
 
     /**
+<<<<<<< HEAD
      * @var \Admin\Entity\Cities
      *
      * @ORM\ManyToOne(targetEntity="Admin\Entity\Cities")
@@ -74,6 +75,9 @@ class Orders
     private $city;
 
     /**
+=======
+
+>>>>>>> refs/remotes/origin/master
      * @var \Admin\Entity\Payment
      *
      * @ORM\ManyToOne(targetEntity="Admin\Entity\Payment")
@@ -104,6 +108,7 @@ class Orders
     private $orderStatus;
 
 
+<<<<<<< HEAD
 
     /**
      * Get id
@@ -355,3 +360,19 @@ class Orders
         return $this->orderStatus;
     }
 }
+=======
+    /**
+     * @var \Admin\Entity\Cities
+     *
+     * @ORM\ManyToOne(targetEntity="Admin\Entity\Cities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     * })
+     */
+    private $city;
+
+
+
+}
+
+>>>>>>> refs/remotes/origin/master

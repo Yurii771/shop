@@ -29,6 +29,7 @@ class Cities
     private $city;
 
 
+<<<<<<< HEAD
 
     /**
      * Get id
@@ -64,3 +65,7 @@ class Cities
         return $this->city;
     }
 }
+=======
+}
+
+>>>>>>> refs/remotes/origin/master

@@ -39,6 +39,7 @@ class Categories
     private $parent;
 
 
+<<<<<<< HEAD
 
     /**
      * Get id
@@ -98,3 +99,7 @@ class Categories
         return $this->parent;
     }
 }
+=======
+}
+
+>>>>>>> refs/remotes/origin/master

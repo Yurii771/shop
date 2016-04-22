@@ -232,4 +232,29 @@ class Categories extends \Admin\Entity\Categories implements \Doctrine\ORM\Proxy
         return parent::getParent();
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * {@inheritDoc}
+     */
+    public function exchangeArray($data)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'exchangeArray', [$data]);
+
+        return parent::exchangeArray($data);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getArrayCopy()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getArrayCopy', []);
+
+        return parent::getArrayCopy();
+    }
+
+>>>>>>> refs/remotes/origin/master
 }

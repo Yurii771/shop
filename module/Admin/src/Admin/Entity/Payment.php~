@@ -29,6 +29,7 @@ class Payment
     private $paymentType;
 
 
+<<<<<<< HEAD
 
     /**
      * Get id
@@ -64,3 +65,7 @@ class Payment
         return $this->paymentType;
     }
 }
+=======
+}
+
+>>>>>>> refs/remotes/origin/master

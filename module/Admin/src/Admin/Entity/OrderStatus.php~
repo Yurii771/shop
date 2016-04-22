@@ -29,6 +29,7 @@ class OrderStatus
     private $orderStatus;
 
 
+<<<<<<< HEAD
 
     /**
      * Get id
@@ -64,3 +65,7 @@ class OrderStatus
         return $this->orderStatus;
     }
 }
+=======
+}
+
+>>>>>>> refs/remotes/origin/master

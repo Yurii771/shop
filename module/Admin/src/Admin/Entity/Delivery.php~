@@ -29,6 +29,7 @@ class Delivery
     private $deliveryType;
 
 
+<<<<<<< HEAD
 
     /**
      * Get id
@@ -64,3 +65,7 @@ class Delivery
         return $this->deliveryType;
     }
 }
+=======
+}
+
+>>>>>>> refs/remotes/origin/master
