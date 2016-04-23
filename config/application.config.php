@@ -12,12 +12,7 @@ return array(
         'ZendDeveloperTools',
         'DoctrineModule',
         'DoctrineORMModule',
-<<<<<<< HEAD
-        'EdpModuleLayouts', 
-=======
         'EdpModuleLayouts',
-        
->>>>>>> refs/remotes/origin/mish_dev
         'Guest',
         'Admin',
 

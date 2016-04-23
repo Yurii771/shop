@@ -1,11 +1,10 @@
 <?php 
 foreach($goods as $key):?>
     <h2><?php echo $key->getName()?></h2>
-    <img src="<?= $key->getPhoto()?>" height="100px">
+  <img src="<?= $key->getPhoto()?>" height="100px">
     <p><?= $key->getShortDescription()?></p>
-   <a href="/guest/goods/view/<?= $key->getId() ?>"><button>Go</button></a>
+   <a href="<?= $this->url('guest',array('controller'=>'goods','action'=>'view','id'=>$key->getId()))?>" class="btn btn-default">Go</a>
 <?php endforeach;?>
-
 
 
 

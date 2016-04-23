@@ -6,7 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 
 class BaseController extends AbstractActionController
 {
-	protected $_entityManager;
+	public $_entityManager;
 	
 	public function onDispatch(\Zend\Mvc\MvcEvent $e) {
 
