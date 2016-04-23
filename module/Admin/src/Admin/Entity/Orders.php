@@ -24,9 +24,9 @@ class Orders
     /**
      * @var string
      *
-     * @ORM\Column(name="order", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="order_list", type="text", length=65535, nullable=false)
      */
-    private $order;
+    private $orderList;
 
     /**
      * @var string
@@ -64,16 +64,6 @@ class Orders
     private $customerPhone;
 
     /**
-     * @var \Admin\Entity\Cities
-     *
-     * @ORM\ManyToOne(targetEntity="Admin\Entity\Cities")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
-     * })
-     */
-    private $city;
-
-    /**
      * @var \Admin\Entity\Payment
      *
      * @ORM\ManyToOne(targetEntity="Admin\Entity\Payment")
@@ -103,6 +93,16 @@ class Orders
      */
     private $orderStatus;
 
+    /**
+     * @var \Admin\Entity\Cities
+     *
+     * @ORM\ManyToOne(targetEntity="Admin\Entity\Cities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     * })
+     */
+    private $city;
+
 
 
     /**
@@ -116,27 +116,27 @@ class Orders
     }
 
     /**
-     * Set order
+     * Set orderList
      *
-     * @param string $order
+     * @param string $orderList
      *
      * @return Orders
      */
-    public function setOrder($order)
+    public function setOrderList($orderList)
     {
-        $this->order = $order;
+        $this->orderList = $orderList;
 
         return $this;
     }
 
     /**
-     * Get order
+     * Get orderList
      *
      * @return string
      */
-    public function getOrder()
+    public function getOrderList()
     {
-        return $this->order;
+        return $this->orderList;
     }
 
     /**
@@ -260,30 +260,6 @@ class Orders
     }
 
     /**
-     * Set city
-     *
-     * @param \Admin\Entity\Cities $city
-     *
-     * @return Orders
-     */
-    public function setCity(\Admin\Entity\Cities $city = null)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return \Admin\Entity\Cities
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
      * Set payment
      *
      * @param \Admin\Entity\Payment $payment
@@ -354,13 +330,38 @@ class Orders
     {
         return $this->orderStatus;
     }
-     public function exchangeArray($data)
+
+    /**
+     * Set city
+     *
+     * @param \Admin\Entity\Cities $city
+     *
+     * @return Orders
+     */
+    public function setCity(\Admin\Entity\Cities $city = null)
     {
-            foreach ($data as $key => $val){
-                    if(property_exists($this, $key)){
-                            $this->$key = ($val) ? $val : null;
-                    }
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return \Admin\Entity\Cities
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+    
+    public function exchangeArray($data)
+    {
+        foreach ($data as $key => $val){
+            if(property_exists($this, $key)){
+                $this->$key = ($val) ? $val : null;
             }
+        }
     }
 	
     public function getArrayCopy()

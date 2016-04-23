@@ -17,7 +17,7 @@ namespace Guest\Factory;
      public function createService(ServiceLocatorInterface $serviceLocator)
      {
         $sm = $serviceLocator->getServiceLocator();
-        $em = $sm->get('doctrine.entitymanager.orm_default');
+        $em = $sm->get('Doctrine\ORM\EntityManager');
          return new OrderController($em);
      }
  }
