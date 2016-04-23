@@ -1,0 +1,14 @@
+<?php foreach($goods as $g):?>
+    <h2><?php echo $g->getName()?></h2>
+    <img src="<?= $g->getPhoto()?>" height="100px">
+    <p><?= $g->getShortDescription()?></p>
+    <?php foreach($categories as $c):?>
+      <?php if($g->getCategory()->getId() == $c->getId()):?>
+        <a><?= $c->getName()?></a><br>
+      <?php endif;?>
+    <?php endforeach;?>
+    <a href="/admin/goods/edit/<?= $g->getId() ?>"><button>Edit</button></a>
+    <a href="/admin/goods/delete/<?= $g->getId() ?>"><button>Delete</button></a>
+<?php endforeach;?>
+<br><br><br><br>
+<a href="/admin/goods/add"><button>Add New</button></a>

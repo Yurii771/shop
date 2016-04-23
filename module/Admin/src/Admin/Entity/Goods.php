@@ -1,9 +1,6 @@
 <?php
-
 namespace Admin\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Goods
  *
@@ -20,49 +17,42 @@ class Goods
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
-
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text", nullable=false)
      */
     private $description;
-
     /**
      * @var string
      *
      * @ORM\Column(name="short_description", type="text", length=65535, nullable=false)
      */
     private $shortDescription;
-
     /**
      * @var string
      *
      * @ORM\Column(name="cost", type="decimal", precision=10, scale=0, nullable=false)
      */
     private $cost;
-
     /**
      * @var integer
      *
      * @ORM\Column(name="count", type="integer", nullable=false)
      */
     private $count;
-
     /**
      * @var string
      *
      * @ORM\Column(name="photo", type="string", length=255, nullable=false)
      */
     private $photo;
-
     /**
      * @var \Admin\Entity\Categories
      *
@@ -72,9 +62,6 @@ class Goods
      * })
      */
     private $category;
-
-
-
     /**
      * Get id
      *
@@ -84,7 +71,6 @@ class Goods
     {
         return $this->id;
     }
-
     /**
      * Set name
      *
@@ -95,10 +81,8 @@ class Goods
     public function setName($name)
     {
         $this->name = $name;
-
         return $this;
     }
-
     /**
      * Get name
      *
@@ -108,7 +92,6 @@ class Goods
     {
         return $this->name;
     }
-
     /**
      * Set description
      *
@@ -119,10 +102,8 @@ class Goods
     public function setDescription($description)
     {
         $this->description = $description;
-
         return $this;
     }
-
     /**
      * Get description
      *
@@ -132,7 +113,6 @@ class Goods
     {
         return $this->description;
     }
-
     /**
      * Set shortDescription
      *
@@ -143,10 +123,8 @@ class Goods
     public function setShortDescription($shortDescription)
     {
         $this->shortDescription = $shortDescription;
-
         return $this;
     }
-
     /**
      * Get shortDescription
      *
@@ -156,7 +134,6 @@ class Goods
     {
         return $this->shortDescription;
     }
-
     /**
      * Set cost
      *
@@ -167,10 +144,8 @@ class Goods
     public function setCost($cost)
     {
         $this->cost = $cost;
-
         return $this;
     }
-
     /**
      * Get cost
      *
@@ -180,7 +155,6 @@ class Goods
     {
         return $this->cost;
     }
-
     /**
      * Set count
      *
@@ -191,10 +165,8 @@ class Goods
     public function setCount($count)
     {
         $this->count = $count;
-
         return $this;
     }
-
     /**
      * Get count
      *
@@ -204,7 +176,6 @@ class Goods
     {
         return $this->count;
     }
-
     /**
      * Set photo
      *
@@ -215,10 +186,8 @@ class Goods
     public function setPhoto($photo)
     {
         $this->photo = $photo;
-
         return $this;
     }
-
     /**
      * Get photo
      *
@@ -228,7 +197,6 @@ class Goods
     {
         return $this->photo;
     }
-
     /**
      * Set category
      *
@@ -239,10 +207,8 @@ class Goods
     public function setCategory(\Admin\Entity\Categories $category = null)
     {
         $this->category = $category;
-
         return $this;
     }
-
     /**
      * Get category
      *

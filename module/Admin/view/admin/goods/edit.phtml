@@ -1,0 +1,31 @@
+<h1>Goods CRUD</h1>
+
+<p> module Admin <br/>
+    controller Goods <br/>
+    action edit <br/>
+
+    <form method="POST" enctype="multipart/form-data"><br>
+    Name<br>
+    <input type="text" name="name" value="<?= $goods->getName()?>"><br>
+    Short Description<br>
+    <textarea name="short_description"><?= $goods->getShortDescription()?></textarea><br>
+    Description<br>
+    <textarea name="description"><?= $goods->getDescription()?></textarea><br>
+    Cost<br>
+    <input type="number" name="cost" value="<?= $goods->getCost()?>"><br>
+    Quantity<br>
+    <input type="number" name="count" value="<?= $goods->getCount()?>"><br>
+    Photo<br>
+    <img src="<?= $goods->getPhoto()?>" width="100px;"><br>
+<!--    <input type="file" name="photo"><br>-->
+    <input type="text" name="photo" value="<?= $goods->getPhoto()?>"><br>
+
+    <select name="category">
+      <?php foreach($categories as $c):?>
+        <option value="<?= $c->getId()?>"><?= $c->getName();?></option>
+      <?php endforeach;?>
+    </select>
+
+  <br><br>  <input type="submit" name="edit" value="Edit">
+</form>
+<a href="/admin/goods"><button>Back</button></a>
