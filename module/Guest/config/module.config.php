@@ -2,26 +2,6 @@
 return array(
     'router' => array(
         'routes' => array(
-//            'home' => array(
-//                'type' => 'Zend\Mvc\Router\Http\Literal',
-//                'options' => array(
-//                    'route'    => '/',
-//                    'defaults' => array(
-//                        'controller' => 'Guest\Controller\Index',
-//                        'action'     => 'index',
-//                    ),
-//                ),
-//            ),
-//            'order' => array(
-//                'type' => 'Zend\Mvc\Router\Http\Literal',
-//                'options' => array(
-//                    'route'    => '/order',
-//                    'defaults' => array(
-//                        'controller' => 'Guest\Controller\Order',
-//                        'action'     => 'index',
-//                    ),
-//                ),
-//            ),
             'guest' => array(
                 'type'    => 'Segment',
                 'options' => array(
@@ -47,6 +27,7 @@ return array(
             'Guest\Controller\Index' => 'Guest\Controller\IndexController',
         ),
         'factories' => array(
+            'Guest\Controller\Category' => 'Guest\Factory\CategoryControllerFactory',
             'Guest\Controller\Order' => 'Guest\Factory\OrderControllerFactory',
         ),
     ),

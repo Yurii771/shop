@@ -97,7 +97,8 @@ class Categories
     {
         return $this->parent;
     }
-     public function exchangeArray($data)
+
+    public function exchangeArray($data)
     {
             foreach ($data as $key => $val){
                     if(property_exists($this, $key)){
