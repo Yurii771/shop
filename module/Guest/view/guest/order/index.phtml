@@ -4,22 +4,27 @@
     <div class="form-group">
         <label for="name" class="col-md-offset-1 col-md-3 control-label">Имя</label>
         <div class="col-md-5">
-            <input type="text" name="name" placeholder="Имя" class="form-control" required/>
+            <input type="text" name="customerName" placeholder="Имя" class="form-control" required/>
         </div>
     </div>
     <div class="form-group">
         <label for="surname" class="col-md-offset-1 col-md-3 control-label">Фамилия</label>
         <div class="col-md-5">
-            <input type="text" name="surname" placeholder="Фамилия" class="form-control" required/>
+            <input type="text" name="customerSurname" placeholder="Фамилия" class="form-control" required/>
         </div>
     </div>
+
     <div class="form-group">
         <label for="city" class="col-md-offset-1 col-md-3 control-label">Город</label>
         <div class="col-md-5">
             <select size="1"  name="city">   
-                <option value="1">Dn</option>
-                <option selected value="2">KY</option>
-                <option value="3">Zp</option>
+                <?php
+                $res = '';
+                for ($i = 0; $i < count($cities); $i++) {
+                    $res.='<option value="' . $cities[$i]['id'] . '">' . $cities[$i]['city'] . '</option>';
+                }
+                echo $res;
+                ?>
             </select>
         </div>
     </div>
@@ -32,32 +37,40 @@
     <div class="form-group">
         <label for="phone" class="col-md-offset-1 col-md-3 control-label">Телефон</label>
         <div class="col-md-5">
-            <input type="text" name="phone" placeholder="Телефон" class="form-control" required/>
+            <input type="text" name="customerPhone" placeholder="Телефон" class="form-control" required/>
         </div>
     </div>
     <div class="form-group">
         <label for="email" class="col-md-offset-1 col-md-3 control-label">Email</label>
         <div class="col-md-5">
-            <input type="email" name="email" placeholder="Email" class="form-control" required/>
+            <input type="email" name="customerEmail" placeholder="Email" class="form-control" required/>
         </div>
     </div>
     <div class="form-group">
         <label for="delivery" class="col-md-offset-1 col-md-3 control-label">Тип доставки</label>
         <div class="col-md-5">
             <select size="1"  name="delivery">   
-                <option value="1">Доставка в отделение почты</option>
-                <option selected value="2">Курьерская доставка</option>
-                <option value="3">Самовывоз</option>
+               <?php
+                $res = '';
+                for ($i = 0; $i < count($payment); $i++) {
+                    $res.='<option value="' . $payment[$i]['id'] . '">' . $payment[$i]['paymentType'] . '</option>';
+                }
+                echo $res;
+                ?>
             </select>
         </div>
     </div>
-      <div class="form-group">
+    <div class="form-group">
         <label for="payment" class="col-md-offset-1 col-md-3 control-label">Тип оплаты</label>
         <div class="col-md-5">
             <select size="1"  name="payment">   
-                <option value="1">Предоплата</option>
-                <option selected value="2">Наложенный платеж</option>
-                <option value="3">Оплата наличными</option>
+                <?php
+                $res = '';
+                for ($i = 0; $i < count($delivery); $i++) {
+                    $res.='<option value="' . $delivery[$i]['id'] . '">' . $delivery[$i]['deliveryType'] . '</option>';
+                }
+                echo $res;
+                ?>
             </select>
         </div>
     </div>

@@ -1,51 +1,31 @@
 <?php
 return array(
-    'doctrine' => array(
-        'driver' => array(
-            // defines an annotation driver with two paths, and names it `my_annotation_driver`
-            'guest_entity' => array(
-                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-                'cache' => 'array',
-                'paths' => array(
-                    __DIR__ . '/../src/Guest/Entity',
-                ),
-            ),
-            // default metadata driver, aggregates all other drivers into a single one.
-            // Override `orm_default` only if you know what you're doing
-            'orm_default' => array(
-                'drivers' => array(
-                    // register `my_annotation_driver` for any entity under namespace `My\Namespace`
-                    'Guest\Entity' => 'guest_entity'
-                )
-            )
-        )
-    ),
     'router' => array(
         'routes' => array(
-            'home' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/',
-                    'defaults' => array(
-                        'controller' => 'Guest\Controller\Index',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-            'order' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/order',
-                    'defaults' => array(
-                        'controller' => 'Guest\Controller\Order',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
+//            'home' => array(
+//                'type' => 'Zend\Mvc\Router\Http\Literal',
+//                'options' => array(
+//                    'route'    => '/',
+//                    'defaults' => array(
+//                        'controller' => 'Guest\Controller\Index',
+//                        'action'     => 'index',
+//                    ),
+//                ),
+//            ),
+//            'order' => array(
+//                'type' => 'Zend\Mvc\Router\Http\Literal',
+//                'options' => array(
+//                    'route'    => '/order',
+//                    'defaults' => array(
+//                        'controller' => 'Guest\Controller\Order',
+//                        'action'     => 'index',
+//                    ),
+//                ),
+//            ),
             'guest' => array(
                 'type'    => 'Segment',
                 'options' => array(
-                    'route'    => '/guest[/:controller[/:action[/:id]]]',
+                    'route'    => '/[:controller[/:action[/:id]]]',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Guest\Controller',
                         'controller'    => 'Index',
@@ -65,7 +45,9 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Guest\Controller\Index' => 'Guest\Controller\IndexController',
-            'Guest\Controller\Order' => 'Guest\Controller\OrderController',
+        ),
+        'factories' => array(
+            'Guest\Controller\Order' => 'Guest\Factory\OrderControllerFactory',
         ),
     ),
     'view_manager' => array(
