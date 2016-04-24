@@ -24,9 +24,9 @@ class Orders
     /**
      * @var string
      *
-     * @ORM\Column(name="order", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="order_list", type="text", length=65535, nullable=false)
      */
-    private $order;
+    private $orderList;
 
     /**
      * @var string
@@ -116,27 +116,27 @@ class Orders
     }
 
     /**
-     * Set order
+     * Set orderList
      *
-     * @param string $order
+     * @param string $orderList
      *
      * @return Orders
      */
-    public function setOrder($order)
+    public function setOrderList($orderList)
     {
-        $this->order = $order;
+        $this->orderList = $orderList;
 
         return $this;
     }
 
     /**
-     * Get order
+     * Get orderList
      *
      * @return string
      */
-    public function getOrder()
+    public function getOrderList()
     {
-        return $this->order;
+        return $this->orderList;
     }
 
     /**
@@ -353,5 +353,19 @@ class Orders
     public function getCity()
     {
         return $this->city;
+    }
+    
+    public function exchangeArray($data)
+    {
+        foreach ($data as $key => $val){
+            if(property_exists($this, $key)){
+                $this->$key = ($val) ? $val : null;
+            }
+        }
+    }
+	
+    public function getArrayCopy()
+    {
+        return get_object_vars($this);
     }
 }
