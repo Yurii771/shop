@@ -1,3 +1,19 @@
+<div class="col-md-offset-3 col-md-6">
+    <?php
+    $flash = $this->flashMessenger();
+    $flash->setMessageOpenFormat('<div%s>'
+                    . '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">'
+                    . '&times;'
+                    . '</button>'
+                    . '<ul><li>')
+            ->setMessageSeparatorString('</li><li>')
+            ->setMessageCloseString('</li></ul></div>');
+    echo $flash->render('error', array('alert', 'alert-dismissable', 'alert-danger'));
+    echo $flash->render('info', array('alert', 'alert-dismissable', 'alert-info'));
+    echo $flash->render('default', array('alert', 'alert-dismissable', 'alert-warning'));
+    echo $flash->render('success', array('alert', 'alert-dismissable', 'alert-success'));
+    ?>
+</div>
 <h1 class="text-center">Оформление заказа</h1>
 <hr/>
 <form class="form-horizontal" method="POST" action="<?= $this->url('guest', array('controller' => 'order', 'action' => 'confirm')) ?>">
@@ -50,7 +66,7 @@
         <label for="delivery" class="col-md-offset-1 col-md-3 control-label">Тип доставки</label>
         <div class="col-md-5">
             <select size="1"  name="delivery">   
-               <?php
+                <?php
                 $res = '';
                 for ($i = 0; $i < count($payment); $i++) {
                     $res.='<option value="' . $payment[$i]['id'] . '">' . $payment[$i]['paymentType'] . '</option>';
