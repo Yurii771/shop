@@ -31,47 +31,44 @@ class OrderController extends BaseController {
                 $em = $this->getEntityManager();
                 $status = 'success';
                 $message = 'Заказ успешно выполнен';
-//                if(isset($_SESSION['orders'])){
-//                $goodsInOrder=array();
-//                for($i=0; $i<count($_SESSION['orders']; $i++){
-//                      $id=>$_SESSION['orders'][$i]['id'];
-//                      $count=$_SESSION['orders'][$i]['count'];
-//                      array_push($goodsInOrder, $id=>$count);
+//                if (isset($_SESSION['orders'])) {
+//                    $goodsInOrder = array();
+//                    for ($i = 0; $i < count($_SESSION['orders']); $i++) {
+//                        $id = $_SESSION['orders'][$i]['id'];
+//                        $count = $_SESSION['orders'][$i]['count'];
+//                        array_push($goodsInOrder, $id => $count);
+//                    }
+//                    $goodsInOrder = json_encode($goodsInOrder);
 //                }
-//                        
-//                    );
-//                    $goodsInOrder=json_encode($goodsInOrder);
-//                }
-                    $order = new Orders;
-                    $payment = $em->find('Admin\Entity\Payment', $data['payment']);
-                    $delivery = $em->find('Admin\Entity\Delivery', $data['delivery']);
-                    $city = $em->find('Admin\Entity\Cities', $data['city']);
-                    $orderStatus = $em->find('Admin\Entity\OrderStatus', 1);
-                    $data['payment'] = $payment;
-                    $data['delivery'] = $delivery;
-                    $data['city'] = $city;
-                    $data['orderList'] = 'Тестовый вариант. Для получения заказа раскомментируй строки 35-45, 56 файла ордерконтроллер.';
-                    $data['orderStatus'] = $orderStatus;
+                $order = new Orders;
+                $payment = $em->find('Admin\Entity\Payment', $data['payment']);
+                $delivery = $em->find('Admin\Entity\Delivery', $data['delivery']);
+                $city = $em->find('Admin\Entity\Cities', $data['city']);
+                $orderStatus = $em->find('Admin\Entity\OrderStatus', 1);
+                $data['payment'] = $payment;
+                $data['delivery'] = $delivery;
+                $data['city'] = $city;
+                $data['orderList'] = 'Тестовый вариант. Для получения заказа раскомментируй строки 35-45, 56 файла ордерконтроллер.';
+                $data['orderStatus'] = $orderStatus;
 //                $order->setOrder($goodsInOrder);        
-                    $order->exchangeArray($data);
-                    $em->persist($order);
-                    $em->flush();
-                    if ($message) {
-                        $this->flashMessenger()
-                                ->setNamespace($status)
-                                ->addMessage($message);
-                    }
-                    return $this->redirect()->toRoute('guest', array('controller' => 'order', 'action' => 'confirm'));
-                
-            }else{
+                $order->exchangeArray($data);
+                $em->persist($order);
+                $em->flush();
+                if ($message) {
+                    $this->flashMessenger()
+                            ->setNamespace($status)
+                            ->addMessage($message);
+                }
+                return $this->redirect()->toRoute('guest', array('controller' => 'order', 'action' => 'confirm'));
+            } else {
                 $status = 'error';
                 $message = 'Ошибка при выполнении заказа, проверьте правильность введенных данных';
-                    if ($message) {
-                        $this->flashMessenger()
-                                ->setNamespace($status)
-                                ->addMessage($message);
-                    }
-                    return $this->redirect()->toRoute('guest', array('controller' => 'order', 'action' => 'index'));
+                if ($message) {
+                    $this->flashMessenger()
+                            ->setNamespace($status)
+                            ->addMessage($message);
+                }
+                return $this->redirect()->toRoute('guest', array('controller' => 'order', 'action' => 'index'));
             }
         }
     }
