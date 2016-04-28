@@ -13,9 +13,8 @@ return array(
         'DoctrineModule',
         'DoctrineORMModule',
         'EdpModuleLayouts',
-        
-        'Admin',
         'Guest',
+        'Admin',
 
     ),
 

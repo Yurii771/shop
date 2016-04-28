@@ -58,6 +58,7 @@ return array(
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',
+            'Zend\Navigation\Service\NavigationAbstractServiceFactory',
         ),
         'factories' => array(
             'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
@@ -85,7 +86,7 @@ return array(
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map' => array(
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+            'layout/layout'           => __DIR__ . '/../view/layout/guest.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
@@ -98,6 +99,76 @@ return array(
     'console' => array(
         'router' => array(
             'routes' => array(
+            ),
+        ),
+    ),
+    
+    'navigation' => array(
+        'guest' => array(
+            array(
+                'label' => 'Главная',
+                'route' => 'guest',
+                'controller' => 'index',
+            ),
+            array(
+                'label' => 'Каталог',
+                'route' => 'guest',
+                'controller' => 'category',
+            ),
+            array(
+                'label' => 'Оплата и доставка',
+                'route' => 'guest',
+                'controller' => 'payment',
+            ),
+            array(
+                'label' => 'О нас',
+                'route' => 'guest',
+                'controller' => 'about',
+            ),
+            array(
+                'label' => 'Контакты',
+                'route' => 'guest',
+                'controller' => 'contacts',
+            ),
+        ),
+        'admin_left' => array(
+            array(
+                'label' => 'Кабинет',
+                'route' => 'admin',
+                'controller' => 'index',
+            ),
+            array(
+                'label' => 'Категории',
+                'route' => 'admin',
+                'controller' => 'category',
+            ),
+            array(
+                'label' => 'Товары',
+                'route' => 'admin',
+                'controller' => 'goods',
+            ),
+            array(
+                'label' => 'Заказы',
+                'route' => 'admin',
+                'controller' => 'order',
+            ),
+            array(
+                'label' => 'Главная страница',
+                'route' => 'admin',
+                'controller' => 'page',
+            ),
+        ),
+        'admin_right' => array(
+            array(
+                'label' => 'На сайт',
+                'route' => 'guest',
+                'controller' => 'index',
+            ),
+            array(
+                'label' => 'Выйти',
+                'route' => 'admin',
+                'controller' => 'auth',
+                'action' => 'logout',
             ),
         ),
     ),
