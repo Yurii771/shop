@@ -25,6 +25,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Guest\Controller\Index' => 'Guest\Controller\IndexController',
+            'Guest\Controller\Goods' => 'Guest\Controller\GoodsController',
         ),
         'factories' => array(
             'Guest\Controller\Category' => 'Guest\Factory\CategoryControllerFactory',
@@ -36,6 +37,7 @@ return array(
         ),
         'template_map' => array(
             'layout/guest'  => __DIR__ . '/../view/layout/guest.phtml',
+            
         ),
     ),
     
