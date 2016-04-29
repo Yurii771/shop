@@ -10,7 +10,7 @@ class BaseController extends AbstractActionController
 	
 	public function onDispatch(\Zend\Mvc\MvcEvent $e) {
 
-		$this->setEntityManager($this->getServiceLocator()->get('Doctrine\ORM\EntityManager'));
+//		$this->setEntityManager($this->getServiceLocator()->get('Doctrine\ORM\EntityManager'));
 
 		return parent::onDispatch($e);
 	}

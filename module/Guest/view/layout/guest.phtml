@@ -1,9 +1,4 @@
 <?php 
-//foreach ($this->navigation('Zend\Navigation\Guest')->menu()->getPages() as $page){
-//    $page->setActive(TRUE);
-//    var_dump($page->isActive());
-//}
-//die();
 echo $this->doctype(); ?>
 
 <html >
@@ -44,16 +39,16 @@ echo $this->doctype(); ?>
                 </div>
                 <div class="collapse navbar-collapse">
                     <?php
-                        $first = NULL;
-                        foreach ($this->navigation('Zend\Navigation\Guest')->menu()->getPages() as $page){
-                            if(!$first) {$first = $page; $first->setActive(TRUE); continue;}
-                            if($page->isActive()) {$first->setActive(FALSE); break;}
-                        }
-                        echo $this->navigation('Zend\Navigation\Guest')->menu()->setUlClass('nav navbar-nav');
+                        echo $this->navigation('Zend\Navigation\Guest')->menu()
+                                    ->setUlClass('nav navbar-nav')
+                                    ->setMaxDepth(0);
                     ?>
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
+        <div class="breadcrumbs">
+            <?= $this->navigation('Zend\Navigation\Guest')->breadcrumbs(); ?>
+        </div>
         <div class="container">
             <?php echo $this->content; ?>
         </div> <!-- /container -->

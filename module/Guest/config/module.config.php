@@ -28,11 +28,11 @@ return array(
             'Guest\Controller\About' => 'Guest\Controller\AboutController',
             'Guest\Controller\Contacts' => 'Guest\Controller\ContactsController',
             'Guest\Controller\Payment' => 'Guest\Controller\PaymentController',
-            'Guest\Controller\Goods' => 'Guest\Controller\GoodsController',
         ),
         'factories' => array(
             'Guest\Controller\Category' => 'Guest\Factory\CategoryControllerFactory',
             'Guest\Controller\Order' => 'Guest\Factory\OrderControllerFactory',
+            'Guest\Controller\Goods' => 'Guest\Factory\GoodsControllerFactory',
         ),
     ),
     'view_manager' => array(
