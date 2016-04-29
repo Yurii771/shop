@@ -25,16 +25,13 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Guest\Controller\Index' => 'Guest\Controller\IndexController',
-<<<<<<< HEAD
             'Guest\Controller\About' => 'Guest\Controller\AboutController',
             'Guest\Controller\Contacts' => 'Guest\Controller\ContactsController',
             'Guest\Controller\Payment' => 'Guest\Controller\PaymentController',
-=======
             'Guest\Controller\Goods' => 'Guest\Controller\GoodsController',
         ),
         'factories' => array(
             'Guest\Controller\Category' => 'Guest\Factory\CategoryControllerFactory',
->>>>>>> eb6252a54502182652adbc7cc5a26d04e411b60f
         ),
     ),
     'view_manager' => array(
