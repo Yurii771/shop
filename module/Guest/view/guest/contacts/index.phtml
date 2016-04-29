@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'text/css', 'href' => $this->basePath() . '/img/favicon.ico'))
+                ->prependStylesheet($this->basePath('css/reset.css'))
+                ->prependStylesheet($this->basePath('css/style-contacts.css'))
+                ->prependStylesheet($this->basePath('css/layout.css'))
+        ?>
+
+        <!--                <link rel="stylesheet" href="public/css/reset.css" type="text/css" media="screen">
+                        <link rel="stylesheet" href="public/css/style-contacts.css" type="text/css" media="screen">
+                        <link rel="stylesheet" href="public/css/layout.css" type="text/css" media="screen">   -->
+    </head>
+    <body id="page5">
+        <!--==============================content================================-->
+        <section id="content">
+            <div class="main">
+                <div class="indent-left">
+                    <div class="wrapper">
+                        <article class="col-1">
+                            <b>Наш Адрес</b>
+                            <div class="p1">
+                                <figure class="img-border">
+                                    <div id="map_canvas">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1010.3529711861659!2d35.03982484879113!3d48.4588119707378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe2dfec037831%3A0xb8b03f96c277b337!2z0JrRgNCw0YHQvdCw0Y8g0YPQuy4sIDIx0JMsINCU0L3RltC_0YDQvtC_0LXRgtGA0L7QstGB0YzQuiwg0JTQvdGW0L_RgNC-0L_QtdGC0YDQvtCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDQ5MDAw!5e0!3m2!1sru!2sua!4v1461330531782" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                    </div>
+                                </figure>
+                                <div class="clear"></div>
+                            </div>
+                            <dl>
+                                <dt>ул. Красная, 21г</dt>
+                                <dd><span>Телефон:</span>  *********</dd>
+                                <dd><span>Факс:</span>  *********</dd>
+                                <dd><span>E-mail:</span> <a class="link-2" href="#">pitomec@gmail.com</a></dd>
+                            </dl>
+                        </article>
+                        <article class="col-2">
+                            <b>Написать нам</b>
+                            <form id="contact-form">
+                                <fieldset>
+                                    <label>
+                                        <input type="text" name="name" placeholder="Имя" />
+                                    </label>
+                                    <label>
+                                        <input type="email" name="email" placeholder="Email"/>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="phone" placeholder="Телефон"/>
+                                    </label>
+                                    <textarea name="text" placeholder="Сообщение"></textarea>
+                                    <div class="buttons-wrapper">
+                                        <a class="button" onClick="document.getElementById('contact-form').reset()">Очистить</a>
+                                        <button class="button">Отправить</button>
+                                        <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+                                        <script src="common.js"></script>
+<!--             ссылка на видос отправки песем  wamp                           https://www.youtube.com/watch?v=cpcm_xVP-gA-->
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
