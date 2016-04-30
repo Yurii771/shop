@@ -1,6 +1,8 @@
+@import "http://webfonts.ru/import/robotocondensed.css";
 body {
     padding-top: 60px;
     padding-bottom: 40px;
+	font-family: 'Roboto Condensed';
 }
 
 .zf-green {
@@ -34,4 +36,307 @@ div.container a.brand {
     background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
     margin-left: 0;
     padding: 8px 20px 12px 40px;
+}
+
+.navig a{
+	height: 70px;
+	text-decoration: none;
+}
+
+.cart{
+	float: right;
+	width: 70px;
+	height: 55px;
+	margin-right: 70px;
+	text-align: center;
+	margin-top: 15px;
+}
+
+#cart{
+	width: 40px;
+	height: 35px;
+}
+
+.search{
+	float: left;
+	margin-left: 10px;
+	padding-top: 20px;
+}
+
+.crsl{
+/*	margin: 148px 0;*/
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.cllg{
+	margin: 10px auto;
+	width: 90%;
+	border: 1px solid yellowgreen;
+	height: 500px;
+}
+
+.nav li>a{
+	padding-top: 25px;
+}
+
+.other_category{
+	margin: 50px auto;
+	padding-top: 18px;
+	max-width: 90%;
+	height: 400px;
+}
+
+.wrap-item{
+	margin: 0px auto;
+	width: 90%;
+	height: 360px;
+}
+
+.some-item{
+	margin: 0px 11px;
+	width: 31%;
+	height: 360px;
+	display: inline-block;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.img-item{
+	max-width: 80%;
+	height: 240px;
+	border-radius: 50%;
+}
+
+.img-item:hover{
+	border: 8px solid #39b3d7;
+	cursor: pointer;
+}
+
+.some-item h3{
+	color: #39b3d7;
+	font-size: 22pt;
+}
+
+.some-item p{
+	color: #3c3c3c;
+	font-size: 14pt;
+}
+
+.footer{
+	max-width: 100%;
+	height: 500px;
+	background-color: #262626;
+	padding: 20px;
+}
+
+.wrap-foot{
+	max-width: 81%;
+	height: 460px;
+	margin: 0px auto;
+}
+
+.foot{
+	display: inline-block;
+}
+
+.links{
+	width: 250px;
+	height: 460px;
+	float: left;
+	padding-top: 20px;
+}
+
+.links h3{
+	color: #fff;
+	margin-bottom: 60px;
+}
+
+.link-list{
+	display: block;
+}
+
+.link-list li{
+	list-style-type: none;
+	clear: both;
+	color: #fff;
+	margin-bottom: 30px;
+	font-size: 12pt;
+}
+
+.link-list li:hover{
+	color: #2780e3;
+}
+
+.link-list a:hover{
+	text-decoration: none;
+}
+
+.inst{
+	width: 480px;
+	height: 460px;
+	float: left;
+	padding-top: 20px;
+	text-align: center;
+}
+
+.inst h3{
+	color: #fff;
+	margin-bottom: 20px;
+}
+
+.inst ul{
+	margin-left: -10px;
+	text-align: center;
+}
+
+.inst ul>li{
+	list-style-type: none;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 15%;
+	margin: 5px;
+}
+
+.inst-img{
+	width: 100px;
+	height: 100px;
+	border-radius: 15%;
+}
+
+.social{
+	width: 330px;
+	height: 460px;
+	float: left;
+	padding-top: 20px;
+}
+
+.social h3{
+	color: #fff;
+	margin-bottom: 55px;
+	text-align: center;
+}
+
+.social p{
+	margin: 5px;
+}
+
+.social a{
+	color: #fff;
+	font-size: 12pt;
+}
+
+.social a:hover{
+	text-decoration: none;
+	color: #2780e3;
+}
+
+.soc{
+	padding-left: 100px;
+}
+
+footer{
+	max-width: 100%;
+	height: 150px;
+	background-color: #444;
+	margin: 0px;
+	text-align: center;
+	padding-top: 5px;
+}
+
+footer h4{
+	margin-bottom: 10px;
+	color: #fff;
+}
+
+footer p{
+	color: #fff;
+	font-size: 10pt;
+	margin-top: 40px;
+}
+
+footer input {
+    background-image: url("../img/email.png"); 
+	background-size: 10% 100%;
+    background-repeat: no-repeat; /*Убираем повтор изображения*/   
+    background-position: 0px; /*Позиционируем*/   
+    outline: none; /*убираем стандартную обводку браузера*/   
+    -moz-border-radius: 5px; /*закругляем углы для Mozilla*/  
+    -webkit-border-radius: 5px; /*закругляем углы для Chrome, Safari*/   
+    border-radius: 5px; /*закругляем углы для остальных браузеров*/  
+    padding-left: 50px; /*отступ слева от ввода, чтобы текст не был на картинке(выбирать по размеру картинки)*/  
+    height: 30px; /*высота строки ввода*/   
+    font-size: 17px; /*размер шрифта*/
+}
+
+
+.collage-wrapper #block1{ 
+width: 200px; 
+height: 200px; 
+top: 0; 
+left: 0; 
+} 
+.collage-wrapper #block2{ 
+width: 300px; 
+height: 100px; 
+top: 0; 
+left: 200px; 
+} 
+.collage-wrapper #block3, 
+.collage-block-shadow #block-shadow3{ 
+width: 100px; 
+height: 100px; 
+top: 100px; 
+left: 200px; 
+} 
+.collage-wrapper #block4{ 
+width: 150px; 
+height: 200px; 
+top: 200px; 
+left: 0; 
+} 
+.collage-wrapper #block5{ 
+width: 200px; 
+height: 150px; 
+top: 100px; 
+left: 300px; 
+} 
+.collage-wrapper #block6{ 
+width: 150px; 
+height: 200px; 
+top: 200px; 
+left: 150px; 
+} 
+.collage-wrapper #block7{ 
+width: 200px; 
+height: 150px; 
+top: 250px; 
+left: 300px; 
+} 
+.collage-wrapper #block8{ 
+width: 200px; 
+height: 150px; 
+top: 0; 
+left: 500px; 
+} 
+.collage-wrapper #block9{ 
+width: 200px; 
+height: 250px; 
+top: 150px; 
+left: 500px; 
+} 
+.collage-block span{ 
+display: table; 
+margin: 10px auto; 
+font-size: large; 
+}
+.collage-wrapper{ 
+width:704px; 
+height:404px; 
+margin: 55px auto 15px; 
+position: relative; 
+} 
+.collage-wrapper .collage-block{ 
+position: absolute; 
 }

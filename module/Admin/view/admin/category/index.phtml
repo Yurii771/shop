@@ -28,7 +28,7 @@
 		<tr>
 			<td><?php echo $count++; ?></td>
 			<td><?php echo $item->getName() ?></td>
-                        <td><?php if($item->getParent()){echo $item->getParent()->getName();}?></td>
+			<td><?php if($item->getParent()){echo $item->getParent()->getName();}?></td>
 			<td>
 				<a href="<?= $this->url('admin', array('controller'=>'category', 'action' => 'edit', 'id' => $item->getId())) ?>">Редактировать</a>
 				<a href="<?= $this->url('admin', array('controller'=>'category', 'action' => 'delete', 'id' => $item->getId())) ?>" onclick="if(confirm('Вы уверены?')){document.location = this.href;} return false;">Удалить</a>

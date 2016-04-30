@@ -1,9 +1,6 @@
 <?php
-
 namespace Admin\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Orders
  *
@@ -20,7 +17,6 @@ class Orders
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
     /**
      * @var string
      *
@@ -34,28 +30,24 @@ class Orders
      * @ORM\Column(name="customer_name", type="string", length=255, nullable=false)
      */
     private $customerName;
-
     /**
      * @var string
      *
      * @ORM\Column(name="customer_surname", type="string", length=255, nullable=false)
      */
     private $customerSurname;
-
     /**
      * @var string
      *
      * @ORM\Column(name="adress", type="string", length=255, nullable=false)
      */
     private $adress;
-
     /**
      * @var string
      *
      * @ORM\Column(name="customer_email", type="string", length=255, nullable=false)
      */
     private $customerEmail;
-
     /**
      * @var string
      *
@@ -72,7 +64,6 @@ class Orders
      * })
      */
     private $payment;
-
     /**
      * @var \Admin\Entity\Delivery
      *
@@ -82,7 +73,6 @@ class Orders
      * })
      */
     private $delivery;
-
     /**
      * @var \Admin\Entity\OrderStatus
      *
@@ -114,7 +104,6 @@ class Orders
     {
         return $this->id;
     }
-
     /**
      * Set orderList
      *
@@ -128,7 +117,6 @@ class Orders
 
         return $this;
     }
-
     /**
      * Get orderList
      *
@@ -138,7 +126,6 @@ class Orders
     {
         return $this->orderList;
     }
-
     /**
      * Set customerName
      *
@@ -149,10 +136,8 @@ class Orders
     public function setCustomerName($customerName)
     {
         $this->customerName = $customerName;
-
         return $this;
     }
-
     /**
      * Get customerName
      *
@@ -162,7 +147,6 @@ class Orders
     {
         return $this->customerName;
     }
-
     /**
      * Set customerSurname
      *
@@ -173,10 +157,8 @@ class Orders
     public function setCustomerSurname($customerSurname)
     {
         $this->customerSurname = $customerSurname;
-
         return $this;
     }
-
     /**
      * Get customerSurname
      *
@@ -186,7 +168,6 @@ class Orders
     {
         return $this->customerSurname;
     }
-
     /**
      * Set adress
      *
@@ -197,10 +178,8 @@ class Orders
     public function setAdress($adress)
     {
         $this->adress = $adress;
-
         return $this;
     }
-
     /**
      * Get adress
      *
@@ -210,7 +189,6 @@ class Orders
     {
         return $this->adress;
     }
-
     /**
      * Set customerEmail
      *
@@ -221,10 +199,8 @@ class Orders
     public function setCustomerEmail($customerEmail)
     {
         $this->customerEmail = $customerEmail;
-
         return $this;
     }
-
     /**
      * Get customerEmail
      *
@@ -234,7 +210,6 @@ class Orders
     {
         return $this->customerEmail;
     }
-
     /**
      * Set customerPhone
      *
@@ -245,10 +220,8 @@ class Orders
     public function setCustomerPhone($customerPhone)
     {
         $this->customerPhone = $customerPhone;
-
         return $this;
     }
-
     /**
      * Get customerPhone
      *
@@ -269,10 +242,8 @@ class Orders
     public function setPayment(\Admin\Entity\Payment $payment = null)
     {
         $this->payment = $payment;
-
         return $this;
     }
-
     /**
      * Get payment
      *
@@ -282,7 +253,6 @@ class Orders
     {
         return $this->payment;
     }
-
     /**
      * Set delivery
      *
@@ -293,10 +263,8 @@ class Orders
     public function setDelivery(\Admin\Entity\Delivery $delivery = null)
     {
         $this->delivery = $delivery;
-
         return $this;
     }
-
     /**
      * Get delivery
      *
@@ -306,7 +274,6 @@ class Orders
     {
         return $this->delivery;
     }
-
     /**
      * Set orderStatus
      *
@@ -317,10 +284,8 @@ class Orders
     public function setOrderStatus(\Admin\Entity\OrderStatus $orderStatus = null)
     {
         $this->orderStatus = $orderStatus;
-
         return $this;
     }
-
     /**
      * Get orderStatus
      *
