@@ -19,10 +19,14 @@ class IndexController extends AbstractActionController
 
     public function searchAction()
     {
-    $searchItem=  $this->params()->fromPost('search');   // From POST
+        $searchItem=  $this->params()->fromPost('search');
+      if(empty($searchItem)){
+        return $this->redirect()->toRoute('guest');
+      }
     $query = $this->getObjectManager()->createQuery("SELECT u FROM Guest\Entity\Goods u WHERE u.name LIKE '%$searchItem%' ");
     $rows = $query->getResult();
     $categories = $this->getObjectManager()->getRepository('\Guest\Entity\Categories')->findAll();
+
       return new ViewModel(array('goods' => $rows,'searchItem'=>$searchItem, 'categories'=>$categories));
 
     }
