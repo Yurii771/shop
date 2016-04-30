@@ -4,6 +4,9 @@ body {
     padding-top: 60px;
     padding-bottom: 40px;
 }
+h1, h2, h3{
+    color: #2a6496;
+}
 .category{
     margin: 20px 0;
     background-color: #A6DBEB;
@@ -18,9 +21,10 @@ body {
 }
 .category span{
      vertical-align: -80px;
+     color: white;
 }
-.category a{
-    color: white;
+.subcategory{
+   text-align: left;
 }
 .zf-green {
     color: #68b604;
