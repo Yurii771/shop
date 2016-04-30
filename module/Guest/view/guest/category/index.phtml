@@ -10,7 +10,8 @@
             echo '</span></div>';
             for ($i = 0; $i < count($item['children']); $i++) {
                 echo '<div class="subcategory">';
-                echo '<li> <a href="<?= $this->url(\'guest\', array(\'controller\' => \'goods\', \'id\' =>' . $item['children'][$i]->getId() . '))?>">';
+                $id=$item['children'][$i]->getId();
+                echo '<li> <a href="' . $this->url('guest', array('controller' => 'goods', 'id' =>$id)).'">';
                 echo($item['children'][$i]->getName());
                 echo '</a></li></div>';
             }
