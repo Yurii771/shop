@@ -5,7 +5,7 @@
  * to the application root now.
  */
 chdir(dirname(__DIR__));
-ini_set('display_errors', 0); 
+ini_set('display_errors', 0);
 error_reporting(E_ALL);
 
 // Decline static file requests back to the PHP built-in webserver

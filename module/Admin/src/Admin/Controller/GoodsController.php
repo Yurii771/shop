@@ -2,7 +2,7 @@
 
 namespace Admin\Controller;
 
-use Goods\Form\GoodsForm;
+
 use Zend\Db\Adapter\AdapterInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;

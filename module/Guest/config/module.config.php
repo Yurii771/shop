@@ -1,5 +1,33 @@
 <?php
 return array(
+  'doctrine' => array(
+      'driver' => array(
+          // defines an annotation driver with two paths, and names it `my_annotation_driver`
+          'guest_entity' => array(
+              'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+              'cache' => 'array',
+              'paths' => array(
+                  __DIR__ . '/../src/Guest/Entity',
+              ),
+          ),
+          // default metadata driver, aggregates all other drivers into a single one.
+          // Override `orm_default` only if you know what you're doing
+
+          'orm_default' => array(
+              'drivers' => array(
+                  // register `my_annotation_driver` for any entity under namespace `My\Namespace`
+                  'Guest\Entity' => 'guest_entity',
+                  // 'metadata_cache' => 'array',
+                  // 'query_cache' => 'array',
+                  // 'result_cache' => 'array',
+                  // 'hydration_cache' => 'array',
+                  // 'generate_proxies' => true,
+                  // 'proxy_dir' => 'data/DoctrineORMModule/Proxy',
+                  // 'proxy_namespace' => 'DoctrineORMModule\Proxy',
+              )
+          )
+      )
+  ),
     'router' => array(
         'routes' => array(
             'guest' => array(
