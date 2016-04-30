@@ -28,6 +28,7 @@ return array(
             'Guest\Controller\About' => 'Guest\Controller\AboutController',
             'Guest\Controller\Contacts' => 'Guest\Controller\ContactsController',
             'Guest\Controller\Payment' => 'Guest\Controller\PaymentController',
+            'Guest\Controller\Cart' => 'Guest\Controller\CartController',
         ),
         'factories' => array(
             'Guest\Controller\Category' => 'Guest\Factory\CategoryControllerFactory',
