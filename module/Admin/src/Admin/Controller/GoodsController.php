@@ -49,7 +49,10 @@ class GoodsController extends AbstractActionController
             $this->getObjectManager()->flush();
             $newId = $goods->getId();
 
-            return $this->redirect()->toRoute('admin');
+            return $this->redirect()->toRoute('admin', array(
+                'controller' => 'goods',
+                'action' =>  'index',
+            ));
         }
         return new ViewModel(['categories'=>$rows]);
     }
@@ -80,7 +83,10 @@ class GoodsController extends AbstractActionController
             $this->getObjectManager()->persist($goods);
             $this->getObjectManager()->flush();
 
-            return $this->redirect()->toRoute('admin');
+            return $this->redirect()->toRoute('admin', array(
+                'controller' => 'goods',
+                'action' =>  'index',
+            ));
         }
 
 

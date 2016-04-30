@@ -1,14 +1,47 @@
+
+<!-- Page Content -->
+   <div class="container">
+
+       <!-- Page Header -->
+       <div class="row">
+           <div class="col-lg-12">
+               <h1 class="page-header">Редактирование Товаров<br>
+                   <small>Редактирование, удаление, добавление.</small>
+               </h1>
+           </div>
+       </div>
+       <!-- /.row -->
+
+<?php $i = 1 ?>
 <?php foreach($goods as $g):?>
-    <h2><?php echo $g->getName()?></h2>
-    <img src="<?= $g->getPhoto()?>" height="100px">
-    <p><?= $g->getShortDescription()?></p>
+
+<?php if($i%3 === 0): ?>
+<div class="row">
+<?php endif; ?>
+
+<div class="col-md-4 portfolio-item">
+    <a href="#">
+        <img src="<?= $g->getPhoto()?>" height="120px">
+    </a>
+    <h3>
+        <a href="#"><?php echo $g->getName()?></a>
+    </h3>
     <?php foreach($categories as $c):?>
       <?php if($g->getCategory()->getId() == $c->getId()):?>
-        <a><?= $c->getName()?></a><br>
+        <h4><?= $c->getName()?></h4>
       <?php endif;?>
     <?php endforeach;?>
-    <a href="/admin/goods/edit/<?= $g->getId() ?>"><button>Edit</button></a>
-    <a href="/admin/goods/delete/<?= $g->getId() ?>"><button>Delete</button></a>
+    <p><?= $g->getShortDescription()?></p>
+    <a href="/admin/goods/edit/<?= $g->getId() ?>"><button class='btn btn-primary'>Edit</button></a>
+    <a href="/admin/goods/delete/<?= $g->getId() ?>"><button class="btn btn-danger">Delete</button></a><br><br>
+</div>
+<?php if($i%3 === 0): ?>
+</div>
+<?php endif; ?>
+
+<?php $i++  ?>
 <?php endforeach;?>
-<br><br><br><br>
-<a href="/admin/goods/add"><button>Add New</button></a>
+<br>
+<a href="/admin/goods/add"><button class="btn btn-success btn-lg">Add New</button></a>
+
+</div>
