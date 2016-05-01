@@ -1,5 +1,5 @@
 <?php
-namespace Admin\Entity;
+namespace Guest\Entity;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * Goods
@@ -54,9 +54,9 @@ class Goods
      */
     private $photo;
     /**
-     * @var \Admin\Entity\Categories
+     * @var \Guest\Entity\Categories
      *
-     * @ORM\ManyToOne(targetEntity="Admin\Entity\Categories")
+     * @ORM\ManyToOne(targetEntity="Guest\Entity\Categories")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      * })
@@ -200,11 +200,11 @@ class Goods
     /**
      * Set category
      *
-     * @param \Admin\Entity\Categories $category
+     * @param \Guest\Entity\Categories $category
      *
      * @return Goods
      */
-    public function setCategory(\Admin\Entity\Categories $category = null)
+    public function setCategory(\Guest\Entity\Categories $category = null)
     {
         $this->category = $category;
         return $this;
@@ -212,23 +212,10 @@ class Goods
     /**
      * Get category
      *
-     * @return \Admin\Entity\Categories
+     * @return \Guest\Entity\Categories
      */
     public function getCategory()
     {
         return $this->category;
-    }
-     public function exchangeArray($data)
-    {
-            foreach ($data as $key => $val){
-                    if(property_exists($this, $key)){
-                            $this->$key = ($val) ? $val : null;
-                    }
-            }
-    }
-	
-    public function getArrayCopy()
-    {
-        return get_object_vars($this);
     }
 }
