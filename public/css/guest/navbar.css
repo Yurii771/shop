@@ -1,8 +1,8 @@
 .cartCount{
-    background: yellow;
+    background: #ff7518;
     position: absolute;
     top: 20px;
-    right: 50px;
+    right: 5px;
     text-align: center;
     font-weight: bold;
     width: 20px;
