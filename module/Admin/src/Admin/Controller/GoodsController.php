@@ -63,6 +63,8 @@ class GoodsController extends AbstractActionController
       $query = $this->getObjectManager()->createQuery('SELECT u FROM Admin\Entity\Categories u ORDER BY u.id');
       $rows = $query->getResult();
 
+        $goodsList = $this->getObjectManager()->createQuery('SELECT u FROM Admin\Entity\Goods u ORDER BY u.id');
+        $list=$goodsList->getResult();
         $id = (int) $this->params()->fromRoute('id', 0);
         $goods = $this->getObjectManager()->find('\Admin\Entity\Goods', $id);
 
@@ -90,7 +92,7 @@ class GoodsController extends AbstractActionController
         }
 
 
-        return new ViewModel(array('goods' => $goods,'categories'=>$rows));
+        return new ViewModel(array('goods' => $goods,'categories'=>$rows,'goodsList'=>$list));
     }
 
 
