@@ -4,14 +4,15 @@ namespace Guest\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Goods\Form\GoodsForm;
-use Zend\Db\Adapter\AdapterInterface;
-use Guest\Entity\Goods;
-use Doctrine\ORM\EntityManager;
 
 class IndexController extends AbstractActionController
 {
-  protected $_objectManager;
+    protected $_objectManager;
+    
+    public function __construct($em) {
+        $this->_objectManager = $em;
+    }
+    
     public function indexAction()
     {
         return new ViewModel();
@@ -20,24 +21,13 @@ class IndexController extends AbstractActionController
     public function searchAction()
     {
         $searchItem=  $this->params()->fromPost('search');
-      if(empty($searchItem)){
-        return $this->redirect()->toRoute('guest');
-      }
-    $query = $this->getObjectManager()->createQuery("SELECT u FROM Guest\Entity\Goods u WHERE u.name LIKE '%$searchItem%' ");
-    $rows = $query->getResult();
-    $categories = $this->getObjectManager()->getRepository('\Guest\Entity\Categories')->findAll();
+        if(empty($searchItem)){
+          return $this->redirect()->toRoute('guest');
+        }
+        $query = $this->_objectManager->createQuery("SELECT u FROM Admin\Entity\Goods u WHERE u.name LIKE '%$searchItem%' ");
+        $rows = $query->getResult();
+        $categories = $this->_objectManager->getRepository('\Admin\Entity\Categories')->findAll();
 
       return new ViewModel(array('goods' => $rows,'searchItem'=>$searchItem, 'categories'=>$categories));
-
-    }
-
-
-    protected function getObjectManager()
-    {
-        if (!$this->_objectManager) {
-            $this->_objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-        }
-
-        return $this->_objectManager;
     }
 }

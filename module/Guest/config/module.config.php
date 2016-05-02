@@ -24,7 +24,6 @@ return array(
 
     'controllers' => array(
         'invokables' => array(
-            'Guest\Controller\Index' => 'Guest\Controller\IndexController',
             'Guest\Controller\About' => 'Guest\Controller\AboutController',
             'Guest\Controller\Contacts' => 'Guest\Controller\ContactsController',
             'Guest\Controller\Payment' => 'Guest\Controller\PaymentController',
@@ -34,6 +33,7 @@ return array(
             'Guest\Controller\Category' => 'Guest\Factory\CategoryControllerFactory',
             'Guest\Controller\Order' => 'Guest\Factory\OrderControllerFactory',
             'Guest\Controller\Goods' => 'Guest\Factory\GoodsControllerFactory',
+            'Guest\Controller\Index' => 'Guest\Factory\IndexControllerFactory',
         ),
     ),
     'view_manager' => array(

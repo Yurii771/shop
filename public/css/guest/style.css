@@ -1,3 +1,7 @@
+body{
+    padding-top: 70px;
+}
+
 .cartCount{
     background: #ff7518;
     position: absolute;
