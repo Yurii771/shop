@@ -1,3 +1,15 @@
+<?php 
+//    $container = $this->guest_navigation()->getContainer();
+//    $container = $container->toArray();
+//    var_dump(
+//            $this->navigation('Zend\Navigation\Guest')
+////        ->menu()
+//        ->getContainer()->setPages($container)
+//        ->breadcrumbs()
+//        ->setPartial('partial/breadcrumb.phtml')
+//        ->render()
+//            ); 
+//    die(); ?>
 <?php
 echo $this->doctype();
 ?>
@@ -50,10 +62,13 @@ echo $this->doctype();
                 </div>
                 <div class="collapse navbar-collapse">
                     <?php
-                    echo $this->navigation('Zend\Navigation\Guest')->menu()
+                    echo $this->guest_navigation()->menu()
                             ->setUlClass('nav navbar-nav')
                             ->setMaxDepth(0);
-                    ?>
+//                    echo $this->navigation('Zend\Navigation\Guest')->menu()
+//                            ->setUlClass('nav navbar-nav')
+//                            ->setMaxDepth(0);
+//                    ?>
                     <div class="search">
                         <form method="POST" class="form-horizontal" 
                               action="<?= $this->url('guest', array('controller'=>'index', 'action'=>'search')) ?>">
@@ -71,9 +86,10 @@ echo $this->doctype();
             </div>
         </nav>
         <div class="container cnt">
-            <div class="breadcrumbs">
-                <?= $this->navigation('Zend\Navigation\Guest')->breadcrumbs(); ?>
-            </div>
+            <?= $this->guest_navigation()->breadcrumbs()
+                        ->setMinDepth(1)
+                        ->setPartial('partial/breadcrumbs.phtml')
+                        ->render(); ?>
             <?php echo $this->content; ?>
         </div> <!-- /container -->
         <div class="footer">

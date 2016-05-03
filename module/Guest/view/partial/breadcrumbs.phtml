@@ -1,0 +1,15 @@
+<?php
+    $pages = $this->pages;
+    if(!empty($pages)):
+?>
+    <ol class="breadcrumb">
+        <?php while (!empty($pages)): ?>
+            <?php $page = array_shift($pages); ?>
+            <?php if(empty($pages)): ?>
+                <li class="active"><?= $page->getLabel(); ?></li>
+            <?php else: ?>
+                <li><a href="<?= $page->getHref() ?>"><?= $page->getLabel(); ?></a></li>
+            <?php endif; ?>
+        <?php endwhile; ?>
+    </ol>
+<?php endif; ?>
