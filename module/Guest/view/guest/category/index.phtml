@@ -11,9 +11,9 @@
             for ($i = 0; $i < count($item['children']); $i++) {
                 echo '<div class="subcategory">';
                 $id=$item['children'][$i]->getId();
-                echo '<li> <a href="' . $this->url('guest', array('controller' => 'goods', 'id' =>$id)).'">';
+                echo '<a href="' . $this->url('guest', array('controller' => 'goods', 'id' =>$id)).'"><li> ';
                 echo($item['children'][$i]->getName());
-                echo '</a></li></div>';
+                echo '</li></a></div>';
             }
             echo '</div></div>';
         }

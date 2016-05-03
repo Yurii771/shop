@@ -7,16 +7,24 @@ body {
 h1, h2, h3{
     color: #2a6496;
 }
+.subcategory a:hover{
+     color: white;
+     background-color: #2a6496;
+     padding-left: 30px;
+     display: block;
+     list-style-type: none;
+     text-decoration: none;
+}
 .category_group{
-    border: 3px #2a6496 solid;
-    width: 180px;
+    border: 2px #2a6496 solid;
+    width: 220px;
+    height: 450px;
     margin: 20px 0;
     border-radius: 15px ;
 }
 .category{
     font-size: 16pt;
     background-color: #2a6496;
-    height: 35px; 
     border-radius: 9px 9px 0 0;
 }
 .category span{
