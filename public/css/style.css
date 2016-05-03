@@ -7,24 +7,26 @@ body {
 h1, h2, h3{
     color: #2a6496;
 }
-.category{
-    margin: 20px 0;
-    background-color: #A6DBEB;
+.category_group{
+    border: 3px #2a6496 solid;
     width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    font-size: 16pt;
+    margin: 20px 0;
+    border-radius: 15px ;
 }
-.category:hover{
-    background-color: #DE6461;
-    text-shadow: 1px 1px 2px black;
+.category{
+    font-size: 16pt;
+    background-color: #2a6496;
+    height: 35px; 
+    border-radius: 9px 9px 0 0;
 }
 .category span{
-     vertical-align: -80px;
-     color: white;
+   color: white;
 }
 .subcategory{
    text-align: left;
+}
+.subcategory li{
+    margin: 2px;
 }
 .zf-green {
     color: #68b604;

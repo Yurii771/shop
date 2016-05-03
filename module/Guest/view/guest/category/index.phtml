@@ -5,7 +5,7 @@
     <div class="col-md-12" align="center" >
         <?php
         foreach ($categories as $item) {
-            echo '<div class="col-md-3" ><div  class="category"><span> ';
+            echo '<div class="col-md-3" ><div class="category_group"><div  class="category"><span> ';
             echo $item['parent']->getName();
             echo '</span></div>';
             for ($i = 0; $i < count($item['children']); $i++) {
@@ -15,7 +15,7 @@
                 echo($item['children'][$i]->getName());
                 echo '</a></li></div>';
             }
-            echo '</div>';
+            echo '</div></div>';
         }
         ?>
     </div>
