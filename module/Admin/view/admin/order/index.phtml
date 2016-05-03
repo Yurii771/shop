@@ -14,11 +14,11 @@
             foreach($orders as $order){
                 echo "<tr>
                     <td>{$order[0]->getId()}</td>
-                    <td>{$order[0]->getOrder()}</td>
+                    <td>{$order[0]->getOrderList()}</td>
                     <td>{$order[0]->getCustomerName()}</td>
                     <td>{$order[0]->getCustomerPhone()}</td>
                     <td>{$order['orderStatus']}</td>";
-               echo '<td><a href="'.$this->url('admin', array('action'=>'edit','id'=>$order[0]->getId())).'">Детали</a></td>';
+               echo '<td><a href="'.$this->url('admin', array('controller'=>'order','action'=>'edit','id'=>$order[0]->getId())).'">Детали</a></td>';
                         
             }
         ?>
