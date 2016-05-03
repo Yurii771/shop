@@ -1,0 +1,455 @@
+/********** DEFAULT **********/
+@import "http://webfonts.ru/import/robotocondensed.css";
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+	font-family: 'Roboto Condensed';
+}
+
+.btn-success {
+	background-color: #57a900;
+	background-image: -moz-linear-gradient(top, #70d900, #57a900);
+	background-image: -ms-linear-gradient(top, #70d900, #57a900);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+	background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+	background-image: -o-linear-gradient(top, #70d900, #57a900);
+	background-image: linear-gradient(top, #70d900, #57a900);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+	background-color: #57a900;
+}
+
+.btn-success:active, .btn-success.active {
+	background-color: #57a900;
+}
+
+div.container a.brand {
+    background: url("../img/logo1.png") no-repeat scroll 0 10px transparent;
+    margin-left: 0;
+    padding: 8px 20px 12px 40px;
+}
+/********** End Default **********/
+
+
+
+/********** Navbar(button 'find', cart) **********/
+.search button{
+	margin-top: 5px;
+}
+
+#cart{
+	float: right;
+	width: 35px;
+	height: 30px;
+	margin-top: 10px;
+}
+/********** End Navbar **********/
+
+
+
+/********** 3 pictures after coolage **********/
+.items{
+	margin: 100px auto;
+}
+
+.some{
+	margin: 10px auto;
+}
+
+.s-item img{
+	max-width: 80%;
+	height: 240px;
+	border-radius: 50%;
+}
+
+.s-item img:hover{
+	border: 8px solid #39b3d7;
+	cursor: pointer;
+}
+
+.s-item h3{
+	color: #444;
+	font-size: 22pt;
+}
+
+.s-item p{
+	color: #3c3c3c;
+	font-size: 14pt;
+}
+/********** End block with 3 pictures(some item) **********/
+
+
+
+/********** FOOTER **********/
+.underfooter{
+	background-color: #262626;
+}
+
+.links{
+	padding-top: 20px;
+}
+
+.links h3{
+	color: #fff;
+	margin-bottom: 60px;
+	text-align: center;
+}
+
+.link-list{
+	margin-left: 25%;
+}
+
+@media (max-width: 950px){
+	.link-list{
+		margin-left: 34%;
+	}
+}
+
+.link-list li{
+	list-style-type: none;
+	clear: both;
+	color: #fff;
+	margin-bottom: 30px;
+	font-size: 12pt;
+}
+
+.link-list li:hover{
+	color: #2780e3;
+}
+
+.link-list a:hover{
+	text-decoration: none;
+}
+
+.inst{
+	padding-top: 20px;
+	text-align: center;
+}
+
+.inst h3{
+	color: #fff;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.inst ul{
+	
+}
+
+.inst ul>li{
+	list-style-type: none;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 15%;
+	margin: 5px;
+}
+
+.inst-img{
+	width: 100px;
+	height: 100px;
+	border-radius: 15%;
+}
+
+.social{
+	padding-top: 20px;
+	padding-bottom: 15px;
+}
+
+.social h3{
+	color: #fff;
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+.social p{
+	margin-bottom: 10px;
+	margin-left: 35%;
+}
+
+@media (max-width: 950px){
+	.social p{
+		margin-left: 39%;
+	}
+}
+
+.social a{
+	color: #fff;
+	font-size: 13pt;
+}
+
+.social a:hover{
+	text-decoration: none;
+	color: #2780e3;
+}
+
+.footer{
+	max-width: 100%;
+	height: 150px;
+	background-color: #444;
+	margin: 0px;
+	padding-top: 5px;
+}
+
+.footer h4{
+	margin-bottom: 10px;
+	color: #fff;
+}
+
+.footer p{
+	color: #fff;
+	font-size: 10pt;
+	margin-top: 40px;
+}
+
+.footer input {
+    background-image: url("../img/email.png"); 
+	background-size: 10% 100%;
+    background-repeat: no-repeat; /*Убираем повтор изображения*/   
+    background-position: 0px; /*Позиционируем*/   
+    outline: none; /*убираем стандартную обводку браузера*/   
+    -moz-border-radius: 5px; /*закругляем углы для Mozilla*/  
+    -webkit-border-radius: 5px; /*закругляем углы для Chrome, Safari*/   
+    border-radius: 5px; /*закругляем углы для остальных браузеров*/  
+    padding-left: 50px; /*отступ слева от ввода, чтобы текст не был на картинке(выбирать по размеру картинки)*/  
+    height: 30px; /*высота строки ввода*/   
+    font-size: 17px; /*размер шрифта*/
+}
+/********** END FOOTER **********/
+
+
+
+/********** COOLAGE **********/
+.cllg{ 
+	width: 90%;
+	height: 500px; 
+	display: initial; 
+} 
+.collage-wrapper{ 
+	/*width:704px; 
+	height:404px; 
+	/*border: 1px solid #000;*/ 
+	margin: 15px auto 15px; 
+	position: relative; 
+	width: inherit; 
+	height: inherit; 
+	overflow: hidden; 
+	min-width: 704px; 
+} 
+.collage-wrapper .collage-block{ 
+	/*border: 1px solid #000;*/ 
+	position: absolute; 
+} 
+.collage-wrapper .collage-block select{ 
+	background: transparent; 
+	border: none; 
+} 
+.collage-block{
+	border: 5px solid #fff;
+}
+.collage-block p{
+	display: block;
+	vertical-align: middle;
+	color: #fff;
+	font-size: 17pt;
+}
+.collage-wrapper #block1{ 
+	width: 28.57%; 
+	height: 250px; 
+	top: 0; 
+	left: 0;
+} 
+.collage-wrapper #block2{ 
+	width: 42.855%; 
+	height: 125px; 
+	top: 0; 
+	left: 28.57%; 
+} 
+.collage-wrapper #block3{ 
+	width: 14.285%; 
+	height: 125px; 
+	top: 125px; 
+	left: 28.57%; 
+} 
+.collage-wrapper #block4{ 
+	width: 21.4275%; 
+	height: 250px; 
+	top: 250px; 
+	left: 0; 
+} 
+.collage-wrapper #block5{ 
+	width: 28.57%; 
+	height: 187.5px; 
+	top: 125px; 
+	left: 42.855%; 
+} 
+.collage-wrapper #block6{ 
+	width: 21.4275%; 
+	height: 250px; 
+	top: 250px; 
+	left: 21.4275%; 
+} 
+.collage-wrapper #block7{ 
+	width: 28.57%; 
+	height: 187.5px; 
+	top: 312.5px; 
+	left: 42.855%; 
+} 
+.collage-wrapper #block8{ 
+	width: calc(28.57% + 1px); 
+	height: 187.5px; 
+	top: 0; 
+	left: 71.425%; 
+} 
+.collage-wrapper #block9{ 
+	width: calc(28.57% + 1px); 
+	height: 312.5px; 
+	top: 187.5px; 
+	left: 71.425%; 
+} 
+.collage-block span{ 
+	display: table; 
+	margin: 10px auto; 
+	font-size: large; 
+}
+/********** END COLLAGE **********/
+
+
+
+
+/********** ADMIN Auth **********/
+.auth-form{
+	margin-top: 100px;
+}
+
+.auth-form input{
+    -moz-border-radius: 7px; /*закругляем углы для Mozilla*/  
+    -webkit-border-radius: 77px; /*закругляем углы для Chrome, Safari*/   
+    border-radius: 7px; /*закругляем углы для остальных браузеров*/  
+    padding-left: 25px; /*отступ слева от ввода, чтобы текст не был на картинке(выбирать по размеру картинки)*/  
+    height: 33px; /*высота строки ввода*/   
+    font-size: 17px; /*размер шрифта*/
+}
+
+.text-center, .auth-form label{
+	color: #2a6496;
+}
+/********** End **********/
+
+
+
+/********** ADMIN Index **********/
+.privat th{
+	background-color: #2a6496;
+	color: #fff;
+	font-size: 14pt;
+	text-align: center;
+}
+.privat td{
+	font-size: 12pt;
+	text-align: center;
+}
+/********** End **********/
+
+
+.payment{
+	padding-top: 40px;
+	padding-bottom: 70px;
+}
+
+
+
+.goods{
+	padding-bottom: 70px;
+}
+
+.good{
+	height: 500px;
+	text-align: center;
+	padding-top: 35px;
+}
+
+.good h3{
+	color: #2a6496;
+}
+
+.good img{
+	max-width: 100%;
+	height: 220px;
+	border-radius: 5%;
+}
+
+.good div{
+	
+}
+
+.good a{
+	border-radius: 8%;
+	color: #fff;
+}
+
+#but{
+	background-color: #04a49c;
+}
+
+.descript{
+	height: 100px;
+}
+
+.breadcrumbs{
+	color: #fff;
+	background-color: #04a49c;
+}
+
+.breadcrumbs a{
+	color: #a6e1ec;
+}
+
+
+
+.id-good{
+	
+	padding-top: 70px;
+	padding-bottom: 120px;
+}
+
+.id-img img{
+	max-width: 100%;
+	height: 350px;
+	border-radius: 5%;
+}
+
+.id-desc h2{
+	color: #2a6496;
+	margin-top: 0px;
+}
+
+.id-desc{
+	padding: 10px 40px;
+}
+
+.desc{
+	color: #333;
+	font-size: 11pt;
+	text-align: justify;
+}
+
+.id-desc a{
+	color: #fff;
+	background-color: #04a49c;
+	border-radius: 10%;
+}
+
+.id-desc a:hover{
+	box-shadow: 2px -2px 3px #ccc;
+}
+
+.id-desc label{
+	color: #2a6496;
+}

@@ -1,0 +1,16 @@
+<div class="c-cols-r-static contacts">
+	<div class="col-md-12 goods">
+		<?php $count = 1; ?>
+		<?php foreach ($goods as $key): ?>
+		<div class="col-md-4 good">
+			<img src="<?= $key->getPhoto() ?>"/>
+			<h3><?= $key->getName() ?></h3>
+			<p class="descript"><?= $key->getShortDescription() ?></p>
+			<div><a href="<?= $this->url('guest', array('controller' => 'goods', 'action' => 'view', 'id' => $key->getId())) ?>" class="btn btn-warning btn-sm">Подробнее</a><br/><br/>
+			<label for="cnt<?php echo $count; ?>">Количество:</label>
+			<input type="number" name="goods_count" id="cnt<?php echo $count; $count++; ?>" min="1" max="20" step="1" value="1"/>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a id="but" href="<?= $this->url('guest', array('controller' => 'goods', 'action' => 'view', 'id' => $key->getId())) ?>" class="btn btn-sm">В корзину</a></div>
+		</div>
+		<?php endforeach; ?>
+	</div>
+</div>
