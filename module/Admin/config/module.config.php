@@ -45,12 +45,12 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Admin\Controller\Index' => 'Admin\Controller\IndexController',
-            'Admin\Controller\Order' => 'Admin\Controller\OrderController'
         ),
         'factories' => array(
             'Admin\Controller\Auth' => 'Admin\Factory\AuthControllerFactory',
             'Admin\Controller\Category' => 'Admin\Factory\CategoryControllerFactory',
             'Admin\Controller\Goods' => 'Admin\Factory\GoodsControllerFactory',
+            'Admin\Controller\Order' => 'Admin\Factory\OrderControllerFactory'
         ),
     ),
 
