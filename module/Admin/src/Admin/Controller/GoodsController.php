@@ -16,10 +16,8 @@ class GoodsController extends AbstractActionController
 
     public function indexAction()
     {
-        $query = $this->_objectManager->createQuery('SELECT u FROM Admin\Entity\Categories u ORDER BY u.id');
-        $rows = $query->getResult();
         $goods = $this->_objectManager->getRepository('\Admin\Entity\Goods')->findAll();
-        return new ViewModel(array('goods' => $goods,'categories'=>$rows));
+        return new ViewModel(array('goods' => $goods,));
     }
 
 
@@ -28,6 +26,7 @@ class GoodsController extends AbstractActionController
 
       $query = $this->_objectManager->createQuery('SELECT u FROM Admin\Entity\Categories u ORDER BY u.id');
       $rows = $query->getResult();
+      $categories = $this->sortCategories($rows);
 
         if ($this->request->isPost()) {
             $goods = new Goods();
@@ -53,7 +52,7 @@ class GoodsController extends AbstractActionController
                 'action' =>  'index',
             ));
         }
-        return new ViewModel(['categories'=>$rows]);
+        return new ViewModel(['categories'=>$categories]);
     }
 
 
@@ -61,6 +60,7 @@ class GoodsController extends AbstractActionController
     {
       $query = $this->_objectManager->createQuery('SELECT u FROM Admin\Entity\Categories u ORDER BY u.id');
       $rows = $query->getResult();
+      $categories = $this->sortCategories($rows);
 
         $goodsList = $this->_objectManager->createQuery('SELECT u FROM Admin\Entity\Goods u ORDER BY u.id');
         $list=$goodsList->getResult();
@@ -91,7 +91,7 @@ class GoodsController extends AbstractActionController
         }
 
 
-        return new ViewModel(array('goods' => $goods,'categories'=>$rows,'goodsList'=>$list));
+        return new ViewModel(array('goods' => $goods,'categories'=>$categories,'goodsList'=>$list));
     }
 
 
@@ -108,6 +108,21 @@ class GoodsController extends AbstractActionController
         }
 
         return new ViewModel(array('goods' => $goods));
+    }
+    
+    protected function sortCategories($rows) {
+        $categories = array();
+        foreach ($rows as $row){
+            if(!$row->getParent()){
+                $categories[$row->getId()]['parent'] = $row;
+                if(!isset($categories[$row->getId()]['children'])){
+                    $categories[$row->getId()]['children'] = array();
+                }
+            }else{
+                $categories[$row->getParent()->getId()]['children'][] = $row;
+            }
+        }
+        return $categories;
     }
 
 }

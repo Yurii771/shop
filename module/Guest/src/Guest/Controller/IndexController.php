@@ -30,4 +30,8 @@ class IndexController extends AbstractActionController
 
       return new ViewModel(array('goods' => $rows,'searchItem'=>$searchItem, 'categories'=>$categories));
     }
+    
+    public function sitemapAction() {
+        return new ViewModel();
+    }
 }

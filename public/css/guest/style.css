@@ -2,6 +2,9 @@ body{
     padding-top: 70px;
 }
 
+/*-----------------------------------------------------------
+--------Count marker in cart image in header------------------
+-----------------------------------------------------------*/
 .cartCount{
     background: #ff7518;
     position: absolute;
@@ -13,4 +16,45 @@ body{
     height: 20px;
     border-radius: 50%;
     display: none;
+}
+
+/*-----------------------------------------------------------
+-------------SITEMAP----------------------------------------------
+-----------------------------------------------------------*/
+.sitemap_container{
+    max-width: 1024px;
+    margin: auto;
+    padding: 10px 0;
+}
+
+.sitemap_page{
+    border-top: 1px solid silver;
+}
+
+.sitemap_page:first-of-type{
+    border-top: none;
+}
+
+.sitemap_page h2{
+    margin: 0;
+}
+
+.sitemap_page1{
+    border: 1px solid silver;
+    margin: 10px 0;
+}
+
+.sitemap_page1 h3{
+    margin: 0;
+}
+.sitemap_page1 p{
+    margin: 18px 0;
+}
+
+.sitemap_page1_head, .sitemap_page1_body{
+    padding: 0 10px;
+}
+
+.sitemap_page1_head{
+    background: silver;
 }

@@ -1,0 +1,10 @@
+<div class="sitemap_container">
+    <h1>Карта сайта</h1>
+    <hr/>
+
+    <?php
+    echo $this  ->guest_navigation()->menu()
+                ->setPartial('partial/sitemap.phtml')
+                ->render();
+    ?>
+</div>

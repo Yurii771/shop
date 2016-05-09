@@ -32,6 +32,7 @@ class Navigation extends AbstractHelper {
                 'router' => $this->router,
                 'route' => 'guest',
                 'controller' => 'index',
+                'action' => 'index',
                 'routeMatch' => $this->routeMatch,
             ),
             array(

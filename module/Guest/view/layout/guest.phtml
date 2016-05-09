@@ -1,15 +1,3 @@
-<?php 
-//    $container = $this->guest_navigation()->getContainer();
-//    $container = $container->toArray();
-//    var_dump(
-//            $this->navigation('Zend\Navigation\Guest')
-////        ->menu()
-//        ->getContainer()->setPages($container)
-//        ->breadcrumbs()
-//        ->setPartial('partial/breadcrumb.phtml')
-//        ->render()
-//            ); 
-//    die(); ?>
 <?php
 echo $this->doctype();
 ?>
@@ -64,11 +52,9 @@ echo $this->doctype();
                     <?php
                     echo $this->guest_navigation()->menu()
                             ->setUlClass('nav navbar-nav')
+                            ->setPartial('')
                             ->setMaxDepth(0);
-//                    echo $this->navigation('Zend\Navigation\Guest')->menu()
-//                            ->setUlClass('nav navbar-nav')
-//                            ->setMaxDepth(0);
-//                    ?>
+                    ?>
                     <div class="search">
                         <form method="POST" class="form-horizontal" 
                               action="<?= $this->url('guest', array('controller'=>'index', 'action'=>'search')) ?>">
@@ -97,7 +83,7 @@ echo $this->doctype();
                 <div class="links foot">
                     <h3>Полезные ссылки</h3>
                     <ul class="link-list">
-                        <a href="<?= $this->url('guest', array('controller' => 'sitemap', 'action' => 'index')) ?>"><li><i class="fa fa-sitemap" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Карта сайта</li></a>
+                        <a href="<?= $this->url('guest', array('controller' => 'index', 'action' => 'sitemap')) ?>"><li><i class="fa fa-sitemap" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Карта сайта</li></a>
                         <a href="<?= $this->url('guest', array('controller' => 'category', 'action' => 'index')) ?>"><li><i class="fa fa-list" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Вернуться к каталогу</li></a>
                         <a href="<?= $this->url('guest', array('controller' => 'payment', 'action' => 'index')) ?>"><li><i class="fa fa-credit-card" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Оплата и Доставка</li></a>
                         <a href="<?= $this->url('guest', array('controller' => 'contacts', 'action' => 'index')) ?>"><li><i class="fa fa-pencil-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Связаться с нами</li></a>
