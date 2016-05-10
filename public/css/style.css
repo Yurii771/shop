@@ -320,6 +320,9 @@ div.container a.brand {
 	vertical-align: middle; 
 	text-align: center;
 }
+.blocks:hover{
+	cursor: pointer;
+}
 /********** END COLLAGE **********/
 
 
