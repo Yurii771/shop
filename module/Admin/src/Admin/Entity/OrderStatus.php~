@@ -29,5 +29,43 @@ class OrderStatus
     private $orderStatus;
 
 
+<<<<<<< HEAD
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set orderStatus
+     *
+     * @param string $orderStatus
+     *
+     * @return OrderStatus
+     */
+    public function setOrderStatus($orderStatus)
+    {
+        $this->orderStatus = $orderStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get orderStatus
+     *
+     * @return string
+     */
+    public function getOrderStatus()
+    {
+        return $this->orderStatus;
+    }
+}
+=======
 }
 
+>>>>>>> refs/remotes/origin/master

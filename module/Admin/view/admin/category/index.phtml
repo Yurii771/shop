@@ -1,0 +1,129 @@
+<h1>Управление категориями</h1>
+
+<a href="<?= $this->url('admin', array('controller'=>'category', 'action' => 'add')) ?>" class="btn btn-primary">
+    Добавить категорию
+</a>
+
+<?php include (__DIR__.'/../../layout/messenger.php');  ?>
+
+<hr/>
+
+<?php while($categories): ?>
+    <?php
+        $items = array();
+        $items[1] = array_shift($categories);
+        $items[0] = array_shift($categories);
+        $count_0 = count($items[0]['children']);
+        $count_1 = count($items[1]['children'])+2;
+        if($count_0 > $count_1 && !empty($categories)){
+            $i = 2;
+            while ($count_0 > $count_1){
+                $items[$i] = array_shift($categories);
+                $count_1 += count($items[$i]['children'])+2;
+                $i++;
+            }
+        }
+    ?>
+    <div class="row">
+        <?php if($items[0]): ?>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="category_controls">
+                            <a href="<?= $this->url('admin', 
+                                    array('controller'=>'category', 'action'=>'edit', 
+                                        'id'=>$items[0]['parent']->getId())) ?>" title="Редактировать">
+                                <i class="fa fa-pencil-square-o fa-lg"></i>
+                            </a>
+                            <a class="delete-btn" href="<?= $this->url('admin', 
+                                    array('controller'=>'category', 'action'=>'delete', 
+                                        'id'=>$items[0]['parent']->getId())) ?>" title="Удалить">
+                                <i class="fa fa-trash-o fa-lg"></i>
+                            </a>
+                        </div>
+                        <h4><strong><?= $items[0]['parent']->getName() ?></strong></h4>
+                    </div>
+                    <?php if(count($items[0]['children'])): ?>
+                        <div class="panel-body">
+                            <table class="table">
+                            <?php foreach($items[0]['children'] as $child): ?>
+                                <tr>
+                                    <td><?= $child->getName(); ?>
+                                        <div class="category_controls">
+                                            <a href="<?= $this->url('admin', 
+                                                    array('controller'=>'category', 'action'=>'edit', 
+                                                        'id'=>$child->getId())) ?>" title="Редактировать">
+                                                <i class="fa fa-pencil-square-o"></i>
+                                            </a>
+                                            <a class="delete-btn" href="<?= $this->url('admin', 
+                                                    array('controller'=>'category', 'action'=>'delete', 
+                                                        'id'=>$child->getId())) ?>" title="Удалить">
+                                                <i class="fa fa-trash-o"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </table>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+        <div class="col-md-6">
+            <?php for($i=1; $i<count($items); $i++): ?>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="category_controls">
+                            <a href="<?= $this->url('admin', 
+                                    array('controller'=>'category', 'action'=>'edit', 
+                                        'id'=>$items[$i]['parent']->getId())) ?>" title="Редактировать">
+                                <i class="fa fa-pencil-square-o fa-lg"></i>
+                            </a>
+                            <a class="delete-btn" href="<?= $this->url('admin', 
+                                    array('controller'=>'category', 'action'=>'delete', 
+                                        'id'=>$items[$i]['parent']->getId())) ?>" title="Удалить">
+                                <i class="fa fa-trash-o fa-lg"></i>
+                            </a>
+                        </div>
+                        <h4><strong><?= $items[$i]['parent']->getName() ?></strong></h4>
+                    </div>
+                    <?php if(count($items[$i]['children'])): ?>
+                        <div class="panel-body">
+                            <table class="table">
+                            <?php foreach($items[$i]['children'] as $child): ?>
+                                <tr>
+                                    <td><?= $child->getName(); ?>
+                                        <div class="category_controls">
+                                            <a href="<?= $this->url('admin', 
+                                                    array('controller'=>'category', 'action'=>'edit', 
+                                                        'id'=>$child->getId())) ?>" title="Редактировать">
+                                                <i class="fa fa-pencil-square-o"></i>
+                                            </a>
+                                            <a class="delete-btn" href="<?= $this->url('admin', 
+                                                    array('controller'=>'category', 'action'=>'delete', 
+                                                        'id'=>$child->getId())) ?>" title="Удалить">
+                                                <i class="fa fa-trash-o"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </table>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php endfor; ?>
+        </div>
+    </div>
+<?php endwhile; ?>
+
+<script>
+    $(document).ready(function(){
+        $('.delete-btn').click(function(){
+            if(!confirm('Вы уверены что хотите удалить эту категорию или раздел?')){
+                return false;
+            }
+        });
+    });
+</script>

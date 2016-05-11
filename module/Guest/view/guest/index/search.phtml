@@ -1,0 +1,37 @@
+
+<div class="container">
+
+    <hgroup class="mb20">
+		<h1>Search Results</h1>
+		<h2 class="lead"><strong class="text-danger"><?= count($goods)?></strong> results were found for the search for <strong class="text-danger"><?= '"'.$searchItem.'"'?></strong></h2>
+	</hgroup>
+
+    <section class="col-xs-12 col-sm-6 col-md-12">
+      <?php foreach($goods as $g):?>
+
+		<article class="search-result row">
+			<div class="col-xs-12 col-sm-12 col-md-3">
+				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="<?= $g->getPhoto()?>"></a>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-3">
+				<ul class="meta-search">
+          <?php foreach($categories as $c):?>
+            <?php if($g->getCategory()->getId() == $c->getId()):?>
+              <li><i class="glyphicon glyphicon-tag"></i> Категория: <span><?= $c->getName() ?></span></li>
+            <?php endif;?>
+          <?php endforeach;?>
+
+
+					<li><i class="glyphicon glyphicon-th-list"></i> Кол-во: <span><?= $g->getCount()?></span></li>
+					<li><i class="glyphicon glyphicon-thumbs-up"></i> Цена: <span><?= $g->getCost()?></span></li>
+				</ul>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-6 excerpet">
+				<h3><a href="/goods/view/<?= $g->getId() ?>"><?php echo $g->getName()?></a></h3>
+				<p><?= $g->getShortDescription()?></p>
+                <span class="plus"><a href="/goods/view/<?= $g->getId() ?>"><i class="glyphicon glyphicon-plus"></i></a></span>
+			</div>
+			<span class="clearfix borda"></span>
+		</article>
+  <?php endforeach;?>
+</section>
