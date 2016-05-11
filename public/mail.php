@@ -1,7 +1,7 @@
 <?php
 
 $recepient = "petboxdp@yandex.ru";
-$sitename = "shop.com";
+$sitename = "petbox.esy.es";
 
 $name = trim($_POST["name"]);
 $phone = trim($_POST["phone"]);

@@ -240,7 +240,7 @@ div.container a.brand {
 	width: inherit; 
 	height: inherit; 
 	overflow: hidden; 
-	min-width: 704px; 
+	max-width: 100%; 
 } 
 .collage-wrapper .collage-block{ 
 	position: absolute;
