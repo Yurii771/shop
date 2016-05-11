@@ -20,8 +20,19 @@
     <!--    <input type="file" name="photo"><br>-->
     <input type="text" name="photo" value=""><br>
     <select name="category">
-      <?php foreach($categories as $c):?>
-        <option value="<?= $c->getId()?>"><?= $c->getName();?></option>
+      <?php foreach($categories as $item):?>
+        <optgroup label="<?= $item['parent']->getName(); ?>">
+            <option value="<?= $item['parent']->getId()?>">
+                -- <?= $item['parent']->getName();?> (Корень категории) --
+            </option>
+            <?php if(!empty($item['children'])): ?>
+                <?php foreach($item['children'] as $child): ?>
+                    <option value="<?= $child->getId()?>">
+                        <?= $child->getName();?>
+                    </option>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </optgroup>
       <?php endforeach;?>
     </select>
   <br><br>  <input type="submit" value="Add">

@@ -7,9 +7,15 @@ use Zend\View\Model\ViewModel;
 use Admin\Form\OrderForm;
 
 class OrderController extends AbstractActionController {
+    
+    protected $_objectManager;
+    
+    public function __construct($em) {
+        $this->_objectManager = $em;
+    }
 
     public function indexAction() {
-        $entityManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+        $entityManager = $this->_objectManager;
         $query = $entityManager->createQuery('SELECT u,a.orderStatus FROM Admin\Entity\Orders u JOIN Admin\Entity\OrderStatus a WHERE u.orderStatus=a.id ORDER BY u.id DESC');
         $rows = $query->getResult();
 
@@ -42,7 +48,7 @@ class OrderController extends AbstractActionController {
                 return $this->redirect()->toRoute('admin', array('controler' => 'order', 'action' => 'index'));
             }
 
-            $objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+            $objectManager = $this->_objectManager;
 
             $order = $objectManager
                     ->find('Admin\Entity\Orders', $id);
@@ -54,23 +60,13 @@ class OrderController extends AbstractActionController {
 
             // Fill form data.
             $form->bind($order);
-
-//            $cities_query = $this->getObjectManager()->createQuery('SELECT u.id, u.city FROM Admin\Entity\Cities u ');
-//            $cities = $cities_query->getResult();
-//            $payment_query = $this->getObjectManager()->createQuery('SELECT u.id, u.paymentType FROM Admin\Entity\Payment u ');
-//            $payment = $payment_query->getResult();
-//            $delivery_query = $this->getObjectManager()->createQuery('SELECT u.id, u.deliveryType FROM Admin\Entity\Delivery u ');
-//            $delivery = $delivery_query->getResult();
-//            $order_status_query = $this->getObjectManager()->createQuery('SELECT u.id, u.orderStatus FROM Admin\Entity\OrderStatus u ');
-//            $order_status = $order_status_query->getResult();
-
             return array('form' => $form, 'cities' => $cities, 'payment' => $payment, 'delivery' => $delivery, 'orderStatus' => $orderStatus);
         } else {
             if ($request->isPost()) {
                 $form->setData($request->getPost());
 
                 if ($form->isValid()) {
-                    $objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+                    $objectManager = $this->_objectManager;
 
                     $data = $form->getData();
                     $id = $data['id'];
@@ -106,11 +102,18 @@ class OrderController extends AbstractActionController {
             }
         }
     }
+    
+    public function searchAction(){
+        $searchItem = $this->params()->fromPost('search');
+        if(empty($searchItem)){
+          return $this->redirect()->toRoute('admin');
+        }
+        $query = $this->getObjectManager()->createQuery("SELECT u,a.orderStatus FROM Admin\Entity\Orders u JOIN Admin\Entity\OrderStatus a WHERE u.orderStatus=a.id AND a.orderStatus LIKE '%$searchItem%' ORDER BY u.id DESC ");
+        $rows = $query->getResult();
+      return new ViewModel(array('goods' => $rows,'searchItem'=>$searchItem));
+    }
 
     protected function getObjectManager() {
-        if (!$this->_objectManager) {
-            $this->_objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-        }
         return $this->_objectManager;
     }
 

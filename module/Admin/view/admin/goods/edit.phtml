@@ -1,3 +1,4 @@
+<?php //echo var_dump($goods); die(); ?>
 <style>
   textarea{
     resize: vertical;
@@ -39,10 +40,23 @@
 
 <h4>Категория: </h4>
                         <select class="form-control" name="category">
-                          <?php foreach($categories as $c):?>
-                            <option value="<?= $c->getId()?>"><?= $c->getName();?></option>
-                          <?php endforeach;?>
-                        </select><br><br>
+                            <?php foreach($categories as $item):?>
+                              <optgroup label="<?= $item['parent']->getName(); ?>">
+                                  <?php $is_selected = ($item['parent']->getId()==$goods->getCategory()->getId())? 'selected': ''; ?>
+                                  <option value="<?= $item['parent']->getId()?>" <?= $is_selected; ?>>
+                                      -- <?= $item['parent']->getName();?> (Корень категории) --
+                                  </option>
+                                  <?php if(!empty($item['children'])): ?>
+                                      <?php foreach($item['children'] as $child): ?>
+                                            <?php $is_selected = ($child->getId()==$goods->getCategory()->getId())? 'selected': ''; ?>
+                                            <option value="<?= $child->getId()?>" <?= $is_selected; ?>>
+                                                <?= $child->getName();?>
+                                            </option>
+                                      <?php endforeach; ?>
+                                  <?php endif; ?>
+                              </optgroup>
+                            <?php endforeach;?>
+                        </select>
                     </div>
 
                     <button type="submit" name="Edit" class="btn btn-success ">Edit</button>
