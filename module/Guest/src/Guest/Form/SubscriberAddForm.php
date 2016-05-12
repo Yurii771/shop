@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Form;
+namespace Guest\Form;
 
 use Zend\Form\Form;
 
@@ -8,42 +8,33 @@ use Zend\Form\Form;
 //use Zend\InputFilter\InputFilter;
 //use Admin\Filter\CategoryInputFilter;
 
-class CategoryAddForm extends Form {
+class SubscriberAddForm extends Form {
 
 	public function __construct($name = null) {
 		// we want to ignore the name passed
-		parent::__construct('categoryAddForm');
+		parent::__construct('subscriberAddForm');
 		$this->setAttribute('method', 'post');
+		$this->setAttribute('action', 'subscriber/add');
 		$this->setAttribute('class', 'bs-example form-horizontal');
 		$this->add(array(
-			'name' => 'name',
-			'type' => 'text',
+			'name' => 'email',
+			'type' => 'email',
 			'options' => array(
-				'label' => 'Название категории',
+				//'label' => 'Email',
 				'min' => 3,
 				'max' => 100,
 			),
 			'attributes' => array(
-				'placeholder' => 'Name',
+				'placeholder' => 'Email',
 				'class' => 'form-control',
 				'required' => 'required',
-			),
-		));
-		$this->add(array(
-			'name' => 'parent',
-			'type' => 'select',
-			'options' => array(
-			'label' => 'Родительская категория',
-			),
-			'attributes' => array(
-				'class' => 'form-control',
 			),
 		));
 		$this->add(array(
 			'name' => 'submit',
 			'type' => 'Submit',
 			'attributes' => array(
-				'value' => 'Добавить',
+				'value' => 'Подписаться',
 				'class' => 'btn btn-info',
 			),
 		));

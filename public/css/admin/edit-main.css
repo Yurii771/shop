@@ -17,10 +17,7 @@ form .admin-sub{
     float: right;
     margin-left: 5px;
 }
-form input[type="submit"]{
-    height: 22px;
-    padding-top: 0;
-}
+
 /*
 .collage-block-shadow{
     opacity: 0;
