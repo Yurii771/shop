@@ -1,0 +1,60 @@
+<h1>Edit page</h1>
+<div class="admin-edit">
+    <div class="carousel">
+        <form enctype="multipart/form-data" method="POST" action="<?php echo $this->url('admin', array('controller'=>'page', 'action'=>'saveslider'))?>">
+            <div class="wrapper-edit">
+                <input type="file" name="image1" id="for1" accept="image/jpeg,image/png"/>
+                <input type="file" name="image2" id="for2" accept="image/jpeg,image/png"/>
+                <input type="file" name="image3" id="for3" accept="image/jpeg,image/png"/>
+            </div>
+            <input type="submit" name="add-slider" value="Ok" class="admin-sub"/>
+        </form>
+        <div class="wrapper">
+            <input type="radio" name="point" id="slide1" checked>
+            <input type="radio" name="point" id="slide2">
+            <input type="radio" name="point" id="slide3">
+            <div class="slider">
+                <?php
+                $str = '';
+                foreach ($sliderImg as $key => $val) {
+                    $img_name = $val->getImg_way();
+                    $str.='<div class="slides slide' . ($key+1) . '" style="background: url(../img/' . $img_name . ') no-repeat; background-size: 700px 350px;"></div>';
+                }
+                echo $str;
+                ?>
+            </div>	
+            <div class="controls">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+                <label for="slide3"></label>
+            </div>
+        </div>
+    </div>
+    <div class="collage">
+        <form method="POST" action="<?php echo $this->url('admin', array('controller'=>'page', 'action'=>'save'))?>">
+            <div class="collage-wrapper">
+                <?php
+                $str2 = '';
+                //var_dump($categories);
+                foreach ($categoriesId as $key => $val) {
+                    //for($i=1; $i<=9; $i++){
+                    $name1 = $val['name'];
+                    $str2.='<div class="collage-block" id="block' . ($key + 1) . '" style="background:' . sprintf('#%02X%02X%02X', rand(60, 255), rand(60, 255), rand(60, 255)) . '">';
+                    $str2.='<select name="categorie' . ($key + 1) . '">';
+                    foreach ($categories as $val) {
+                        $name2 = $val->getName();
+                        if ($name1 == $name2) {
+                            $str2.='<option selected>' . $name2 . '</option>';
+                        } else {
+                            $str2.='<option>' . $name2 . '</option>';
+                        }
+                    }
+                    $str2.='</select></div>';
+                }
+                echo $str2;
+                ?>
+            </div>
+            <input type="submit" name="add-col" value="Ok" class="admin-sub"/>
+        </form>
+    </div>
+</div>

@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.5.4.1
 -- http://www.phpmyadmin.net
 --
--- Хост: 127.0.0.1
--- Время создания: Апр 23 2016 г., 19:28
+-- Хост: localhost
+-- Время создания: Май 09 2016 г., 20:34
 -- Версия сервера: 5.6.17
 -- Версия PHP: 5.5.12
 
@@ -14,10 +14,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `level_up_shop`
+-- База данных: `shop`
 --
 
 -- --------------------------------------------------------
@@ -26,13 +26,11 @@ SET time_zone = "+00:00";
 -- Структура таблицы `categories`
 --
 
-CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `parent_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `parent_name` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+  `parent_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `categories`
@@ -41,11 +39,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 INSERT INTO `categories` (`id`, `name`, `parent_id`) VALUES
 (1, 'стегозавры', NULL),
 (7, 'яйца динозавров', NULL),
-(8, 'птерозавры', NULL),
-(14, 'Тестовая категория', 7),
-(15, 'Очень большие яйца', NULL),
-(16, 'Надкатегория', NULL),
-(17, 'Категория', 8);
+(8, 'птерозавры', NULL);
 
 -- --------------------------------------------------------
 
@@ -53,11 +47,10 @@ INSERT INTO `categories` (`id`, `name`, `parent_id`) VALUES
 -- Структура таблицы `cities`
 --
 
-CREATE TABLE IF NOT EXISTS `cities` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `city` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+CREATE TABLE `cities` (
+  `id` int(11) NOT NULL,
+  `city` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `cities`
@@ -72,22 +65,39 @@ INSERT INTO `cities` (`id`, `city`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `cllg`
+--
+
+CREATE TABLE `cllg` (
+  `id` int(11) NOT NULL,
+  `categories_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `cllg`
+--
+
+INSERT INTO `cllg` (`id`, `categories_id`) VALUES
+(1, 7),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `delivery`
 --
 
-CREATE TABLE IF NOT EXISTS `delivery` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `delivery_type` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Дамп данных таблицы `delivery`
---
-
-INSERT INTO `delivery` (`id`, `delivery_type`) VALUES
-(1, 'Самовывоз'),
-(2, 'Новая Почта');
+CREATE TABLE `delivery` (
+  `id` int(11) NOT NULL,
+  `delivery_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -95,18 +105,16 @@ INSERT INTO `delivery` (`id`, `delivery_type`) VALUES
 -- Структура таблицы `goods`
 --
 
-CREATE TABLE IF NOT EXISTS `goods` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `goods` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` longtext NOT NULL,
   `short_description` text NOT NULL,
   `cost` decimal(10,0) NOT NULL,
   `count` int(11) NOT NULL,
   `photo` varchar(255) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `category_id` (`category_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `goods`
@@ -129,9 +137,9 @@ INSERT INTO `goods` (`id`, `name`, `description`, `short_description`, `cost`, `
 -- Структура таблицы `orders`
 --
 
-CREATE TABLE IF NOT EXISTS `orders` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_list` text NOT NULL,
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `order` text NOT NULL,
   `customer_name` varchar(255) NOT NULL,
   `customer_surname` varchar(255) NOT NULL,
   `delivery_id` int(11) NOT NULL,
@@ -140,23 +148,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `adress` varchar(255) NOT NULL,
   `city_id` int(11) NOT NULL,
   `customer_email` varchar(255) NOT NULL,
-  `customer_phone` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `delivery_id` (`delivery_id`),
-  KEY `payment_id` (`payment_id`),
-  KEY `order_status_id` (`order_status_id`),
-  KEY `city_id` (`city_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Дамп данных таблицы `orders`
---
-
-INSERT INTO `orders` (`id`, `order_list`, `customer_name`, `customer_surname`, `delivery_id`, `payment_id`, `order_status_id`, `adress`, `city_id`, `customer_email`, `customer_phone`) VALUES
-(1, 'Список товаров', 'Пользователь', 'Фамилия', 1, 2, 1, 'Адрес', 2, 'cust@mail.ua', '(056)111-11-11'),
-(2, 'список', 'заказчик', 'с фамилией', 2, 2, 2, 'адр', 4, 'asdfs@fsdg', '(111)8888888'),
-(3, 'some order', 'Любое имя', 'Любая фамилия', 2, 1, 1, 'Любой адрес', 4, 'test@tast.com', '(555)6689859'),
-(4, 'some order', 'Саша', 'Мищанюк', 2, 2, 1, 'Подстанция', 3, 'sas.m@ua.fm', '(000)1234567');
+  `customer_phone` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -164,19 +157,10 @@ INSERT INTO `orders` (`id`, `order_list`, `customer_name`, `customer_surname`, `
 -- Структура таблицы `order_status`
 --
 
-CREATE TABLE IF NOT EXISTS `order_status` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_status` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Дамп данных таблицы `order_status`
---
-
-INSERT INTO `order_status` (`id`, `order_status`) VALUES
-(1, 'В обработке'),
-(2, 'Подтверждение платежа');
+CREATE TABLE `order_status` (
+  `id` int(11) NOT NULL,
+  `order_status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -184,20 +168,166 @@ INSERT INTO `order_status` (`id`, `order_status`) VALUES
 -- Структура таблицы `payment`
 --
 
-CREATE TABLE IF NOT EXISTS `payment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `payment_type` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+CREATE TABLE `payment` (
+  `id` int(11) NOT NULL,
+  `payment_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
 
 --
--- Дамп данных таблицы `payment`
+-- Структура таблицы `slider`
 --
 
-INSERT INTO `payment` (`id`, `payment_type`) VALUES
-(1, 'Наличными при получении'),
-(2, 'На карту Приватбанка');
+CREATE TABLE `slider` (
+  `id` int(11) NOT NULL,
+  `img_way` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Дамп данных таблицы `slider`
+--
+
+INSERT INTO `slider` (`id`, `img_way`) VALUES
+(1, 'ukraine.jpg'),
+(2, 'usa.jpg'),
+(3, 'gb.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `subscribers`
+--
+
+CREATE TABLE `subscribers` (
+  `id` int(11) NOT NULL,
+  `email` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Таблица подписчиков';
+
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `parent_name` (`parent_id`);
+
+--
+-- Индексы таблицы `cities`
+--
+ALTER TABLE `cities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `cllg`
+--
+ALTER TABLE `cllg`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `delivery`
+--
+ALTER TABLE `delivery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `goods`
+--
+ALTER TABLE `goods`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category_id` (`category_id`);
+
+--
+-- Индексы таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `delivery_id` (`delivery_id`),
+  ADD KEY `payment_id` (`payment_id`),
+  ADD KEY `order_status_id` (`order_status_id`),
+  ADD KEY `city_id` (`city_id`);
+
+--
+-- Индексы таблицы `order_status`
+--
+ALTER TABLE `order_status`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `subscribers`
+--
+ALTER TABLE `subscribers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT для таблицы `cities`
+--
+ALTER TABLE `cities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT для таблицы `cllg`
+--
+ALTER TABLE `cllg`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT для таблицы `delivery`
+--
+ALTER TABLE `delivery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблицы `goods`
+--
+ALTER TABLE `goods`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT для таблицы `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблицы `order_status`
+--
+ALTER TABLE `order_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблицы `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблицы `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT для таблицы `subscribers`
+--
+ALTER TABLE `subscribers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
@@ -206,7 +336,7 @@ INSERT INTO `payment` (`id`, `payment_type`) VALUES
 -- Ограничения внешнего ключа таблицы `categories`
 --
 ALTER TABLE `categories`
-  ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `goods`

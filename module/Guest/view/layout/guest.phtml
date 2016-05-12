@@ -1,8 +1,6 @@
-<?php
-echo $this->doctype();
-?>
-
+<?php   echo $this->doctype(); ?>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <?php echo $this->headTitle('PetBox ' . $this->translate(''))->setSeparator(' - ')->setAutoEscape(false) ?>
@@ -12,44 +10,56 @@ echo $this->doctype();
                 ->appendName('viewport', 'width=device-width, initial-scale=1.0')
                 ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
         ?>
-
         <!-- Le styles -->
-        <?php
-        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/pb.ico'))
-                ->prependStylesheet($this->basePath('css/guest/style.css'))
-                ->prependStylesheet($this->basePath('css/style.css'))
-                ->prependStylesheet($this->basePath('css/style-contacts.css'))
-                ->prependStylesheet($this->basePath('libs/font-awesome-4.6.1/css/font-awesome.min.css'))
-                ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
-                ->prependStylesheet($this->basePath('css/bootstrap.css'))
-        ?>
+		<?php
+		echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/pb.ico'))
+				->prependStylesheet($this->basePath('css/guest/navbar.css'))
+				->prependStylesheet($this->basePath('css/style-catalog.css'))
+				->prependStylesheet($this->basePath('css/style-contacts.css'))
+                                ->prependStylesheet($this->basePath('css/guest/style.css'))
+				->prependStylesheet($this->basePath('css/style.css'))
+//				->prependStylesheet($this->basePath('libs/fancybox/source/helpers/jquery.fancybox-buttons.css'))
+//				->prependStylesheet($this->basePath('libs/fancybox/source/helpers/jquery.fancybox-thumbs.css'))
+				->prependStylesheet($this->basePath('libs/fancybox/source/jquery.fancybox.css'))
+				->prependStylesheet($this->basePath('libs/lightbox/dist/css/lightbox.css'))
+				->prependStylesheet($this->basePath('libs/font-awesome-4.6.1/css/font-awesome.min.css'))
+				->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+				->prependStylesheet($this->basePath('css/bootstrap.css'))
+		?>
 
         <!-- Scripts -->
-        <?php
-        echo $this->headScript()
-                ->prependFile($this->basePath('js/guest/ajax.js'))
-                ->prependFile($this->basePath('js/guest/actions.js'))
-                ->prependFile($this->basePath('js/bootstrap.min.js'))
-                ->prependFile($this->basePath('js/jquery.min.js'))
-                ->prependFile($this->basePath('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
-                ->prependFile($this->basePath('js/html5shiv.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
-        ;
-        ?>
-
+		<?php
+		echo $this->headScript()
+//				->prependFile($this->basePath('libs/fancybox/source/helpers/jquery.fancybox-buttons.js'))
+//				->prependFile($this->basePath('libs/fancybox/source/helpers/jquery.fancybox-media.js'))
+//				->prependFile($this->basePath('libs/fancybox/source/helpers/jquery.fancybox-thumbs.js'))
+//				->prependFile($this->basePath('libs/fancybox/lib/jquery.mousewheel-3.0.6.pack.js'))
+				->prependFile($this->basePath('js/script.js'))
+				->prependFile($this->basePath('libs/fancybox/source/jquery.fancybox.pack.js'))
+				->prependFile($this->basePath('libs/lightbox/dist/js/lightbox-plus-jquery.js'))
+				->prependFile($this->basePath('js/guest/ajax.js'))
+				->prependFile($this->basePath('js/guest/actions.js'))
+				->prependFile($this->basePath('js/bootstrap.min.js'))
+				->prependFile($this->basePath('js/jquery.min.js'))
+				->prependFile($this->basePath('http://code.jquery.com/jquery-latest.min.js'))
+				->prependFile($this->basePath('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+				->prependFile($this->basePath('js/html5shiv.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+		;
+		?>
     </head>
-    <body>
-        <nav class="navbar navbar-default navbar-fixed-top navig" role="navigation">
-            <div class="container cnt">
+    <body class="body-guest">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img id="logo" src="<?php echo $this->basePath('img/logo1.png') ?>" alt="petbox logo" width="100" height="70"/></a>
+                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath('img/logo1.png') ?>" alt="petbox logo" width="80" height="50"/></a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <?php
+		<?php
                     echo $this->guest_navigation()->menu()
                             ->setUlClass('nav navbar-nav')
                             ->setPartial('')
@@ -71,58 +81,56 @@ echo $this->doctype();
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
-        <div class="container cnt">
+        <div class="container">
             <?= $this->guest_navigation()->breadcrumbs()
                         ->setMinDepth(1)
                         ->setPartial('partial/breadcrumbs.phtml')
                         ->render(); ?>
-            <?php echo $this->content; ?>
+<?php echo $this->content; ?>
         </div> <!-- /container -->
-        <div class="footer">
-            <div class="wrap-foot">
-                <div class="links foot">
-                    <h3>Полезные ссылки</h3>
-                    <ul class="link-list">
-                        <a href="<?= $this->url('guest', array('controller' => 'index', 'action' => 'sitemap')) ?>"><li><i class="fa fa-sitemap" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Карта сайта</li></a>
-                        <a href="<?= $this->url('guest', array('controller' => 'category', 'action' => 'index')) ?>"><li><i class="fa fa-list" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Вернуться к каталогу</li></a>
-                        <a href="<?= $this->url('guest', array('controller' => 'payment', 'action' => 'index')) ?>"><li><i class="fa fa-credit-card" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Оплата и Доставка</li></a>
-                        <a href="<?= $this->url('guest', array('controller' => 'contacts', 'action' => 'index')) ?>"><li><i class="fa fa-pencil-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Связаться с нами</li></a>
-                        <a href="<?= $this->url('guest', array('controller' => 'about', 'action' => 'index')) ?>"><li><i class="fa fa-info-circle" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>О нас</li></a>
-                    </ul>
-                </div>
-                <div class="inst foot">
-                    <h3>Фотопоток</h3>
-                    <ul>
-                        <li><img class="inst-img" src="http://dogtowndogtraining.com/wp-content/uploads/2012/06/300x300-061-e1340955308953.jpg"/></li>
-                        <li><img class="inst-img" src="http://trupanion.com/-/media/images/trupanion/Home/cat-home.jpg?h=300&la=en&w=300&hash=5AE8A88FF231372A88A0E89BA71EA81FD2BB2412"/></li>
-                        <li><img class="inst-img" src="https://lh5.googleusercontent.com/-6_pwkiZp5-A/AAAAAAAAAAI/AAAAAAAAFII/v_jXXN9rS38/photo.jpg"/></li>
-                        <li><img class="inst-img" src="http://artmodel.com.ua/wp-content/uploads/2015/08/310-300x300.jpg"/></li>
-                        <li><img class="inst-img" src="http://poseidon.in.ua/sites/default/files/pt600.jpg"/></li>
-                        <li><img class="inst-img" src="https://www.proza.ru/pics/2014/03/10/407.jpg"/></li>
-                        <li><img class="inst-img" src="http://more-adler.com/sites/default/files/obezyaniy_pitomnik_9.jpg"/></li>
-                        <li><img class="inst-img" src="http://brit-cat.ru/images/Brunin_BEST.jpg"/></li>
-                        <li><img class="inst-img" src="http://fleek.org/wp-content/uploads/internet-magaz.jpg"/></li>
-                    </ul>
-                </div>
-                <div class="social foot">
-                    <h3>Следите за нами</h3>
-                    <div class="soc">
-                        <p><a href="#"><img src="/img/vk.png"/>&nbsp;&nbsp;&nbsp;Vkontakte</a></p>
-                        <p><a href="#"><img src="/img/in.png"/>&nbsp;&nbsp;&nbsp;Instagram</a></p>
-                        <p><a href="#"><img src="/img/tw.png"/>&nbsp;&nbsp;&nbsp;Twitter</a></p>
-                        <p><a href="#"><img src="/img/gp.png"/>&nbsp;&nbsp;&nbsp;Google+</a></p>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-12 underfooter">
+			<div class="col-md-4 links">
+				<h3>Полезные ссылки</h3>
+				<ul class="link-list">
+					<a href="<?= $this->url('guest', array('controller' => 'sitemap', 'action' => 'index')) ?>"><li><i class="fa fa-sitemap" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Карта сайта</li></a>
+					<a href="<?= $this->url('guest', array('controller' => 'category', 'action' => 'index')) ?>"><li><i class="fa fa-list" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Вернуться к каталогу</li></a>
+					<a href="<?= $this->url('guest', array('controller' => 'payment', 'action' => 'index')) ?>"><li><i class="fa fa-credit-card" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Оплата и Доставка</li></a>
+					<a href="<?= $this->url('guest', array('controller' => 'contacts', 'action' => 'index')) ?>"><li><i class="fa fa-pencil-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Связаться с нами</li></a>
+					<a href="<?= $this->url('guest', array('controller' => 'about', 'action' => 'index')) ?>"><li><i class="fa fa-info-circle" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>О нас</li></a>
+				</ul>
+			</div>
+			<div class="col-md-4 inst">
+				<h3>Фотопоток</h3>
+				<ul>
+					<li><a href="http://dogtowndogtraining.com/wp-content/uploads/2012/06/300x300-061-e1340955308953.jpg" data-lightbox="roadtrip"><img class="inst-img" src="http://dogtowndogtraining.com/wp-content/uploads/2012/06/300x300-061-e1340955308953.jpg"/></a></li>
+					<li><a href="http://trupanion.com/-/media/images/trupanion/Home/cat-home.jpg?h=300&la=en&w=300&hash=5AE8A88FF231372A88A0E89BA71EA81FD2BB2412" data-lightbox="roadtrip"><img class="inst-img" src="http://trupanion.com/-/media/images/trupanion/Home/cat-home.jpg?h=300&la=en&w=300&hash=5AE8A88FF231372A88A0E89BA71EA81FD2BB2412"/></a></li>
+					<li><a href="https://lh5.googleusercontent.com/-6_pwkiZp5-A/AAAAAAAAAAI/AAAAAAAAFII/v_jXXN9rS38/photo.jpg" data-lightbox="roadtrip"><img class="inst-img" src="https://lh5.googleusercontent.com/-6_pwkiZp5-A/AAAAAAAAAAI/AAAAAAAAFII/v_jXXN9rS38/photo.jpg"/></a></li>
+					<li><a href="http://artmodel.com.ua/wp-content/uploads/2015/08/310-300x300.jpg" data-lightbox="roadtrip"><img class="inst-img" src="http://artmodel.com.ua/wp-content/uploads/2015/08/310-300x300.jpg"/></a></li>
+					<li><a href="http://poseidon.in.ua/sites/default/files/pt600.jpg" data-lightbox="roadtrip"><img class="inst-img" src="http://poseidon.in.ua/sites/default/files/pt600.jpg"/></a></li>
+					<li><a href="https://www.proza.ru/pics/2014/03/10/407.jpg" data-lightbox="roadtrip"><img class="inst-img" src="https://www.proza.ru/pics/2014/03/10/407.jpg"/></a></li>
+					<li><a href="http://more-adler.com/sites/default/files/obezyaniy_pitomnik_9.jpg" data-lightbox="roadtrip"><img class="inst-img" src="http://more-adler.com/sites/default/files/obezyaniy_pitomnik_9.jpg"/></a></li>
+					<li><a href="http://brit-cat.ru/images/Brunin_BEST.jpg" data-lightbox="roadtrip"><img class="inst-img" src="http://brit-cat.ru/images/Brunin_BEST.jpg"/></a></li>
+					<li><a href="http://fleek.org/wp-content/uploads/internet-magaz.jpg" data-lightbox="roadtrip"><img class="inst-img" src="http://fleek.org/wp-content/uploads/internet-magaz.jpg"/></a></li>
+				</ul>
+			</div>
+			<div class="col-md-4 social">
+				<h3>Следите за нами</h3>
+				<p><a href="#"><img src="/img/vk.png"/>&nbsp;&nbsp;&nbsp;Vkontakte</a></p>
+				<p><a href="#"><img src="/img/in.png"/>&nbsp;&nbsp;&nbsp;Instagram</a></p>
+				<p><a href="#"><img src="/img/tw.png"/>&nbsp;&nbsp;&nbsp;Twitter</a></p>
+				<p><a href="#"><img src="/img/gp.png"/>&nbsp;&nbsp;&nbsp;Google+</a></p>
+			</div>
         </div>
-        <footer>
+        <div class="col-md-12 footer" align="center">
             <h4>Новости и акции</h4>
-            <form method="post">
+            <form method="post" id="addSubscriber">
                 <input type="email" name="email" placeholder="Адрес электронной почты" size="38"/>&nbsp;&nbsp;&nbsp;
-                <button class="btn btn-info btn-sm" name="subscribe">Подписаться</button>
+                <button class="btn btn-info btn-sm">Подписаться</button>
             </form>
+			<script src="js/subscribers.js"></script>
             <p>Copyright 2016. PHP 15-2 Design Inc. All Right Reserved</p>
-        </footer>
-        <?php echo $this->inlineScript() ?>
+        </div>
+		<script src="/libs/lightbox/dist/js/lightbox.js"></script>
+<?php echo $this->inlineScript() ?>
     </body>
 </html>
