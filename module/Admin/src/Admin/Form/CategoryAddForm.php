@@ -33,7 +33,7 @@ class CategoryAddForm extends Form {
 			'name' => 'parent',
 			'type' => 'select',
 			'options' => array(
-                            'label' => 'Родительская категория',
+			'label' => 'Родительская категория',
 			),
 			'attributes' => array(
 				'class' => 'form-control',

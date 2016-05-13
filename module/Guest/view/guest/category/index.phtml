@@ -7,23 +7,23 @@
             <th>Название</th>
             <th>Родительская</th>
         </tr>
-        <?php $count = 1; ?>
-        <?php foreach ($categories as $item): ?>
-            <tr>
-                <td><?php echo $count++; ?></td>
-                <td>
-                    <a href="<?= $this->url('guest', array('controller' => 'goods', 'id' => $item->getId())) ?>">
-                        <?php echo $item->getName() ?>
-                    </a>
-                </td>
-                <td>
-                    <?php if ($item->getParent()):?> 
-                        <a href="<?= $this->url('guest', array('controller' => 'goods', 'id' => $item->getParent()->getId())) ?>">
-                            <?= $item->getParent()->getName(); ?>
-                        </a>
-                    <?php endif; ?>
-                </td>
-            </tr>	
-<?php endforeach; ?>
+		<?php $count = 1; ?>
+		<?php foreach ($categories as $item): ?>
+			<tr>
+				<td><?php echo $count++; ?></td>
+				<td>
+					<a href="<?= $this->url('guest', array('controller' => 'goods', 'id' => $item->getId())) ?>">
+						<?php echo $item->getName() ?>
+					</a>
+				</td>
+				<td>
+					<?php if ($item->getParent()): ?> 
+						<a href="<?= $this->url('guest', array('controller' => 'goods', 'id' => $item->getParent()->getId())) ?>">
+							<?= $item->getParent()->getName(); ?>
+						</a>
+					<?php endif; ?>
+				</td>
+			</tr>	
+		<?php endforeach; ?>
     </tbody>
 </table>

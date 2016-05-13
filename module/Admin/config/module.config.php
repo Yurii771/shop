@@ -26,7 +26,7 @@ return array(
             'admin' => array(
                 'type'    => 'Segment',
                 'options' => array(
-                    'route'    => '/admin[/:controller[/:action[/:id]]]',
+                    'route' => '/admin[/:controller[/:action[/:id]]]',
                     'constraints' => array(
                         'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
@@ -49,6 +49,7 @@ return array(
         'factories' => array(
             'Admin\Controller\Auth' => 'Admin\Factory\AuthControllerFactory',
             'Admin\Controller\Category' => 'Admin\Factory\CategoryControllerFactory',
+			'Admin\Controller\Page' => 'Admin\Factory\PageControllerFactory',
         ),
     ),
 	

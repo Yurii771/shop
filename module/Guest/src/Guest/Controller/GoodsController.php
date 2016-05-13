@@ -15,10 +15,14 @@ use Doctrine\ORM\EntityManager;
 
 class GoodsController extends BaseController
 {    
+    public function __construct($em) {
+        $this->_entityManager = $em;
+    }
+    
     public function indexAction()
     {
         $id = (int) $this->params()->fromRoute('id', 0);
-        $query=$this->getEntityManager()->createQuery("SELECT g FROM Admin\Entity\Goods g WHERE g.category=$id");
+        $query=$this->_entityManager->createQuery("SELECT g FROM Admin\Entity\Goods g WHERE g.category=$id");
         $rows=$query->getResult();
         return array('goods'=>$rows);
         
@@ -27,7 +31,7 @@ class GoodsController extends BaseController
     public function viewAction()
     {
         $id = (int) $this->params()->fromRoute('id', 0);
-        $goods = $this->getEntityManager()->find('\Admin\Entity\Goods', $id);
+        $goods = $this->_entityManager->find('\Admin\Entity\Goods', $id);
         return new ViewModel(array('goods' => $goods));
     }
             

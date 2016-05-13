@@ -63,4 +63,17 @@ class Delivery
     {
         return $this->deliveryType;
     }
+     public function exchangeArray($data)
+    {
+            foreach ($data as $key => $val){
+                    if(property_exists($this, $key)){
+                            $this->$key = ($val) ? $val : null;
+                    }
+            }
+    }
+	
+    public function getArrayCopy()
+    {
+        return get_object_vars($this);
+    }
 }

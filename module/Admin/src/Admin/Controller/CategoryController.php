@@ -14,6 +14,9 @@ class CategoryController extends BaseController
     
     public function indexAction()
     {
+//        $query1 = $this->getEntityManager()->createQuery('SELECT u FROM Admin\Entity\Orders u ORDER BY u.id');
+//        $rows1 = $query1->getResult();
+//        var_dump($rows1[0]->getPayment()->getPaymentType()); die();
         $query = $this->getEntityManager()->createQuery('SELECT u FROM Admin\Entity\Categories u ORDER BY u.id');
         $rows = $query->getResult();
         return array('categories' => $rows);

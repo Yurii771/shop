@@ -18,6 +18,6 @@ namespace Guest\Factory;
      {
         $sm = $serviceLocator->getServiceLocator();
         $em = $sm->get('Doctrine\ORM\EntityManager');
-         return new CategoryController($em);
+        return new CategoryController($em);
      }
  }
