@@ -210,16 +210,17 @@ div.container a.brand {
 
 .footer input {
     background-image: url("../img/email.png"); 
-	background-size: 10% 100%;
+	background-size: 30px 100%;
     background-repeat: no-repeat; /*Убираем повтор изображения*/   
     background-position: 0px; /*Позиционируем*/   
     outline: none; /*убираем стандартную обводку браузера*/   
     -moz-border-radius: 5px; /*закругляем углы для Mozilla*/  
     -webkit-border-radius: 5px; /*закругляем углы для Chrome, Safari*/   
     border-radius: 5px; /*закругляем углы для остальных браузеров*/  
-    padding-left: 50px; /*отступ слева от ввода, чтобы текст не был на картинке(выбирать по размеру картинки)*/  
+    padding-left: 4%; /*отступ слева от ввода, чтобы текст не был на картинке(выбирать по размеру картинки)*/  
     height: 30px; /*высота строки ввода*/   
     font-size: 17px; /*размер шрифта*/
+	width: 22%;
 }
 /********** END FOOTER **********/
 
