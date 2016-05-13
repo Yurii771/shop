@@ -35,6 +35,7 @@ return array(
             'Guest\Controller\Category' => 'Guest\Factory\CategoryControllerFactory',
             'Guest\Controller\Order' => 'Guest\Factory\OrderControllerFactory',
             'Guest\Controller\Goods' => 'Guest\Factory\GoodsControllerFactory',
+            'Guest\Controller\Index' => 'Guest\Factory\IndexControllerFactory',
         ),
     ),
     'view_manager' => array(
