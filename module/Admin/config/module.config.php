@@ -50,7 +50,8 @@ return array(
             'Admin\Controller\Auth' => 'Admin\Factory\AuthControllerFactory',
             'Admin\Controller\Category' => 'Admin\Factory\CategoryControllerFactory',
             'Admin\Controller\Goods' => 'Admin\Factory\GoodsControllerFactory',
-            'Admin\Controller\Order' => 'Admin\Factory\OrderControllerFactory'
+            'Admin\Controller\Order' => 'Admin\Factory\OrderControllerFactory',
+            'Admin\Controller\Page' => 'Admin\Factory\PageControllerFactory',
         ),
     ),
 

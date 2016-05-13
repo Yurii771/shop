@@ -6,11 +6,9 @@ use Zend\View\Model\ViewModel;
 use Application\Controller\BaseAdminController as BaseController;
 
 class IndexController extends BaseController
-{
-    protected $_objectManager;
-    
+{    
     public function __construct($em) {
-        $this->_objectManager = $em;
+        $this->_entityManager = $em;
     }
     
     public function indexAction()
@@ -29,9 +27,9 @@ class IndexController extends BaseController
         if(empty($searchItem)){
           return $this->redirect()->toRoute('guest');
         }
-        $query = $this->_objectManager->createQuery("SELECT u FROM Admin\Entity\Goods u WHERE u.name LIKE '%$searchItem%' ");
+        $query = $this->_entityManager->createQuery("SELECT u FROM Admin\Entity\Goods u WHERE u.name LIKE '%$searchItem%' ");
         $rows = $query->getResult();
-        $categories = $this->_objectManager->getRepository('\Admin\Entity\Categories')->findAll();
+        $categories = $this->_entityManager->getRepository('\Admin\Entity\Categories')->findAll();
 
       return new ViewModel(array('goods' => $rows,'searchItem'=>$searchItem, 'categories'=>$categories));
     }

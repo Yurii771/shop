@@ -13,10 +13,8 @@
         <!-- Le styles -->
 		<?php
 		echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/pb.ico'))
-				->prependStylesheet($this->basePath('css/guest/navbar.css'))
-				->prependStylesheet($this->basePath('css/style-catalog.css'))
-				->prependStylesheet($this->basePath('css/style-contacts.css'))
                                 ->prependStylesheet($this->basePath('css/guest/style.css'))
+				->prependStylesheet($this->basePath('css/style-contacts.css'))
 				->prependStylesheet($this->basePath('css/style.css'))
 //				->prependStylesheet($this->basePath('libs/fancybox/source/helpers/jquery.fancybox-buttons.css'))
 //				->prependStylesheet($this->basePath('libs/fancybox/source/helpers/jquery.fancybox-thumbs.css'))
@@ -65,18 +63,18 @@
                             ->setPartial('')
                             ->setMaxDepth(0);
                     ?>
+                    <div class="cart">
+                        <a href="#">
+                            <img id="cart" src="/img/cart.png" alt="cart"/>
+                            <div class="cartCount"></div>
+                        </a>
+                    </div>
                     <div class="search">
                         <form method="POST" class="form-horizontal" 
                               action="<?= $this->url('guest', array('controller'=>'index', 'action'=>'search')) ?>">
                             <input id="srch-term" type="text" name="search" placeholder="Искать животное.." size="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
                             <button type="submit" class="btn btn-warning btn-sm">Найти</button>
                         </form>
-                    </div>
-                    <div class="cart">
-                        <a href="#">
-                            <img id="cart" src="/img/cart.png" alt="cart"/>
-                            <div class="cartCount"></div>
-                        </a>
                     </div>
                 </div><!--/.nav-collapse -->
             </div>
@@ -92,7 +90,7 @@
 			<div class="col-md-4 links">
 				<h3>Полезные ссылки</h3>
 				<ul class="link-list">
-					<a href="<?= $this->url('guest', array('controller' => 'sitemap', 'action' => 'index')) ?>"><li><i class="fa fa-sitemap" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Карта сайта</li></a>
+					<a href="<?= $this->url('guest', array('controller' => 'index', 'action' => 'sitemap')) ?>"><li><i class="fa fa-sitemap" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Карта сайта</li></a>
 					<a href="<?= $this->url('guest', array('controller' => 'category', 'action' => 'index')) ?>"><li><i class="fa fa-list" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Вернуться к каталогу</li></a>
 					<a href="<?= $this->url('guest', array('controller' => 'payment', 'action' => 'index')) ?>"><li><i class="fa fa-credit-card" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Оплата и Доставка</li></a>
 					<a href="<?= $this->url('guest', array('controller' => 'contacts', 'action' => 'index')) ?>"><li><i class="fa fa-pencil-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Связаться с нами</li></a>

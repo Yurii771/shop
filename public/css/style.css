@@ -37,7 +37,7 @@ div.container a.brand {
 /********** End Default **********/
 
 
-.cart{
+/*.cart{
 	float: right;
 	width: 70px;
 	height: 55px;
@@ -45,7 +45,7 @@ div.container a.brand {
 	text-align: center;
 	margin-top: 15px;
         position: relative;
-}
+}*/
 
 /********** Navbar(button 'find', cart) **********/
 .search button{
