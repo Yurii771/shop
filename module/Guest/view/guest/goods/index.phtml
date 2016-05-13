@@ -3,7 +3,7 @@
 		<?php $count = 1; ?>
 		<?php foreach ($goods as $key): ?>
 		<div class="col-md-4 good">
-			<img src="<?= $key->getPhoto() ?>"/>
+			<img src="<?= '../public/img/goods/'.$key->getPhoto() ?>"/>
 			<h3><?= $key->getName() ?></h3>
 			<p class="descript"><?= $key->getShortDescription() ?></p>
 			<div><a href="<?= $this->url('guest', array('controller' => 'goods', 'action' => 'view', 'id' => $key->getId())) ?>" class="btn btn-warning btn-sm">Подробнее</a><br/><br/>
