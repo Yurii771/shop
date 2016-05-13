@@ -5,14 +5,20 @@
 		</div>
 		<div class="col-md-6 id-desc">
 			<h2><?php echo $goods->getName() ?></h2>
-			<p class="desc"><?php echo $goods->getDescription() ?></p></br>
+			<p class="desc"><?php echo $goods->getDescription() ?></p><br>
 			<label for="count">Количество:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-			<input type="number" name="goods_count" id="count" min="1" max="<?php echo $goods->getCount() ?>" step="1" value="1"/></br></br>
+			<input type="number" name="goods_count" id="count" min="1" max="<?php echo $goods->getCount() ?>" step="1" value="1"/><br><br>
 			<label for="exist">В наличии:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-			<span id="exist"><?php echo $goods->getCount() ?><span></br></br>
+			<span id="exist"><?php echo $goods->getCount() ?></span><br><br>
 			<label for="price">Стоимость:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-			<span id="price"><?php echo $goods->getCost() ?> грн.<span></br></br>
-			<a href="/guest/cart" class="btn">Купить</a>	
+			<span id="price"><?php echo $goods->getCost() ?> грн.</span><br/><br/>
+			<a href="<?= $this->url('guest', array('controller' => 'cart', 'action' => 'add', 'id' => $goods->getId())) ?>" class="btn btn_to_cart">Купить</a>	
 		</div>
 	</div>
 </div>
+
+<script>
+$(document).ready(function(){
+    $('.btn_to_cart').click(addToCartAjax);
+});
+</script>

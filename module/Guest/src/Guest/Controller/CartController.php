@@ -4,8 +4,7 @@ namespace Guest\Controller;
 
 use Application\Controller\BaseAdminController as BaseController;
 use Zend\View\Model\ViewModel;
-use Zend\Validator\Regex;
-use Admin\Entity\Goods;
+use Zend\View\Model\JsonModel;
 
 class CartController extends BaseController
 {
@@ -15,59 +14,79 @@ class CartController extends BaseController
     
     public function indexAction()
     {
-        return new ViewModel();
+        $cart = NULL;
+        if(isset($_SESSION['orders'])){
+            $cart = $_SESSION['orders'];
+        }
+        return new ViewModel(array('cart' => $cart));
     }
     
     public function addAction()
     {
+        $respond = array(
+            'ok' => 0,
+            'msg' => array(),
+        );
         if(!isset($_SESSION['orders'])){
             $_SESSION['orders']=array();
         }
-        $url=$_SERVER['REQUEST_URI'];
-        $url=explode('/', $url);
-        $id=$url[count($url)-1];
-        $id=1;
-        $count=$_POST['count'];
-        $query=$this->getEntityManager()->createQuery('SELECT u FROM Admin\Entity\Goods u where u.id='.$id);
-        $good_data=$query->getResult();
-        $arr['id']=$good_data[0]->getId();
-        $arr['name']=$good_data[0]->getName();
-        $arr['shortDescription']=$good_data[0]->getShortDescription();
-        $arr['count']=$count;
-        $arr['max_count']=$good_data[0]->getCount();
-        $arr['cost']=$good_data[0]->getCost();
-        $arr['photo']=$good_data[0]->getPhoto();
-        array_push($_SESSION['orders'], $arr);
-        return $this->redirect()->toRoute('guest', array('controller' => 'cart', 'action' => 'index'));
+        $id = (int) $this->params()->fromRoute('id', 0);
+        if($this->getRequest()->isPost() && $id){
+            $count = (int) $this->getRequest()->getPost('count');
+            $count = ($count)? $count: 1;
+            $index = $this->getIndexByGoodsId($_SESSION['orders'], $id);
+            
+            if($index === FALSE){
+                $goods = $this->getEntityManager()->find('Admin\Entity\Goods', $id);
+                $_SESSION['orders'][] = array(
+                    'goods' => $goods,
+                    'count' => $count,
+                );
+            }else{
+                $_SESSION['orders'][$index]['count'] += $count;
+            }
+            $respond['ok'] = 1;
+        }
+        return new JsonModel($respond);
     }
     
     public function editAction()
     {
-        $url=$_SERVER['REQUEST_URI'];
-        $id=explode('/', $url);
-        $id=$id[count($id)-1];
-        foreach($_SESSION['orders'] as $key=>$ses){
-            if($ses['id']==$id){
-                if($_POST['count']<=$_SESSION['orders'][$key]['max_count']){
-                    $_SESSION['orders'][$key]['count']=$_POST['count'];
-                }
+        $respond = array(
+            'ok' => 0,
+            'msg' => array(),
+        );
+        $id = (int) $this->params()->fromRoute('id', 0);
+        if(isset($_SESSION['orders']) && $this->getRequest()->isPost() && $id){
+            $cart = $_SESSION['orders'];
+            $count = (int) $this->getRequest()->getPost('count');
+            $index = $this->getIndexByGoodsId($cart, $id);
+            if($index !== FALSE){
+                $cart[$index]['count'] = $count;
+                $_SESSION['orders'] = $cart;
+                $respond['ok'] = 1;
             }
         }
-        return $this->redirect()->toRoute('guest', array('controller' => 'cart', 'action' => 'index'));
+        return new JsonModel($respond);
     }
     
     public function deleteAction()
     {
-        $url=$_SERVER['REQUEST_URI'];
-        $id=explode('/', $url);
-        $id=$id[count($id)-1];
-        foreach($_SESSION['orders'] as $key=>$ses){
-            if($ses['id']==$id){
-                unset($_SESSION['orders'][$key]);
+        $respond = array(
+            'ok' => 0,
+            'msg' => array(),
+        );
+        $id = (int) $this->params()->fromRoute('id', 0);
+        if(isset($_SESSION['orders']) && $id){
+            $cart = $_SESSION['orders'];
+            $index = $this->getIndexByGoodsId($cart, $id);
+            if($index !== FALSE){
+                unset($cart[$index]);
+                $_SESSION['orders'] = $cart;
+                $respond['ok'] = 1;
             }
         }
-        //session_unset();
-        return $this->redirect()->toRoute('guest', array('controller' => 'cart', 'action' => 'index'));
+        return new JsonModel($respond);
     }
         
     public function countAction() {
@@ -77,5 +96,14 @@ class CartController extends BaseController
         }
         echo $count;
         die();
+    }
+    
+    protected function getIndexByGoodsId($cart, $goods_id) {
+        for($i=0; $i<count($cart); $i++){
+            if($cart[$i]['goods']->getId() === $goods_id){
+                return $i;
+            }
+        }
+        return FALSE;
     }
 }

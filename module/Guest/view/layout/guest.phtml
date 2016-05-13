@@ -40,7 +40,7 @@
 				->prependFile($this->basePath('js/guest/actions.js'))
 				->prependFile($this->basePath('js/bootstrap.min.js'))
 				->prependFile($this->basePath('js/jquery.min.js'))
-				->prependFile($this->basePath('http://code.jquery.com/jquery-latest.min.js'))
+//				->prependFile($this->basePath('http://code.jquery.com/jquery-latest.min.js'))
 				->prependFile($this->basePath('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
 				->prependFile($this->basePath('js/html5shiv.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
 		;
@@ -64,18 +64,21 @@
                             ->setPartial('')
                             ->setMaxDepth(0);
                     ?>
-                    <div class="cart">
-                        <a href="#">
-                            <img id="cart" src="/img/cart.png" alt="cart"/>
+                    
+                    
+                    <div class="search"> 
+                        <form method="POST" class="navbar-form navbar-left" action="<?= $this->url('guest', array('controller' => 'index', 'action' => 'search')) ?>"> 
+                            <div class="form-group">
+                                <input id="srch-term" class="form-control" type="text" name="search" placeholder="Искать животное.." size="40"/>
+                            </div> 
+                            <button type="submit" class="btn btn-warning btn-sm">Найти</button> 
+                        </form> 
+                    </div> 
+                    <div class="cart"> 
+                        <a href="<?= $this->url('guest', array('controller'=>'cart')); ?>"> 
+                            <img id="cart" src="/img/cart.png" alt="cart"/> 
                             <div class="cartCount"></div>
-                        </a>
-                    </div>
-                    <div class="search">
-                        <form method="POST" class="form-horizontal" 
-                              action="<?= $this->url('guest', array('controller'=>'index', 'action'=>'search')) ?>">
-                            <input id="srch-term" type="text" name="search" placeholder="Искать животное.." size="50"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button type="submit" class="btn btn-warning btn-sm">Найти</button>
-                        </form>
+                        </a> 
                     </div>
                 </div><!--/.nav-collapse -->
             </div>
@@ -126,7 +129,7 @@
                 <input type="email" name="email" placeholder="Адрес электронной почты" size="38"/>&nbsp;&nbsp;&nbsp;
                 <button class="btn btn-info btn-sm">Подписаться</button>
             </form>
-			<script src="js/subscribers.js"></script>
+			<script src="/js/subscribers.js"></script>
             <p>Copyright 2016. PHP 15-2 Design Inc. All Right Reserved</p>
         </div>
 		<script src="/libs/lightbox/dist/js/lightbox.js"></script>

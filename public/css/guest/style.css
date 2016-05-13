@@ -5,13 +5,25 @@ body{
 /*-----------------------------------------------------------
 --------Count marker in cart image in header------------------
 -----------------------------------------------------------*/
+.cart{
+/*	float: right;
+	width: 70px;
+	height: 55px;
+	margin-right: 70px;
+	text-align: center;
+	margin-top: 15px;*/
+        position: relative;
+}
+
 .cartCount{
     background: #ff7518;
+    color: black;
     position: absolute;
-    top: 20px;
-    right: 5px;
+    top: 25px;
+    right: 10px;
     text-align: center;
     font-weight: bold;
+    font-size: 11pt;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -46,7 +58,6 @@ body{
 
 .sitemap_page1 h3{
     margin: 0;
-    /*padding: 10px auto;*/
     font-size: 18pt;
 }
 .sitemap_page1 p{

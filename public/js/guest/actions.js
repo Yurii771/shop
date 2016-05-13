@@ -5,3 +5,9 @@ function cartCountAction(data){
         $('.cartCount').hide();
     }
 }
+
+function addToCartAction(data){
+    if(+data['ok']){
+        $.get("/cart/count", cartCountAction);
+    }
+}
