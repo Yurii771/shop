@@ -43,7 +43,6 @@ return array(
         ),
         'template_map' => array(
             'layout/guest'  => __DIR__ . '/../view/layout/guest.phtml',
-            
         ),
     ),
     
