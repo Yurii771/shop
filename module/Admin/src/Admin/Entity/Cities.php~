@@ -29,43 +29,5 @@ class Cities
     private $city;
 
 
-<<<<<<< HEAD
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     *
-     * @return Cities
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-}
-=======
 }
 
->>>>>>> refs/remotes/origin/master

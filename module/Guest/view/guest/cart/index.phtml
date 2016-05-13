@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <?php 
+            $html='';
+            foreach($_SESSION['orders'] as $ses){
+                $html.='<div class="good">'.$ses['id'].'<br/>'.$ses['name'].'</br>'.$ses['max_count'].'</br>';
+                $html.='<form method="POST" action="'.$this->url('guest', array('controller'=>'cart', 'action'=>'edit', 'id'=>$ses['id'])).'"><input type="number" name="count" value="'.$ses['count'].'"/><input type="submit" name="edit" value="Edit"></form>';
+                $html.='<a href="'.$this->url('guest', array('controller'=>'cart', 'action'=>'delete', 'id'=>$ses['id'])).'">'.$this->translate('Delete').'</a></div>';
+            }
+            echo $html;
+        ?>
+        <li><a href="<?php echo $this->url('guest', array('controller'=>'cart', 'action'=>'add', 'id'=>1)) ?>"><?php echo $this->translate('Add') ?></a></li>
+    </body>
+</html>

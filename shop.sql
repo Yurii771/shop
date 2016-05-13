@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `shop`
+-- База данных: `level_up_shop`
 --
 
 -- --------------------------------------------------------
@@ -39,7 +39,11 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `name`, `parent_id`) VALUES
 (1, 'стегозавры', NULL),
 (7, 'яйца динозавров', NULL),
-(8, 'птерозавры', NULL);
+(8, 'птерозавры', NULL),
+(14, 'Тестовая категория', 7),
+(15, 'Очень большие яйца', NULL),
+(16, 'Надкатегория', NULL),
+(17, 'Категория', 8);
 
 -- --------------------------------------------------------
 
@@ -336,7 +340,7 @@ ALTER TABLE `subscribers`
 -- Ограничения внешнего ключа таблицы `categories`
 --
 ALTER TABLE `categories`
-  ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`);
+  ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `goods`

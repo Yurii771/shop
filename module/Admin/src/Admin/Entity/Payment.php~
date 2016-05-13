@@ -29,43 +29,5 @@ class Payment
     private $paymentType;
 
 
-<<<<<<< HEAD
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set paymentType
-     *
-     * @param string $paymentType
-     *
-     * @return Payment
-     */
-    public function setPaymentType($paymentType)
-    {
-        $this->paymentType = $paymentType;
-
-        return $this;
-    }
-
-    /**
-     * Get paymentType
-     *
-     * @return string
-     */
-    public function getPaymentType()
-    {
-        return $this->paymentType;
-    }
-}
-=======
 }
 
->>>>>>> refs/remotes/origin/master
