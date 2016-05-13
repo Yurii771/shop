@@ -1,7 +1,7 @@
 <?php foreach($this->container as $page): ?>
 <div class="sitemap_page">
     <div class="sitemap_page_head">
-        <h2><?= $this->guest_navigation()->menu()->htmlify($page); ?></h2>
+        <h2 class="text-center"><?= $this->guest_navigation()->menu()->htmlify($page); ?></h2>
     </div>
     <?php if(count($page->getPages())): ?>
     <div class="sitemap_page_body">
