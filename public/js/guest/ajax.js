@@ -13,3 +13,15 @@ function addToCartAjax(){
     });
     return false;
 }
+
+function editCountToCartAjax(){
+    var url = 'cart/edit/'+$(this).attr('data-id');
+    var count = $(this).val();
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: {count: count},
+        success: editCountInCartAction
+    });
+    return false;
+}

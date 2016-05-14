@@ -3,13 +3,17 @@
     if(!empty($pages)):
 ?>
     <ol class="breadcrumb">
+        <?php $i = 0;?>
         <?php while (!empty($pages)): ?>
-            <?php $page = array_shift($pages); ?>
-            <?php if(empty($pages)): ?>
+            <?php $page = array_shift($pages);?>
+            <?php if(empty($pages) || 
+                    $page->getController() == 'goods' &&
+                    $i == 1): ?>
                 <li class="active"><?= $page->getLabel(); ?></li>
             <?php else: ?>
                 <li><a href="<?= $page->getHref() ?>"><?= $page->getLabel(); ?></a></li>
             <?php endif; ?>
+            <?php $i++;?>
         <?php endwhile; ?>
     </ol>
 <?php endif; ?>

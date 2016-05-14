@@ -11,3 +11,9 @@ function addToCartAction(data){
         $.get("/cart/count", cartCountAction);
     }
 }
+
+function editCountInCartAction(data){
+    if(+data['ok']){
+        alert('count changed');
+    }
+}
