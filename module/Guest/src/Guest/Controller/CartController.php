@@ -98,6 +98,20 @@ class CartController extends BaseController
         die();
     }
     
+    public function getAction() {
+        $cart = array();
+        if(isset($_SESSION['orders'])){
+            foreach ($_SESSION['orders'] as $item){
+                $cart[] = array(
+                    'id' => $item['goods']->getId(),
+                    'name' => $item['goods']->getName(),
+                    'count' => $item['count'],
+                );
+            }
+        }
+        return new JsonModel($cart);
+    }
+    
     protected function getIndexByGoodsId($cart, $goods_id) {
         for($i=0; $i<count($cart); $i++){
             if($cart[$i]['goods']->getId() === $goods_id){

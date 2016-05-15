@@ -43,9 +43,6 @@
                             <?php foreach($categories as $item):?>
                               <optgroup label="<?= $item['parent']->getName(); ?>">
                                   <?php $is_selected = ($item['parent']->getId()==$goods->getCategory()->getId())? 'selected': ''; ?>
-                                  <option value="<?= $item['parent']->getId()?>" <?= $is_selected; ?>>
-                                      -- <?= $item['parent']->getName();?> (Корень категории) --
-                                  </option>
                                   <?php if(!empty($item['children'])): ?>
                                       <?php foreach($item['children'] as $child): ?>
                                             <?php $is_selected = ($child->getId()==$goods->getCategory()->getId())? 'selected': ''; ?>
@@ -59,8 +56,10 @@
                         </select>
                     </div>
 
-                    <button type="submit" name="Edit" class="btn btn-success ">Edit</button>
-
+                    <button type="submit" name="Edit" class="btn btn-success ">Принять</button>
+                    <a href="<?= $this->url('admin', array('controller'=>'goods')) ?>" class="btn btn-default">
+                        Отменить
+                    </a>
                 </div>
 
             </div>

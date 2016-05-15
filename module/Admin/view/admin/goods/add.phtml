@@ -1,8 +1,5 @@
-<h1>Goods CRUD</h1>
-
-<p> module Admin <br/>
-    controller Goods <br/>
-    action add <br/>
+<h1>Добавление товара</h1>
+<hr/>
 
 <form method="POST" enctype="multipart/form-data"><br>
     Name<br>
@@ -22,9 +19,6 @@
     <select name="category">
       <?php foreach($categories as $item):?>
         <optgroup label="<?= $item['parent']->getName(); ?>">
-            <option value="<?= $item['parent']->getId()?>">
-                -- <?= $item['parent']->getName();?> (Корень категории) --
-            </option>
             <?php if(!empty($item['children'])): ?>
                 <?php foreach($item['children'] as $child): ?>
                     <option value="<?= $child->getId()?>">
@@ -35,6 +29,6 @@
         </optgroup>
       <?php endforeach;?>
     </select>
-  <br><br>  <input type="submit" value="Add">
+    <br><br>  <input type="submit" class="btn btn-success" value="Добавить">
 </form>
-<a href="/admin/goods"><button>Back</button></a>
+<a href="/admin/goods" class="btn btn-default">Отменить</a>

@@ -1,4 +1,4 @@
-function cartCountAction(data){
+function cartTotalCountAction(data){
     if(+data){
         $('.cartCount').html(data).show();
     }else{
@@ -8,7 +8,8 @@ function cartCountAction(data){
 
 function addToCartAction(data){
     if(+data['ok']){
-        $.get("/cart/count", cartCountAction);
+        $.get("/cart/count", cartTotalCountAction);
+        goodsCountInCartAjax();
     }
 }
 
