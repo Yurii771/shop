@@ -1,0 +1,46 @@
+<?php
+//    $html='';
+//    foreach($_SESSION['orders'] as $ses){
+//        $html.='<div class="good">'.$ses['id'].'<br/>'.$ses['name'].'</br>'.$ses['max_count'].'</br>';
+//        $html.='<form method="POST" action="'.$this->url('guest', array('controller'=>'cart', 'action'=>'edit', 'id'=>$ses['id'])).'"><input type="number" name="count" value="'.$ses['count'].'"/><input type="submit" name="edit" value="Edit"></form>';
+//        $html.='<a href="'.$this->url('guest', array('controller'=>'cart', 'action'=>'delete', 'id'=>$ses['id'])).'">'.$this->translate('Delete').'</a></div>';
+//    }
+//    echo $html;
+?>
+<h1 align="center">Корзина</h1>
+<hr/>
+<?php if ($cart): ?>
+<?php $final_cost=0?>
+<div class="col-md-2"></div>
+    <div class="col-md-8">
+        <table slyle="width: 100%">
+            <th colspan="3">Товары</th>
+            <th>Стоимость</th>
+            <?php for ($i = 0; $i < count($cart); $i++): ?>
+                <tr style="border: 20px solid white;">
+                    <td class="cart_col" rowspan="2"><img class="cart_photo" src="img/goods/<?php echo($cart[$i]['goods']->getPhoto()) ?>"/></td>
+                    <td class="cart_col"><?php echo($cart[$i]['goods']->getName()) ?></td>
+                    <td class="cart_col" rowspan="2"><input class="edit_goods_count" type="number" value="<?= $cart[$i]['count'] ?>" min="1" style="width: 45px; margin-left: 7px;" data-id="<?php echo($cart[$i]['goods']->getId()) ?>"/></td>
+                    <td class="cart_col" rowspan="2" ><h4><?php 
+                    $cost=($cart[$i]['goods']->getCost())*($cart[$i]['count']);
+                    $final_cost+=$cost;
+                    echo $cost;
+                    ?>грн.</h4></td>
+                </tr>
+                <tr>
+                    <td class="cart_col" ><?php echo($cart[$i]['goods']->getCost()) ?>грн.</td>
+                </tr>
+            <?php endfor; ?>
+        </table>
+        <h2 align="center">Итого:</h2>
+        <h3 align="center"><?php echo $final_cost?>грн.</h3>
+    </div>
+<div class="col-md-2"></div>
+<?php else: ?>
+    <h3 class="text-center">Корзина пуста</h3>
+    <p class="text-center">Что бы сделать покупки, перейдите в 
+        <a href="<?= $this->url('guest', array('controller' => 'category')); ?>">
+            <strong>каталог</strong>
+        </a>
+    </p>
+<?php endif; ?>
