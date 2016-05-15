@@ -81,7 +81,7 @@ class CartController extends BaseController
             $cart = $_SESSION['orders'];
             $index = $this->getIndexByGoodsId($cart, $id);
             if($index !== FALSE){
-                unset($cart[$index]);
+                array_splice($cart, $index, 1);
                 $_SESSION['orders'] = $cart;
                 $respond['ok'] = 1;
             }

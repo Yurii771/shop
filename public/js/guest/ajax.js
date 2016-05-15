@@ -3,10 +3,9 @@ $(document).ready(function(){
 });
 
 function addToCartAjax(){
-    var url = $(this).attr('href');
     var count = $(this).siblings('[name="goods_count"]').val();
     $.ajax({
-        url: url,
+        url: $(this).attr('href'),
         method: 'POST',
         data: {count: count},
         success: addToCartAction
@@ -21,7 +20,7 @@ function editCountToCartAjax(){
         url: url,
         method: 'POST',
         data: {count: count},
-        success: editCountInCartAction // метод находится в шаблоне "представления"
+        success: editCountInCartAction 
     });
     return false;
 }
@@ -30,6 +29,19 @@ function goodsCountInCartAjax(){
     $.ajax({
         url: '/cart/get',
         data: {},
-        success: goodsCountInCartAction
+        success: goodsCountInCartAction // метод находится в шаблоне "представления"
     });
+}
+
+function deleteGoodsFromCartAjax(){
+    var curent = this;
+    $.ajax({
+        url: $(this).attr('href'),
+        data: {},
+        success: function(data){
+            var goods = $(curent).parents('.goods');
+            deleteGoodsFromCartAction(data, goods);
+        }
+    });
+    return false;
 }
