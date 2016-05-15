@@ -11,7 +11,7 @@
                 <div class="col-md-3">
                     <div class="sitemap_page1">
                         <div class="sitemap_page1_head">
-                            <h3><?= $this->navigation()->menu()->htmlify($page_1); ?></h3>
+                            <h3><?= $page_1->getLabel(); ?></h3>
                         </div>
                         <?php if(count($page_1->getPages())): ?>
                         <div class="sitemap_page1_body">
