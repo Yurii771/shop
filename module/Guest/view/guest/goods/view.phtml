@@ -12,7 +12,7 @@
 			<span id="exist"><?php echo $goods->getCount() ?></span><br><br>
 			<label for="price">Стоимость:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 			<span id="price"><?php echo $goods->getCost() ?> грн.</span><br/><br/>
-			<a href="<?= $this->url('guest', array('controller' => 'cart', 'action' => 'add', 'id' => $goods->getId())) ?>" class="btn btn_to_cart">Купить</a>	
+			<a href="<?= $this->url('guest', array('controller' => 'cart', 'action' => 'add', 'id' => $goods->getId())) ?>" class="btn btn_to_cart">В корзину</a>	
 		</div>
 	</div>
 </div>
@@ -20,5 +20,33 @@
 <script>
 $(document).ready(function(){
     $('.btn_to_cart').click(addToCartAjax);
+    goodsCountInCartAjax();
 });
+
+function goodsCountInCartAction(cart){
+    if(cart.length){
+        var goods = $('.id-desc').get(0);
+        var href_arr = $('.btn_to_cart', goods).attr('href').split('/');
+        var id = + href_arr[href_arr.length-1];
+        for(var i=0; i<cart.length; i++){
+            if(cart[i]['id'] == id){
+                insertGoodsCountInCart(cart[i], goods);
+            }
+        }
+    }
+}
+
+function insertGoodsCountInCart(item, goods){
+    $('.goods_count_in_cart', goods).remove();
+    var text = 'В корзине уже '+item['count']+' шт.';
+    var count_div = $('<div>').html(text).css({
+            position: 'absolute',
+            bottom: '55px',
+            left: '45px',
+            'font-weight': 'bold',
+            'font-size': '10pt'
+        }).addClass('text-success').addClass('goods_count_in_cart');
+    var div = $('.btn_to_cart', goods).parent('div');
+    div.css({position: 'relative'}).append(count_div);
+}
 </script>

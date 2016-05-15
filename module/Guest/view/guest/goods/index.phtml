@@ -19,5 +19,34 @@
 <script>
 $(document).ready(function(){
     $('.btn_to_cart').click(addToCartAjax);
+    goodsCountInCartAjax();
 });
+
+function goodsCountInCartAction(cart){
+    if(cart.length){
+        $('.good').each(function(){
+            var href_arr = $('.btn_to_cart', this).attr('href').split('/');
+            var id = + href_arr[href_arr.length-1];
+            for(var i=0; i<cart.length; i++){
+                if(cart[i]['id'] == id){
+                    insertGoodsCountInCart(cart[i], this);
+                }
+            }
+        });
+    }
+}
+
+function insertGoodsCountInCart(item, goods){
+    $('.goods_count_in_cart', goods).remove();
+    var text = 'В корзине уже '+item['count']+' шт.';
+    var count_div = $('<div>').html(text).css({
+            position: 'absolute',
+            top: '32px',
+            left: '40%',
+            'font-weight': 'bold',
+            'font-size': '10pt'
+        }).addClass('text-success').addClass('goods_count_in_cart');
+    var div = $('.btn_to_cart', goods).parent('div');
+    div.css({position: 'relative'}).append(count_div);
+}
 </script>

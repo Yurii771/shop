@@ -25,24 +25,3 @@
     margin-left: 10px;
     text-decoration: none;
 }
-
-/*----------------------------------------
--------------- NAVBAR ------------------
-----------------------------------------
-@media all and (max-width: 995px) {
-    .right_menu_panel{
-        position: relative;
-        right: 450px;
-    }
-    .content{
-        margin-top: 51px;
-    }
-}
-@media all and (max-width: 767px) {
-    .right_menu_panel{
-        position: static;
-    }
-    .content{
-        margin-top: 0px;
-    }
-}*/

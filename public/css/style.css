@@ -6,6 +6,17 @@ body {
 	font-family: 'Roboto Condensed';
 }
 
+/*----- Guest Cart -------------*/
+.cart_photo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.cart_col{
+    /*width: 170px;*/
+}
+/*----- END Guest Cart -------------*/
+
 /*----- Guest Categories -------------*/
 h1, h2, h3{
     color: #2a6496;
@@ -117,14 +128,24 @@ div.container a.brand {
 	cursor: pointer;
 }
 
+.s-item a:hover{
+	text-decoration: none;
+}
+
 .s-item h3{
-	color: #444;
-	font-size: 22pt;
+	color: #39b3d7;
+	font-size: 23pt;
+}
+
+.s-item h3:hover{
+	color: #39b3d7;
+	font-weight: bold;
 }
 
 .s-item p{
 	color: #3c3c3c;
 	font-size: 14pt;
+	text-align: center;
 }
 /********** End block with 3 pictures(some item) **********/
 
@@ -204,33 +225,13 @@ div.container a.brand {
 .social{
 	padding-top: 20px;
 	padding-bottom: 15px;
+	text-align: center;
 }
 
 .social h3{
 	color: #fff;
 	margin-bottom: 25px;
 	text-align: center;
-}
-
-.social p{
-	margin-bottom: 10px;
-	margin-left: 35%;
-}
-
-@media (max-width: 950px){
-	.social p{
-		margin-left: 39%;
-	}
-}
-
-.social a{
-	color: #fff;
-	font-size: 13pt;
-}
-
-.social a:hover{
-	text-decoration: none;
-	color: #2780e3;
 }
 
 .footer{

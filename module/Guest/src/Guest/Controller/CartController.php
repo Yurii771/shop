@@ -81,7 +81,7 @@ class CartController extends BaseController
             $cart = $_SESSION['orders'];
             $index = $this->getIndexByGoodsId($cart, $id);
             if($index !== FALSE){
-                unset($cart[$index]);
+                array_splice($cart, $index, 1);
                 $_SESSION['orders'] = $cart;
                 $respond['ok'] = 1;
             }
@@ -96,6 +96,20 @@ class CartController extends BaseController
         }
         echo $count;
         die();
+    }
+    
+    public function getAction() {
+        $cart = array();
+        if(isset($_SESSION['orders'])){
+            foreach ($_SESSION['orders'] as $item){
+                $cart[] = array(
+                    'id' => $item['goods']->getId(),
+                    'name' => $item['goods']->getName(),
+                    'count' => $item['count'],
+                );
+            }
+        }
+        return new JsonModel($cart);
     }
     
     protected function getIndexByGoodsId($cart, $goods_id) {
