@@ -44,9 +44,10 @@ return array(
 
     'controllers' => array(
         'invokables' => array(
-            'Admin\Controller\Index' => 'Admin\Controller\IndexController',
+           // 'Admin\Controller\Index' => 'Admin\Controller\IndexController',
         ),
         'factories' => array(
+            'Admin\Controller\Index' => 'Admin\Factory\IndexControllerFactory',
             'Admin\Controller\Auth' => 'Admin\Factory\AuthControllerFactory',
             'Admin\Controller\Category' => 'Admin\Factory\CategoryControllerFactory',
             'Admin\Controller\Goods' => 'Admin\Factory\GoodsControllerFactory',

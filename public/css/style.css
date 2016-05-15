@@ -394,6 +394,9 @@ div.container a.brand {
 
 
 /********** ADMIN Index **********/
+.privat{
+	margin-bottom: 80px;
+}
 .privat th{
 	background-color: #2a6496;
 	color: #fff;
@@ -403,6 +406,19 @@ div.container a.brand {
 .privat td{
 	font-size: 12pt;
 	text-align: center;
+}
+.order_status{
+	width: 500px;
+	margin: 15px auto;
+}
+.order_status th{
+	background-color: #2a6496;
+	color: #fff;
+	font-size: 14pt;
+	text-align: center;
+}
+.order_status td{
+	font-size: 12pt;
 }
 /********** End **********/
 
