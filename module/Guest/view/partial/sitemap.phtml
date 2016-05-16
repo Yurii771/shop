@@ -1,0 +1,35 @@
+<?php foreach($this->container as $page): ?>
+<div class="sitemap_page">
+    <div class="sitemap_page_head">
+        <h2 class="text-center"><?= $this->navigation()->menu()->htmlify($page); ?></h2>
+    </div>
+    <?php if(count($page->getPages())): ?>
+    <div class="sitemap_page_body">
+        <div class="row">
+        <?php $i=0; ?>
+        <?php foreach($page->getPages() as $page_1): ?>
+                <div class="col-md-3">
+                    <div class="sitemap_page1">
+                        <div class="sitemap_page1_head">
+                            <h3><?= $page_1->getLabel(); ?></h3>
+                        </div>
+                        <?php if(count($page_1->getPages())): ?>
+                        <div class="sitemap_page1_body">
+                            <?php foreach($page_1->getPages() as $page_2): ?>
+                            <?php if($page_2->getAction() === 'index'): ?>
+                            <p><?= $this->navigation()->menu()->htmlify($page_2); ?></p>
+                            <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php if($i%4===3): ?> </div><div class="row"> <?php endif; ?>
+        <?php $i++; ?>
+        <?php endforeach; ?>
+        </div>
+    </div>
+    <?php endif; ?>
+</div>
+<?php endforeach; ?>
+   

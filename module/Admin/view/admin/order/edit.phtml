@@ -1,0 +1,113 @@
+    
+<?php
+$title = 'Редактировать заказ';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+
+//$form = $this->form;
+//var_dump($form);
+$form->setAttribute('action', $this->url('admin',array('controller'=>'order','action'=>'edit')));
+$form->setAttribute('class','form-horizontal');
+$form->prepare();
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+?>
+
+<div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Имя заказчика</label>
+    <div class="col-sm-3">
+    <?php
+    echo $this->formRow($form->get('customerName'));
+    ?>
+    </div>    
+</div >
+<div class="form-group">
+    <label for="surname" class="col-sm-2 control-label">Фамилия заказчика</label>
+     <div class="col-sm-3">
+    <?php
+    echo $this->formRow($form->get('customerSurname'));
+    ?>
+     </div>
+</div >
+<div class="form-group">
+    <label for="order" class="col-sm-2 control-label">Электронный адресс</label>
+    <div class="col-sm-3">
+    <?php
+    echo $this->formRow($form->get('customerEmail'));
+    ?>
+        </div >
+</div >
+<div class="form-group">
+    <label for="order" class="col-sm-2 control-label">Контактный телефон</label>
+    <div class="col-sm-3">
+    <?php
+    echo $this->formRow($form->get('customerPhone'));
+    ?>
+    </div>
+</div >
+<div class="form-group">
+    <label for="order" class="col-sm-2 control-label">Адресс</label>
+    <div class="col-sm-3">
+    <?php
+    echo $this->formRow($form->get('adress'));
+    ?>
+    </div >
+</div >
+<div class="form-group">
+    <label for="city" class="col-sm-2 control-label">Город</label>
+    <div class="col-sm-3">
+    <?php
+    $form->get('city')->setValue($form->get('city')->getValue()->getId());
+    echo $this->formRow($form->get('city'));
+    ?>
+    </div >
+</div >
+<div class="form-group">
+    <label for="order" class="col-sm-2 control-label">Заказ</label>
+    <div class="col-sm-3">
+    <?php
+    echo $this->formRow($form->get('orderList'));
+    ?>
+    </div>
+</div >
+
+<div class="form-group">
+    <label for="delivery" class="col-sm-2 control-label">Способ доставки</label>
+    <div class="col-sm-3">
+    <?php
+       $form->get('delivery')->setValue($form->get('delivery')->getValue()->getId());
+    echo $this->formRow($form->get('delivery'));?>
+    </div >
+</div >
+<div class="form-group">
+    <label for="payment" class="col-sm-2 control-label">Способ оплаты</label>
+    <div class="col-sm-3">
+    <?php
+    $form->get('payment')->setValue($form->get('payment')->getValue()->getId());
+    echo $this->formRow($form->get('payment'));
+    ?>
+    </div >
+</div >
+<div class="form-group">
+    <label for="orderStatus" class="col-sm-2 control-label">Статус заказа</label>
+    <div class="col-sm-3">
+    <?php
+    $form->get('orderStatus')->setValue($form->get('orderStatus')->getValue()->getId());
+   echo $this->formRow($form->get('orderStatus'));
+    ?>
+    </div >
+</div >
+
+
+<div class="form-group">
+    <?php
+    echo $this->formRow($form->get('submit'));
+    ?>
+</div >
+<div class="form-group">
+    <?php
+    echo $this->form()->closeTag();
+    ?>
+</div >

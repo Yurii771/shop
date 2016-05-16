@@ -1,0 +1,40 @@
+
+<!-- Page Header -->
+<div class="row">
+     <div class="col-md-12">
+         <h1>Управление товарами</h1>
+         <a href="/admin/goods/add" class="btn btn-primary">
+                 Добавить товар
+         </a>
+     </div>
+</div>
+       <!-- /.row -->
+<hr/>
+<?php $i = 1 ?>
+<?php foreach($goods as $g):?>
+
+<?php if($i%3 === 0): ?>
+<div class="row">
+<?php endif; ?>
+
+<div class="col-md-4 portfolio-item">
+    <a href="#">
+        <img src="<?= $g->getPhoto()?>" height="120px">
+    </a>
+    <h3>
+        <a href="#"><?php echo $g->getName()?></a>
+    </h3>
+ 
+    <h4><?= $g->getCategory()->getName()?></h4>
+
+    <p><?= $g->getShortDescription()?></p>
+    <a href="/admin/goods/edit/<?= $g->getId() ?>"><button class='btn btn-primary'>Edit</button></a>
+    <a href="/admin/goods/delete/<?= $g->getId() ?>"><button class="btn btn-danger">Delete</button></a><br><br>
+</div>
+<?php if($i%3 === 0): ?>
+</div>
+<?php endif; ?>
+
+<?php $i++  ?>
+<?php endforeach;?>
+

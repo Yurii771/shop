@@ -32,6 +32,11 @@ echo $this->form()->openTag($form);
 				echo $this->formFile($element);
 			echo '</div>';
                 }elseif(isset($attributes['type']) && $attributes['type'] == 'select'){
+                        if(!$element->getValue()){
+                            $element->setAttribute('disabled', 'true');
+                            echo '<input type="hidden" '
+                                . 'name="'.$element->getName().'" value="0"/>';
+                        }
                         echo $this->formLabel($element);
 			echo '<div class="col-lg-9">';
 				echo $this->formSelect($element);

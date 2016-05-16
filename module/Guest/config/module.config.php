@@ -24,10 +24,17 @@ return array(
 
     'controllers' => array(
         'invokables' => array(
-            'Guest\Controller\Index' => 'Guest\Controller\IndexController',
+            'Guest\Controller\About' => 'Guest\Controller\AboutController',
+            'Guest\Controller\Contacts' => 'Guest\Controller\ContactsController',
+            'Guest\Controller\Payment' => 'Guest\Controller\PaymentController',
+            'Guest\Controller\Subscriber' => 'Guest\Controller\SubscriberController',
         ),
         'factories' => array(
+            'Guest\Controller\Index' => 'Guest\Factory\IndexControllerFactory',
             'Guest\Controller\Category' => 'Guest\Factory\CategoryControllerFactory',
+            'Guest\Controller\Order' => 'Guest\Factory\OrderControllerFactory',
+            'Guest\Controller\Goods' => 'Guest\Factory\GoodsControllerFactory',
+            'Guest\Controller\Cart' => 'Guest\Factory\CartControllerFactory',
         ),
     ),
     'view_manager' => array(

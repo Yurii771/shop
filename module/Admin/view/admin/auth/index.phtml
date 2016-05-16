@@ -1,21 +1,21 @@
 <h1 class="text-center">Для входа в кабинет администратора <br/> введите имя и пароль</h1>
 <hr/>
-<form class="form-horizontal" method="POST" action="<?= $this->url('admin', array('controller'=>'auth')) ?>">
+<form class="form-horizontal auth-form" method="POST" action="<?= $this->url('admin', array('controller'=>'auth')) ?>">
     <div class="form-group">
-        <label for="adm_name" class="col-md-offset-1 col-md-3 control-label">Имя</label>
+        <label for="adm_name" class="col-md-offset-1 col-md-3 control-label">Имя :</label>
         <div class="col-md-5">
-            <input type="text" name="adm_name" placeholder="Имя" class="form-control" required/>
+            <input type="text" id="adm_name" name="adm_name" placeholder="Имя" class="form-control" required/>
         </div>
     </div>
     <div class="form-group">
-        <label for="adm_pwd" class="col-md-offset-1 col-md-3 control-label">Пароль</label>
+        <label for="adm_pwd" class="col-md-offset-1 col-md-3 control-label">Пароль :</label>
         <div class="col-md-5">
-            <input type="password" name="adm_pwd" placeholder="Пароль" class="form-control" required/>
+            <input type="password" id="adm_pwd" name="adm_pwd" placeholder="Пароль" class="form-control" required/>
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-offset-4 col-md-5">
-            <input type="submit" value="Войти" class="btn btn-primary"/>
+			<button type="submit" class="btn btn-primary">Войти</button>
         </div>
     </div>
     <div class="form-group">

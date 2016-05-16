@@ -1,0 +1,52 @@
+<div class="c-cols-r-static contacts">
+    <div class="col-md-12 goods">
+        <?php $count = 1; ?>
+        <?php foreach ($goods as $key): ?>
+            <div class="col-md-4 good">
+                <img src="<?= $key->getPhoto() ?>"/>
+                <h3><?= $key->getName() ?></h3>
+                <p class="descript"><?= $key->getShortDescription() ?></p>
+                <div><a href="<?= $this->url('guest', array('controller' => 'goods', 'action' => 'view', 'id' => $key->getId())) ?>" class="btn btn-warning btn-sm">Подробнее</a><br/><br/>
+                    <label for="cnt<?php echo $count; ?>">Количество:</label>
+                    <input type="number" name="goods_count" id="cnt<?php echo $count; $count++; ?>" min="1" max="20" step="1" value="1"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a id="but" href="<?= $this->url('guest', array('controller' => 'cart', 'action' => 'add', 'id' => $key->getId())) ?>" class="btn btn-sm btn_to_cart">В корзину</a>
+                </div>
+            </div>
+<?php endforeach; ?>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('.btn_to_cart').click(addToCartAjax);
+    goodsCountInCartAjax();
+});
+
+function goodsCountInCartAction(cart){
+    if(cart.length){
+        $('.good').each(function(){
+            var href_arr = $('.btn_to_cart', this).attr('href').split('/');
+            var id = + href_arr[href_arr.length-1];
+            for(var i=0; i<cart.length; i++){
+                if(cart[i]['id'] == id){
+                    insertGoodsCountInCart(cart[i], this);
+                }
+            }
+        });
+    }
+}
+
+function insertGoodsCountInCart(item, goods){
+    $('.goods_count_in_cart', goods).remove();
+    var text = 'В корзине уже '+item['count']+' шт.';
+    var count_div = $('<div>').html(text).css({
+            position: 'absolute',
+            top: '32px',
+            left: '40%',
+            'font-weight': 'bold',
+            'font-size': '10pt'
+        }).addClass('text-success').addClass('goods_count_in_cart');
+    var div = $('.btn_to_cart', goods).parent('div');
+    div.css({position: 'relative'}).append(count_div);
+}
+</script>

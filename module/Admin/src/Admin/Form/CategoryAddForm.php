@@ -4,10 +4,6 @@ namespace Admin\Form;
 
 use Zend\Form\Form;
 
-//use Zend\InputFilter\Factory as InputFactory;
-//use Zend\InputFilter\InputFilter;
-//use Admin\Filter\CategoryInputFilter;
-
 class CategoryAddForm extends Form {
 
 	public function __construct($name = null) {
@@ -19,24 +15,24 @@ class CategoryAddForm extends Form {
 			'name' => 'name',
 			'type' => 'text',
 			'options' => array(
-				'label' => 'Название категории',
-				'min' => 3,
-				'max' => 100,
+                            'label' => 'Название категории',
+                            'min' => 3,
+                            'max' => 100,
 			),
 			'attributes' => array(
-				'placeholder' => 'Name',
-				'class' => 'form-control',
-				'required' => 'required',
+                            'placeholder' => 'Name',
+                            'class' => 'form-control',
+                            'required' => 'required',
 			),
 		));
 		$this->add(array(
 			'name' => 'parent',
 			'type' => 'select',
 			'options' => array(
-                            'label' => 'Родительская категория',
+                            'label' => 'Главная категория',
 			),
 			'attributes' => array(
-				'class' => 'form-control',
+                            'class' => 'form-control',
 			),
 		));
 		$this->add(array(
