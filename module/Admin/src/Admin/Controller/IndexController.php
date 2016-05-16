@@ -9,6 +9,7 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
+    	/*test*/
         return new ViewModel();
     }
 }
