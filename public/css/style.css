@@ -519,3 +519,16 @@ div.container a.brand {
 .id-desc label{
 	color: #2a6496;
 }
+
+.search-res{
+	padding-bottom: 100px;
+}
+
+.check{
+	padding-top: 50px;
+	margin-bottom: 60px;
+}
+
+.confirm{
+	padding-bottom: 150px;
+}
