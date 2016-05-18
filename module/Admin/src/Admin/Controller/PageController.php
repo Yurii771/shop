@@ -11,6 +11,7 @@ use Admin\Entity\Slider;
 
 class PageController extends BaseController
 {
+	/*test*/
     public function __construct($em) {
         $this->_entityManager = $em;
     }
