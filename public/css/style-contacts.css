@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+=======
+/* Getting the new tags to behave */
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {display:block}
+mark, rp, rt, ruby, summary, time {display:inline}
+
+/* Global properties ======================================================== */
+html {width:100%}
+body {font-family:Arial, Helvetica, sans-serif;font-size:100%;color:#808080;min-width:980px;background:#080808}
+.ic, .ic a {border:0;float:right;background:#fff;color:#f00;width:50%;line-height:10px;font-size:10px;margin:-220% 0 0 0;overflow:hidden;padding:0}
+.main {width:980px;padding:0;margin:0 auto;font-size:0.875em;line-height:1.428em}
+>>>>>>> cc0d3f7889ca6e546b39582310fa9778be803611
 a {color:#080808;outline:none}
 a:hover {text-decoration:none}
 .col-1, .col-2, .col-3, .col-4 {float:left}
@@ -15,7 +27,11 @@ a:hover {text-decoration:none}
 	width: 0;
 	height: 0;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> cc0d3f7889ca6e546b39582310fa9778be803611
 p {margin-bottom:18px}
 .p1 {margin-bottom:8px}
 .p2 {margin-bottom:15px}
@@ -80,8 +96,14 @@ h1 a {text-decoration:none}
 /*********************************content*************************************/
 #content {
 	width:100%;
+<<<<<<< HEAD
 	height: 700px;
 	padding: 100px 0 42px;
+=======
+        margin-top: 80px;
+	padding:25px 0 42px;
+	background:url(../images/content-bg.jpg) center -196px repeat-y #f4f5f7;
+>>>>>>> cc0d3f7889ca6e546b39582310fa9778be803611
 }
 
 h2 {
@@ -93,7 +115,11 @@ h2 {
 	letter-spacing:-2px;
 	margin-top:-13px;
 }
+<<<<<<< HEAD
 h2 strong {display:block;margin-top:-43px}
+=======
+	h2 strong {display:block;margin-top:-43px}
+>>>>>>> cc0d3f7889ca6e546b39582310fa9778be803611
 h3 {
 	font-size:23px;
 	line-height:2em;
@@ -113,19 +139,43 @@ h6 {color:#000;margin-bottom:5px}
 	background:url(../images/pic-2.gif) 0 bottom repeat-x;
 }
 
+<<<<<<< HEAD
+=======
+.button {
+	display:inline-block;
+	padding:0 24px;
+	margin-left:2px;
+	margin-bottom:2px;
+	font-size:14px;
+	line-height:38px;
+	color:#000;
+	border:1px solid #fff;
+	background:url(../images/button-tail.gif) 0 0 repeat-x #f2f2f2;
+	box-shadow:0 0 2px #bbb;
+	cursor:pointer;
+}
+.button:hover {background:#60b001;color:#fff}
+
+>>>>>>> cc0d3f7889ca6e546b39582310fa9778be803611
 .list-1 li {
 	line-height:20px;
 	padding:10px 0;
 	background:url(../images/pic-1.gif) 0 bottom repeat-x;
 }
 .list-1 li.last-item {background:none}
+<<<<<<< HEAD
 .list-1 li a {color:#808080}
 .list-1 li a:hover {color:#60b001}
+=======
+	.list-1 li a {color:#808080}
+	.list-1 li a:hover {color:#60b001}
+>>>>>>> cc0d3f7889ca6e546b39582310fa9778be803611
 
 .list-2 li {
 	padding:0 0 15px 30px;
 	background:url(../images/marker-1.png) 0 5px no-repeat;
 }
+<<<<<<< HEAD
 .list-2 li a.item {
 	display:inline-block;
 	font-size:23px;
@@ -141,12 +191,30 @@ h6 {color:#000;margin-bottom:5px}
 }
 .list-2 .last-item span {background:none;padding-bottom:25px}
 
+=======
+	.list-2 li a.item {
+		display:inline-block;
+		font-size:23px;
+		line-height:1.217em;
+		color:#080808;
+		margin-bottom:4px;
+	}
+	.list-2 li a.item:hover {color:#60b001}
+	.list-2 li span {
+		display:block;
+		padding-bottom:16px;
+		background:url(../images/pic-1.gif) 0 bottom repeat-x;
+	}
+	.list-2 .last-item span {background:none;padding-bottom:25px}
+	
+>>>>>>> cc0d3f7889ca6e546b39582310fa9778be803611
 .list-3 {margin-top:-7px}
 .list-3 li {
 	line-height:20px;
 	padding:10px 0;
 	background:url(../images/pic-2.gif) 0 bottom repeat-x;
 }
+<<<<<<< HEAD
 .list-3 li a {
 	display:inline-block;
 	padding-left:30px;
@@ -155,6 +223,16 @@ h6 {color:#000;margin-bottom:5px}
 }
 .list-3 li span {color:#808080;display:inline-block}
 .list-3 .last-item {background:none}
+=======
+	.list-3 li a {
+		display:inline-block;
+		padding-left:30px;
+		color:#fff;
+		background:url(../images/marker-1.png) 0 3px no-repeat;
+	}
+	.list-3 li span {color:#808080;display:inline-block}
+	.list-3 .last-item {background:none}
+>>>>>>> cc0d3f7889ca6e546b39582310fa9778be803611
 
 .link:hover {text-decoration:underline} 
 
@@ -173,6 +251,7 @@ dl span {float:left;width:80px}
 	vertical-align:top;
 	width:100%;
 	z-index:1;
+<<<<<<< HEAD
 }
 #contact-form fieldset {
 	border:none;
@@ -261,3 +340,43 @@ fieldset input{
     height: 30px; /*высота строки ввода*/   
     font-size: 17px; /*размер шрифта*/
 }
+=======
+	}
+	#contact-form fieldset {
+		border:none;
+		padding:0;
+		}			
+			#contact-form label {
+				display:block;
+				height:50px;
+			}
+			
+			#contact-form input {
+				width:323px;
+				padding:12px 20px;
+				margin:0;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:14px;
+				line-height:1.214em;
+				color:#808080;
+				border:1px solid #e6e6e6;
+				background:#fff;
+				outline:none;
+			}
+			#contact-form textarea {
+				overflow:auto;
+				height:130px;
+				width:563px;
+				padding:12px 20px;
+				margin:0;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:14px;
+				line-height:1.214em;
+				color:#808080;
+				border:1px solid #e6e6e6;
+				background:#fff;
+				outline:none;
+			}
+		.buttons-wrapper {padding:18px 0 0 0;text-align:left}
+		.buttons-wrapper a {margin-left:15px}
+>>>>>>> cc0d3f7889ca6e546b39582310fa9778be803611
