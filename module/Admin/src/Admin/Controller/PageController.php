@@ -33,12 +33,14 @@ class PageController extends BaseController
         return $this->redirect()->toRoute('admin', array('controller' => 'page', 'action' => 'index'));;
     }
     public function savesliderAction(){
-        var_dump($_FILES);
         for($i=1; $i<=3; $i++){
-            $upload = move_uploaded_file($_FILES['image' . $i]['tmp_name'], 'C:/wamp/www/shop/public/img/' . $_FILES['image' . $i]['name']);
-            $file_info = $_FILES['image' . $i];
-            if(!empty($file_info['name'])){
-                $query=$this->getEntityManager()->createQuery('UPDATE Admin\Entity\Slider u SET u.img_way=\''.$file_info['name'].'\' WHERE u.id='.$i);
+            if(is_uploaded_file($_FILES['image' . $i]['tmp_name'])){
+                $tmp_arr = explode('.', $_FILES['image' . $i]['name']);
+                $mime = array_pop($tmp_arr);
+                $name = 'slide'.$i.'.'.$mime;
+                $path = 'public/img/'.$name;
+                $upload = move_uploaded_file($_FILES['image' . $i]['tmp_name'], $path);
+                $query=$this->getEntityManager()->createQuery('UPDATE Admin\Entity\Slider u SET u.img_way=\''.$name.'\' WHERE u.id='.$i);
                 $result=$query->getResult();
             }
         }
