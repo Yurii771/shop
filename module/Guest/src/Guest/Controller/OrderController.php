@@ -38,8 +38,12 @@ class OrderController extends BaseController {
                 if (isset($_SESSION['orders'])) {
                     for ($i = 0; $i < count($_SESSION['orders']); $i++) {
                         $id = $_SESSION['orders'][$i]['goods']->getId();
+                        $name = $_SESSION['orders'][$i]['goods']->getName();
                         $count = $_SESSION['orders'][$i]['count'];
-                        $goodsInOrder[$id] = $count;
+                        $goodsInOrder[$id] = array(
+                            'name' => $name,
+                            'count' => $count,
+                        );
                     }
                     unset($_SESSION['orders']);
                 }
@@ -51,9 +55,8 @@ class OrderController extends BaseController {
                 $data['payment'] = $payment;
                 $data['delivery'] = $delivery;
                 $data['city'] = $city;
-                $data['orderList'] = json_encode($goodsInOrder);
+                $data['orderList'] = serialize($goodsInOrder);
                 $data['orderStatus'] = $orderStatus;
-//                $order->setOrder($goodsInOrder);        
                 $order->exchangeArray($data);
                 $em->persist($order);
                 $em->flush();

@@ -401,14 +401,24 @@ div.container a.brand {
 	padding-bottom: 70px;
 }
 
+.good,.good_wrap{
+    height: 500px;
+}
+
 .good{
-	height: 500px;
+	
 	text-align: center;
 	padding-top: 35px;
+        top:0;
+        left:0;
 }
 
 .good h3{
 	color: #2a6496;
+        overflow: hidden;
+        white-space: nowrap;
+        word-wrap: normal;
+        text-overflow:ellipsis;
 }
 
 .good img{
@@ -431,7 +441,12 @@ div.container a.brand {
 }
 
 .descript{
-	height: 100px;
+	height: 50px;
+        overflow: hidden;
+        white-space: nowrap;
+        word-wrap:normal;
+        text-overflow:ellipsis;
+        
 }
 
 .breadcrumbs{
