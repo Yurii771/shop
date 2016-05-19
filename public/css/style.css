@@ -286,7 +286,16 @@ div.container a.brand {
 	height: inherit; 
 	overflow: hidden; 
 	max-width: 100%; 
-} 
+}
+.collage-wrapper a{
+	color: #fff;
+	height: 100%;
+	width: 100%;
+}
+.collage-wrapper a:hover{
+	background-color: #04a49c;
+	text-decoration: none;
+}
 .collage-wrapper .collage-block{ 
 	position: absolute;
 	display: table;
@@ -298,7 +307,7 @@ div.container a.brand {
 .collage-block{
 	border: 5px solid #fff;
 }
-.collage-block p{
+.collage-block a>p{
 	display: block;
 	vertical-align: middle;
 	color: #fff;
@@ -531,4 +540,8 @@ div.container a.brand {
 
 .confirm{
 	padding-bottom: 150px;
+}
+
+.carousel-caption p{
+	text-align: center;
 }

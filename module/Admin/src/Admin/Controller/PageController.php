@@ -36,7 +36,7 @@ class PageController extends BaseController
     public function savesliderAction(){
         var_dump($_FILES);
         for($i=1; $i<=3; $i++){
-            $upload = move_uploaded_file($_FILES['image' . $i]['tmp_name'], 'C:/wamp/www/shop/public/img/' . $_FILES['image' . $i]['name']);
+            $upload = move_uploaded_file($_FILES['image' . $i]['tmp_name'], 'C:/wamp/www/projects/shop/public/img/' . $_FILES['image' . $i]['name']);
             $file_info = $_FILES['image' . $i];
             if(!empty($file_info['name'])){
                 $query=$this->getEntityManager()->createQuery('UPDATE Admin\Entity\Slider u SET u.img_way=\''.$file_info['name'].'\' WHERE u.id='.$i);
