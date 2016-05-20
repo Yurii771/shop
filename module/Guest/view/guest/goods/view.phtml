@@ -1,7 +1,9 @@
 <div class="c-cols-r-static">
     <div class="col-md-12 id-good">
 		<div class="col-md-6 id-img">
-			<a class="fancybox" rel="group" href="<?php echo $goods->getPhoto() ?>"><img src="<?php echo $goods->getPhoto() ?>"/></a>
+			<a class="fancybox" rel="group" href="<?php echo $goods->getPhoto() ?>">
+                            <img src="/img/goods/<?php echo $goods->getPhoto() ?>"/>
+                        </a>
 		</div>
 		<div class="col-md-6 id-desc">
 			<h2><?php echo $goods->getName() ?></h2>
