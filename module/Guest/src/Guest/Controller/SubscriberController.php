@@ -40,11 +40,6 @@ class SubscriberController extends BaseAdminController {
 		} else {
 			return array('form' => $form);
 		}
-		if ($message) {
-			$this->flashMessenger()
-					->setNamespace($status)
-					->addMessage($email);
-		}
 		$recepient = $email;
 		$sitename = "petbox.esy.es";
 		$message = "Спасибо за подписку!";
