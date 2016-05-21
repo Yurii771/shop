@@ -1,13 +1,15 @@
 $(document).ready(function() {
 
 	$("#addSubscriber").submit(function() {
+                var form = this;
 		$.ajax({
 			type: "POST",
-			url: "Subscriber/add",
-			data: $(this).serialize()
-		}).done(function() {
-			$(this).find("input").val("");
-			alert("Спасибо за подписку!");
+			url: "/subscriber/add",
+			data: $(this).serialize(),
+                        success: function(data){
+                            $(form).find("input").val("");
+                            alert("Спасибо за подписку!");
+                        }
 		});
 		return false;
 	});
