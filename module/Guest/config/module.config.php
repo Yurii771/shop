@@ -1,5 +1,28 @@
 <?php
 return array(
+    
+    'doctrine' => array(
+        'driver' => array(
+            // defines an annotation driver with two paths, and names it `my_annotation_driver`
+            'guest_entity' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(
+                    __DIR__ . '/../src/Guest/Entity',
+                ),
+            ),
+
+            // default metadata driver, aggregates all other drivers into a single one.
+            // Override `orm_default` only if you know what you're doing
+            'orm_default' => array(
+                'drivers' => array(
+                    // register `my_annotation_driver` for any entity under namespace `My\Namespace`
+                    'Guest\Entity' => 'guest_entity'
+                )
+            )
+        )
+    ),
+    
     'router' => array(
         'routes' => array(
             'guest' => array(
@@ -25,6 +48,11 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Guest\Controller\Index' => 'Guest\Controller\IndexController',
+            'Guest\Controller\About' => 'Guest\Controller\AboutController',
+            'Guest\Controller\Contacts' => 'Guest\Controller\ContactsController',
+            'Guest\Controller\Payment' => 'Guest\Controller\PaymentController',
+            'Guest\Controller\Goods' => 'Guest\Controller\GoodsController',
+            'Guest\Controller\Subscriber' => 'Guest\Controller\SubscriberController',
         ),
         'factories' => array(
             'Guest\Controller\Category' => 'Guest\Factory\CategoryControllerFactory',
@@ -36,6 +64,7 @@ return array(
         ),
         'template_map' => array(
             'layout/guest'  => __DIR__ . '/../view/layout/guest.phtml',
+            
         ),
     ),
     

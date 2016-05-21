@@ -1,0 +1,43 @@
+<?php
+
+namespace Guest\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Categories
+ *
+ * @ORM\Table(name="categories", indexes={@ORM\Index(name="parent_name", columns={"parent_id"})})
+ * @ORM\Entity
+ */
+class Categories
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var \Guest\Entity\Categories
+     *
+     * @ORM\ManyToOne(targetEntity="Guest\Entity\Categories")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     * })
+     */
+    private $parent;
+
+
+}
+
