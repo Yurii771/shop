@@ -2,7 +2,11 @@
 
 $recepient = "localhost.kravets.yurka@gmail.com";
 $sitename = "shop.com";
+<<<<<<< HEAD
 var_dump($GET);
+=======
+
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
 $name = trim($_POST["name"]);
 $phone = trim($_POST["phone"]);
 $text = trim($_POST["text"]);

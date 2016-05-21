@@ -2,3 +2,16 @@
 <p> modul Admin <br/>
     controller Index <br/>
     action index <br/>
+    
+<?php 
+    $currency = file_get_contents
+            ('https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11');// getting currency data from PrivatBank API
+    $currencyObject=Zend\Json\Json::decode($currency);                           //- getting object
+    foreach($currencyObject as $key){
+       echo "<br/>".$key->ccy."<br/>";
+       echo "Buy/Sale<br/>";
+       echo $key->buy."/".$key->sale."<br/>";
+    }
+   
+   
+  

@@ -1,9 +1,14 @@
 <?php
+<<<<<<< HEAD
 
 namespace Admin\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+=======
+namespace Admin\Entity;
+use Doctrine\ORM\Mapping as ORM;
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
 /**
  * Orders
  *
@@ -20,6 +25,7 @@ class Orders
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+<<<<<<< HEAD
 
     /**
      * @var string
@@ -27,6 +33,14 @@ class Orders
      * @ORM\Column(name="order", type="text", length=65535, nullable=false)
      */
     private $order;
+=======
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="order_list", type="text", length=65535, nullable=false)
+     */
+    private $orderList;
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
 
     /**
      * @var string
@@ -34,28 +48,40 @@ class Orders
      * @ORM\Column(name="customer_name", type="string", length=255, nullable=false)
      */
     private $customerName;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * @var string
      *
      * @ORM\Column(name="customer_surname", type="string", length=255, nullable=false)
      */
     private $customerSurname;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * @var string
      *
      * @ORM\Column(name="adress", type="string", length=255, nullable=false)
      */
     private $adress;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * @var string
      *
      * @ORM\Column(name="customer_email", type="string", length=255, nullable=false)
      */
     private $customerEmail;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * @var string
      *
@@ -64,6 +90,7 @@ class Orders
     private $customerPhone;
 
     /**
+<<<<<<< HEAD
      * @var \Admin\Entity\Cities
      *
      * @ORM\ManyToOne(targetEntity="Admin\Entity\Cities")
@@ -74,6 +101,8 @@ class Orders
     private $city;
 
     /**
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
      * @var \Admin\Entity\Payment
      *
      * @ORM\ManyToOne(targetEntity="Admin\Entity\Payment")
@@ -82,7 +111,10 @@ class Orders
      * })
      */
     private $payment;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * @var \Admin\Entity\Delivery
      *
@@ -92,7 +124,10 @@ class Orders
      * })
      */
     private $delivery;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * @var \Admin\Entity\OrderStatus
      *
@@ -103,6 +138,19 @@ class Orders
      */
     private $orderStatus;
 
+<<<<<<< HEAD
+=======
+    /**
+     * @var \Admin\Entity\Cities
+     *
+     * @ORM\ManyToOne(targetEntity="Admin\Entity\Cities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     * })
+     */
+    private $city;
+
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
 
 
     /**
@@ -114,6 +162,7 @@ class Orders
     {
         return $this->id;
     }
+<<<<<<< HEAD
 
     /**
      * Set order
@@ -139,6 +188,30 @@ class Orders
         return $this->order;
     }
 
+=======
+    /**
+     * Set orderList
+     *
+     * @param string $orderList
+     *
+     * @return Orders
+     */
+    public function setOrderList($orderList)
+    {
+        $this->orderList = $orderList;
+
+        return $this;
+    }
+    /**
+     * Get orderList
+     *
+     * @return string
+     */
+    public function getOrderList()
+    {
+        return $this->orderList;
+    }
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Set customerName
      *
@@ -149,10 +222,15 @@ class Orders
     public function setCustomerName($customerName)
     {
         $this->customerName = $customerName;
+<<<<<<< HEAD
 
         return $this;
     }
 
+=======
+        return $this;
+    }
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Get customerName
      *
@@ -162,7 +240,10 @@ class Orders
     {
         return $this->customerName;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Set customerSurname
      *
@@ -173,10 +254,15 @@ class Orders
     public function setCustomerSurname($customerSurname)
     {
         $this->customerSurname = $customerSurname;
+<<<<<<< HEAD
 
         return $this;
     }
 
+=======
+        return $this;
+    }
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Get customerSurname
      *
@@ -186,7 +272,10 @@ class Orders
     {
         return $this->customerSurname;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Set adress
      *
@@ -197,10 +286,15 @@ class Orders
     public function setAdress($adress)
     {
         $this->adress = $adress;
+<<<<<<< HEAD
 
         return $this;
     }
 
+=======
+        return $this;
+    }
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Get adress
      *
@@ -210,7 +304,10 @@ class Orders
     {
         return $this->adress;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Set customerEmail
      *
@@ -221,10 +318,15 @@ class Orders
     public function setCustomerEmail($customerEmail)
     {
         $this->customerEmail = $customerEmail;
+<<<<<<< HEAD
 
         return $this;
     }
 
+=======
+        return $this;
+    }
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Get customerEmail
      *
@@ -234,7 +336,10 @@ class Orders
     {
         return $this->customerEmail;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Set customerPhone
      *
@@ -245,10 +350,15 @@ class Orders
     public function setCustomerPhone($customerPhone)
     {
         $this->customerPhone = $customerPhone;
+<<<<<<< HEAD
 
         return $this;
     }
 
+=======
+        return $this;
+    }
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Get customerPhone
      *
@@ -260,6 +370,7 @@ class Orders
     }
 
     /**
+<<<<<<< HEAD
      * Set city
      *
      * @param \Admin\Entity\Cities $city
@@ -284,6 +395,8 @@ class Orders
     }
 
     /**
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
      * Set payment
      *
      * @param \Admin\Entity\Payment $payment
@@ -293,10 +406,15 @@ class Orders
     public function setPayment(\Admin\Entity\Payment $payment = null)
     {
         $this->payment = $payment;
+<<<<<<< HEAD
 
         return $this;
     }
 
+=======
+        return $this;
+    }
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Get payment
      *
@@ -306,7 +424,10 @@ class Orders
     {
         return $this->payment;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Set delivery
      *
@@ -317,10 +438,15 @@ class Orders
     public function setDelivery(\Admin\Entity\Delivery $delivery = null)
     {
         $this->delivery = $delivery;
+<<<<<<< HEAD
 
         return $this;
     }
 
+=======
+        return $this;
+    }
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Get delivery
      *
@@ -330,7 +456,10 @@ class Orders
     {
         return $this->delivery;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Set orderStatus
      *
@@ -341,10 +470,15 @@ class Orders
     public function setOrderStatus(\Admin\Entity\OrderStatus $orderStatus = null)
     {
         $this->orderStatus = $orderStatus;
+<<<<<<< HEAD
 
         return $this;
     }
 
+=======
+        return $this;
+    }
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
     /**
      * Get orderStatus
      *
@@ -354,5 +488,47 @@ class Orders
     {
         return $this->orderStatus;
     }
+<<<<<<< HEAD
 }
 
+=======
+
+    /**
+     * Set city
+     *
+     * @param \Admin\Entity\Cities $city
+     *
+     * @return Orders
+     */
+    public function setCity(\Admin\Entity\Cities $city = null)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return \Admin\Entity\Cities
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+    
+    public function exchangeArray($data)
+    {
+        foreach ($data as $key => $val){
+            if(property_exists($this, $key)){
+                $this->$key = ($val) ? $val : null;
+            }
+        }
+    }
+	
+    public function getArrayCopy()
+    {
+        return get_object_vars($this);
+    }
+}
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b

@@ -47,15 +47,32 @@ return array(
 
     'controllers' => array(
         'invokables' => array(
+<<<<<<< HEAD
             'Guest\Controller\Index' => 'Guest\Controller\IndexController',
             'Guest\Controller\About' => 'Guest\Controller\AboutController',
             'Guest\Controller\Contacts' => 'Guest\Controller\ContactsController',
             'Guest\Controller\Payment' => 'Guest\Controller\PaymentController',
             'Guest\Controller\Goods' => 'Guest\Controller\GoodsController',
             'Guest\Controller\Subscriber' => 'Guest\Controller\SubscriberController',
+=======
+<<<<<<< HEAD
+            'Guest\Controller\About' => 'Guest\Controller\AboutController',
+            'Guest\Controller\Contacts' => 'Guest\Controller\ContactsController',
+            'Guest\Controller\Payment' => 'Guest\Controller\PaymentController',
+            'Guest\Controller\Cart' => 'Guest\Controller\CartController',
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
         ),
         'factories' => array(
             'Guest\Controller\Category' => 'Guest\Factory\CategoryControllerFactory',
+            'Guest\Controller\Order' => 'Guest\Factory\OrderControllerFactory',
+            'Guest\Controller\Goods' => 'Guest\Factory\GoodsControllerFactory',
+            'Guest\Controller\Index' => 'Guest\Factory\IndexControllerFactory',
+=======
+            'Guest\Controller\Index' => 'Guest\Controller\IndexController',
+            'Guest\Controller\About' => 'Guest\Controller\AboutController',
+            'Guest\Controller\Contacts' => 'Guest\Controller\ContactsController',
+            'Guest\Controller\Payment' => 'Guest\Controller\PaymentController',
+>>>>>>> cc0d3f7889ca6e546b39582310fa9778be803611
         ),
     ),
     'view_manager' => array(

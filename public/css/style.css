@@ -50,6 +50,10 @@ div.container a.brand {
 	margin-right: 70px;
 	text-align: center;
 	margin-top: 15px;
+<<<<<<< HEAD
+=======
+        position: relative;
+>>>>>>> d30082abfebca2d3a837423a96083542415bd16b
 }
 
 #cart{

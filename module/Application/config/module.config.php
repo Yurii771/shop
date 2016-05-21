@@ -104,33 +104,6 @@ return array(
     ),
     
     'navigation' => array(
-        'guest' => array(
-            array(
-                'label' => 'Главная',
-                'route' => 'guest',
-                'controller' => 'index',
-            ),
-            array(
-                'label' => 'Каталог',
-                'route' => 'guest',
-                'controller' => 'category',
-            ),
-            array(
-                'label' => 'Оплата и доставка',
-                'route' => 'guest',
-                'controller' => 'payment',
-            ),
-            array(
-                'label' => 'О нас',
-                'route' => 'guest',
-                'controller' => 'about',
-            ),
-            array(
-                'label' => 'Контакты',
-                'route' => 'guest',
-                'controller' => 'contacts',
-            ),
-        ),
         'admin_left' => array(
             array(
                 'label' => 'Кабинет',
