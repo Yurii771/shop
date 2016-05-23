@@ -37,7 +37,14 @@ class GoodsController extends AbstractActionController
             $goods->setCost($this->getRequest()->getPost('cost'));
             $goods->setCount($this->getRequest()->getPost('count'));
 
-            $goods->setPhoto($this->getRequest()->getPost('photo'));
+            if(!empty($_FILES['photo'])){
+                $file_info=$_FILES['photo'];
+                $ext= explode('.',$file_info['name'])[1];
+                $id=$this->getLastId()+1;
+                $newName =$id.".".$ext;
+                move_uploaded_file($file_info['tmp_name'], 'public/img/goods/'.$newName);
+                $goods->setPhoto($newName);
+            }
 
             $category_id = $this->getRequest()->getPost('category');
             $category =  $this->_objectManager->find('\Admin\Entity\Categories', $category_id);
@@ -45,7 +52,6 @@ class GoodsController extends AbstractActionController
 
             $this->_objectManager->persist($goods);
             $this->_objectManager->flush();
-            $newId = $goods->getId();
 
             return $this->redirect()->toRoute('admin', array(
                 'controller' => 'goods',
@@ -74,7 +80,15 @@ class GoodsController extends AbstractActionController
             $goods->setCost($this->getRequest()->getPost('cost'));
             $goods->setCount($this->getRequest()->getPost('count'));
 
-            $goods->setPhoto($this->getRequest()->getPost('photo'));
+            if(isset($_FILES['photo']['name'])){
+                $file_info=$_FILES['photo'];
+                $ext= explode('.',$file_info['name'])[1];
+                $newName =$id.".".$ext;
+                move_uploaded_file($file_info['tmp_name'], 'public/img/goods/'.$newName);
+                $goods->setPhoto($newName);
+            }else{
+                $goods->setPhoto($goods->getPhoto());
+            }
 
             $category_id = $this->getRequest()->getPost('category');
             $category =  $this->_objectManager->find('\Admin\Entity\Categories', $category_id);
@@ -104,7 +118,7 @@ class GoodsController extends AbstractActionController
             $this->_objectManager->remove($goods);
             $this->_objectManager->flush();
 
-            return $this->redirect()->toRoute('admin');
+            return $this->redirect()->toRoute('admin', array('controller'=>'goods'));
         }
 
         return new ViewModel(array('goods' => $goods));
@@ -123,6 +137,13 @@ class GoodsController extends AbstractActionController
             }
         }
         return $categories;
+    }
+    
+    public function getLastId() {
+        $query = $this->_objectManager->createQuery('SELECT u.id FROM Admin\Entity\Goods u');
+        $ids = $query->getResult();
+        $maxId= max($ids);
+        return $lastId=$maxId['id'];
     }
 
 }

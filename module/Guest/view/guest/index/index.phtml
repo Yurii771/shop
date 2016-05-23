@@ -51,7 +51,7 @@ foreach ($sliderImg as $key => $val) {
 					$name = $val['name'];
 					$str2.= '<div class="collage-block" id="block' . ($key + 1) . '" style="background:' . sprintf('#%02X%02X%02X', rand(60, 255), rand(60, 255), rand(60, 255)) . '">';
 					//$str2.='<div class="collage-block-shadow" id="block-shadow' . $i . '">';
-					$str2.= '<p>' . $name . '</p></div>';
+					$str2.= '<p><a href="">' . $name . '</a></p></div>';
 				}
 				echo $str2;
 				?>
@@ -63,19 +63,21 @@ foreach ($sliderImg as $key => $val) {
 
 	<div class="col-md-12 items">
 		<div class="col-md-4 s-item" align="center">
-			<a href="#"><img src="img/cat.jpg" alt=""/></a>
-			<h3>Cat</h3>
-			<p>edewdfewfewrfwerfwrff</p>
+			<a href="/goods/index/39">
+				<img src="img/cat.jpg" alt=""/>
+				<h3>Котишки</h3>
+			</a>
+			<p>Мимишки</p>
 		</div>
 		<div class="col-md-4 s-item" align="center">
-			<a href="#"><img src="img/dog.jpg" alt=""/></a>
-			<h3>Dog</h3>
-			<p>rghrtiouwgthmguitctuix</p>
+			<a href="/goods/index/40"><img src="img/dog.jpg" alt=""/></a>
+			<h3>ЩЩЩенок</h3>
+			<p>Гав Гав</p>
 		</div>
 		<div class="col-md-4 s-item" align="center">
-			<a href="#"><img src="img/pig.jpg" alt=""/></a>
-			<h3>Pig</h3>
-			<p>edewdwedwedwedewdedwew</p>
+			<a href="/goods/index/11"><img src="img/pig.jpg" alt=""/></a>
+			<h3>Свинка</h3>
+			<p>Пэпа</p>
 		</div>
 	</div>
 </div>

@@ -27,9 +27,8 @@
             <div class="col-md-9">
 
                 <div class="thumbnail">
-                    <!-- <img class="img-responsive" src="http://placehold.it/800x300" alt=""><img class="img-responsive" src="http://placehold.it/800x300" alt=""> -->
-                    <img src="<?= '/img/goods/'.$goods->getPhoto()?>" class="img-responsive">
-                        <h4><a>Фото: </a></h4><input type="text" class="form-control" name="photo" value="<?= '/img/goods/'.$goods->getPhoto()?>">
+                    <img src="<?='/img/goods/'.$goods->getPhoto();?>" class="img-responsive">
+                    <input type="file" name="photo"><br>
                     <div class="caption-full">
                       <h4><a>Название: </a></h4><input class="form-control" type="text" name="name" value="<?= $goods->getName()?>">
                         <h4 class=""><a>Цена:</a></h4><input class="form-control" type="number" name="cost" value="<?= $goods->getCost()?>">
@@ -43,9 +42,6 @@
                             <?php foreach($categories as $item):?>
                               <optgroup label="<?= $item['parent']->getName(); ?>">
                                   <?php $is_selected = ($item['parent']->getId()==$goods->getCategory()->getId())? 'selected': ''; ?>
-                                  <option value="<?= $item['parent']->getId()?>" <?= $is_selected; ?>>
-                                      -- <?= $item['parent']->getName();?> (Корень категории) --
-                                  </option>
                                   <?php if(!empty($item['children'])): ?>
                                       <?php foreach($item['children'] as $child): ?>
                                             <?php $is_selected = ($child->getId()==$goods->getCategory()->getId())? 'selected': ''; ?>
@@ -59,8 +55,10 @@
                         </select>
                     </div>
 
-                    <button type="submit" name="Edit" class="btn btn-success ">Edit</button>
-
+                    <button type="submit" name="Edit" class="btn btn-success ">Принять</button>
+                    <a href="<?= $this->url('admin', array('controller'=>'goods')) ?>" class="btn btn-default">
+                        Отменить
+                    </a>
                 </div>
 
             </div>

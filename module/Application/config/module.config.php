@@ -94,6 +94,9 @@ return array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),
+		'strategies' => array(
+            'ViewJsonStrategy',
+        ),
     ),
     // Placeholder for console routes
     'console' => array(
@@ -104,6 +107,53 @@ return array(
     ),
     
     'navigation' => array(
+        'guest' => array(
+            array(
+                'label' => 'Главная',
+                'route' => 'guest',
+                'controller' => 'index',
+            ),
+            array(
+                'label' => 'Каталог',
+                'route' => 'guest',
+                'controller' => 'category',
+                'pages' => array(
+                    array(
+                        'label' => 'Стегозавры',
+                        'route' => 'guest',
+                        'controller' => 'goods',
+                        'action' => 'index',
+                        'params' => array(
+                            'id' => 1,
+                        ),
+                    ),
+                    array(
+                        'label' => 'Яйца динозавров',
+                        'route' => 'guest',
+                        'controller' => 'goods',
+                        'action' => 'index',
+                        'params' => array(
+                            'id' => 7,
+                        ),
+                    ),
+                ),
+            ),
+            array(
+                'label' => 'Оплата и доставка',
+                'route' => 'guest',
+                'controller' => 'payment',
+            ),
+            array(
+                'label' => 'О нас',
+                'route' => 'guest',
+                'controller' => 'about',
+            ),
+            array(
+                'label' => 'Контакты',
+                'route' => 'guest',
+                'controller' => 'contacts',
+            ),
+        ),
         'admin_left' => array(
             array(
                 'label' => 'Кабинет',

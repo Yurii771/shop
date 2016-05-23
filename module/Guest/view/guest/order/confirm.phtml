@@ -14,7 +14,11 @@ echo $flash->render('default', array('alert', 'alert-dismissable', 'alert-warnin
 echo $flash->render('success', array('alert', 'alert-dismissable', 'alert-success'));
 ?>
 </div>
-<div class="col-md-12" align="center">
+<div class="col-md-12 check" align="center">
     <img src="<?php echo $this->basePath('img/galochka.jpg') ?>"  alt="ok"/>
 </div>
-<div class="col-md-12" align="center"><a href="<?= $this->url('guest', array('controller'=>'index', 'action' => 'index')) ?>" class="btn btn-info">На главную</a></div>
+<div class="col-md-12 confirm" align="center" style="margin-bottom: 15px;">
+    <a href="<?= $this->url('guest', array('controller'=>'index', 'action' => 'index')) ?>" class="btn btn-info">
+        На главную
+    </a>
+</div>

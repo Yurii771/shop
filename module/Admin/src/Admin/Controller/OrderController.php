@@ -102,6 +102,16 @@ class OrderController extends AbstractActionController {
             }
         }
     }
+    
+    public function searchAction(){
+        $searchItem = $this->params()->fromPost('search');
+        if(empty($searchItem)){
+          return $this->redirect()->toRoute('admin');
+        }
+        $query = $this->getObjectManager()->createQuery("SELECT u,a.orderStatus FROM Admin\Entity\Orders u JOIN Admin\Entity\OrderStatus a WHERE u.orderStatus=a.id AND a.orderStatus LIKE '%$searchItem%' ORDER BY u.id DESC ");
+        $rows = $query->getResult();
+      return new ViewModel(array('goods' => $rows,'searchItem'=>$searchItem));
+    }
 
     protected function getObjectManager() {
         return $this->_objectManager;
