@@ -30,12 +30,11 @@ h1, h2, h3{
     width: 170px;
 }
 .subcategory a:hover{
-     color: white;
-     background-color: #2a6496;
-     padding-left: 30px;
-     display: block;
-     list-style-type: none;
-     text-decoration: none;
+	color: white;
+	background-color: #2a6496;
+	padding-left: 30px;
+	display: block;
+	text-decoration: none;
 }
 .category_group{
     border: 2px #2a6496 solid;
@@ -50,16 +49,18 @@ h1, h2, h3{
     border-radius: 9px 9px 0 0;
 }
 .category span{
-   color: white;
+	color: white;
 }
 .subcategory{
-   text-align: left;
+	text-align: left;
 }
 .subcategory li{
+	list-style-type: none;
     margin: 2px;
+	padding-left: 10px;
 }
-.zf-green {
-    color: #68b604;
+.categ{
+	padding-bottom: 100px;
 }
 /*----- END Guest Categories -------------*/
 
@@ -204,7 +205,7 @@ div.container a.brand {
 }
 
 .inst ul{
-	
+
 }
 
 .inst ul>li{
@@ -450,19 +451,19 @@ div.container a.brand {
 }
 
 .good{
-	
+
 	text-align: center;
 	padding-top: 35px;
-        top:0;
-        left:0;
+	top:0;
+	left:0;
 }
 
 .good h3{
 	color: #2a6496;
-        overflow: hidden;
-        white-space: nowrap;
-        word-wrap: normal;
-        text-overflow:ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	word-wrap: normal;
+	text-overflow:ellipsis;
 }
 
 .good img{
@@ -472,7 +473,7 @@ div.container a.brand {
 }
 
 .good div{
-	
+
 }
 
 .good a{
@@ -486,11 +487,11 @@ div.container a.brand {
 
 .descript{
 	height: 50px;
-        overflow: hidden;
-        white-space: nowrap;
-        word-wrap:normal;
-        text-overflow:ellipsis;
-        
+	overflow: hidden;
+	white-space: nowrap;
+	word-wrap:normal;
+	text-overflow:ellipsis;
+
 }
 
 .breadcrumbs{
@@ -505,7 +506,7 @@ div.container a.brand {
 
 
 .id-good{
-	
+
 	padding-top: 70px;
 	padding-bottom: 120px;
 }

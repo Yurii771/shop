@@ -1,4 +1,3 @@
-
 <!-- Page Header -->
 <div class="row">
      <div class="col-md-12">
@@ -8,33 +7,33 @@
          </a>
      </div>
 </div>
-       <!-- /.row -->
+<!-- /.row -->
 <hr/>
-<?php $i = 1 ?>
-<?php foreach($goods as $g):?>
 
-<?php if($i%3 === 0): ?>
-<div class="row">
-<?php endif; ?>
-
-<div class="col-md-4 portfolio-item">
-    <a href="#">
-        <img src="/img/goods/<?= $g->getPhoto()?>" height="120px">
-    </a>
-    <h3>
-        <a href="/admin/goods/edit/<?= $g->getId() ?>"><?php echo $g->getName()?></a>
-    </h3>
- 
-    <h4><?= $g->getCategory()->getName()?></h4>
-
-    <p><?= $g->getShortDescription()?></p>
-    <a href="/admin/goods/edit/<?= $g->getId() ?>"><button class='btn btn-primary'>Edit</button></a>
-    <a href="/admin/goods/delete/<?= $g->getId() ?>"><button class="btn btn-danger">Delete</button></a><br><br>
+<div class="col-md-12">
+	<table class="table table-hover" id="goods-table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Фото</th>
+				<th>Наименование</th>
+				<th>Операции</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php $count = 1 ?>
+		<?php foreach($goods as $good):?>
+			<tr>
+				<td><?= $count ?></td>
+				<td><img src="/img/goods/<?= $good->getPhoto()?>" width="65" height="65"></td>
+				<td><?= $good->getName() ?></td>
+				<td>
+					<a class='btn btn-info btn-sm edit-but' href="/admin/goods/edit/<?= $good->getId() ?>">Редактировать</a>
+					<a class='btn btn-primary btn-sm' href="/admin/goods/delete/<?= $good->getId() ?>">Удалить</a>
+				</td>
+			</tr>
+		<?php $count++  ?>
+		<?php endforeach;?>
+		</tbody>
+	</table>
 </div>
-<?php if($i%3 === 0): ?>
-</div>
-<?php endif; ?>
-
-<?php $i++  ?>
-<?php endforeach;?>
-
