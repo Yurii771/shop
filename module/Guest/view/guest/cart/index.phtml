@@ -1,0 +1,79 @@
+<h1 align="center">Корзина</h1>
+<hr/>
+
+<?php if ($cart): ?>
+<?php $final_cost=0?>
+
+<div class="row" style="margin-bottom: 20px;">
+    <div class="col-sm-offset-1 col-sm-5 text-center" style="margin-bottom: 5px;">
+        <a class="btn btn-primary" href="<?= $this->url('guest', array('controller'=>'category')) ?>">Продолжить покупки</a>
+    </div>
+    <div class="ccol-md-5 text-center">
+        <a class="btn btn-success make_order" href="<?= $this->url('guest', array('controller'=>'order')) ?>">Оформить заказ</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover" id="cart-table">
+            <tr>
+                <th colspan="2">Товар</th>
+                <th>Кол-во</th>
+                <th>Стоимость</th>
+                <th></th>
+            </tr>
+            <?php for ($i = 0; $i < count($cart); $i++): ?>
+            <tr class="goods">
+                <td class="cart_col">
+                    <img class="cart_photo" src="/img/goods/<?php echo($cart[$i]['goods']->getPhoto()) ?>"/>
+                </td>
+                <td class="cart_col">
+                    <p><?php echo($cart[$i]['goods']->getName()) ?></p>
+                    <hr/>
+                    <p><span class="cost_goods"><?php echo($cart[$i]['goods']->getCost()) ?></span>грн.</p>
+                </td>
+                <td class="cart_col">
+                    <input class="goods_count" type="number" value="<?= $cart[$i]['count'] ?>" min="1" style="width: 45px; margin-left: 7px;" data-id="<?php echo($cart[$i]['goods']->getId()) ?>"/>
+                </td>
+                <td class="cart_col">
+                    <h4>
+                        <span class="cost_goods_total"><?php 
+                        $cost=($cart[$i]['goods']->getCost())*($cart[$i]['count']);
+                        $final_cost+=$cost;
+                        echo $cost;
+                        ?></span>грн.
+                    </h4>
+                </td>
+                <td>
+                    <a class="btn btn-default delete_goods" href="<?= $this->url('guest', array('controller'=>'cart', 'action'=>'delete', 'id'=>$cart[$i]['goods']->getId())); ?>">Удалить</a>
+                </td>
+            </tr>
+            <?php endfor; ?>
+            <tr>
+                <td colspan="3">
+                    <h3>Итого:</h3>
+                </td>
+                <td>
+                    <h3>
+                        <span class="cost_total"><?php echo $final_cost?></span>грн.
+                    </h3>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<?php else: ?>
+    <h3 class="text-center">Корзина пуста</h3>
+    <p class="text-center">Что бы сделать покупки, перейдите в 
+        <a href="<?= $this->url('guest', array('controller' => 'category')); ?>">
+            <strong>каталог</strong>
+        </a>
+    </p>
+<?php endif; ?>
+
+<script>
+    $(document).ready(function(){
+        $('.goods_count').change(editCountToCartAjax);
+        $('.delete_goods').click(deleteGoodsFromCartAjax);
+    });
+</script>

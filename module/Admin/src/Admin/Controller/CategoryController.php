@@ -16,7 +16,21 @@ class CategoryController extends BaseController
     {
         $query = $this->getEntityManager()->createQuery('SELECT u FROM Admin\Entity\Categories u ORDER BY u.id');
         $rows = $query->getResult();
-        return array('categories' => $rows);
+        $categories = array();
+        foreach ($rows as $row){
+            if(!$row->getParent()){
+                $categories[$row->getId()]['parent'] = $row;
+                if(!isset($categories[$row->getId()]['children'])){
+                    $categories[$row->getId()]['children'] = array();
+                }
+            }else{
+                $categories[$row->getParent()->getId()]['children'][] = $row;
+            }
+        }
+        uasort($categories, function($a, $b){
+            return ( count($a['children']) > count($b['children']) )? 1: -1;
+        });
+        return array('categories' => $categories);
     }
 	
     public function addAction()
@@ -134,7 +148,7 @@ class CategoryController extends BaseController
                 );
         $parents = $query->getResult();
         $options = array(
-            '0' => 'Создать без родительской категории',
+            '0' => 'Создать как главную категорию',
         );
         foreach ($parents as $item){
             $options[$item->getId()] = $item->getName();

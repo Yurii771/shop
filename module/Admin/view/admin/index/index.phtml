@@ -1,4 +1,46 @@
-<h1>Hi, Admin !!!</h1>
-<p> modul Admin <br/>
-    controller Index <br/>
-    action index <br/>
+<?php
+$currency = file_get_contents
+		('https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11'); // getting currency data from PrivatBank API
+$currencyObject = Zend\Json\Json::decode($currency);		 //- getting object
+?>
+
+<h2 align="center">Состояние валютного курса</h2></br>
+<table class="table table-striped table-hover table-bordered privat">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Валюта</th>
+			<th>Покупка</th>
+			<th>Продажа</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php $count = 1; ?>
+		<?php foreach ($currencyObject as $key): ?>
+			<tr>
+				<td><?php echo $count++; ?></td>
+				<td><?php echo $key->ccy ?></td>
+				<td><?php echo $key->buy ?></td>
+				<td><?php echo $key->sale ?></td>
+			</tr>	
+		<?php endforeach; ?>
+	</tbody>
+</table>
+
+<h2 align="center">Заказы</h2></br>
+<table class="table table-striped table-hover table-bordered order_status">
+	<thead>
+		<tr>
+			<th>Статус</th>
+			<th>Количество</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ($order_status as $key): ?>
+			<tr>
+				<td><?php echo $key['orderStatus'] ?></td>
+				<td><?php echo $key[1] ?></td>
+			</tr>	
+		<?php endforeach; ?>
+	</tbody>
+</table>

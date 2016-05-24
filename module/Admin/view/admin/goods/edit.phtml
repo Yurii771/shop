@@ -1,0 +1,72 @@
+<?php //echo var_dump($goods); die(); ?>
+<style>
+  textarea{
+    resize: vertical;
+    margin: 2%;
+  }
+</style>
+<h1>Редактирование : "<?=$goods->getName()?>"</h1>
+
+
+
+<!-- Page Content -->
+    <div class="container">
+      <form method="POST" enctype="multipart/form-data" role="form"><br>
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">Другие Животные</p>
+                <div class="list-group">
+                  <?php foreach($goodsList as $item):?>
+                    <a href="/admin/goods/edit/<?= $item->getId() ?>" class="list-group-item"><?= $item->getName()?></a>
+                  <?php endforeach;?>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="thumbnail">
+                    <img src="<?='/img/goods/'.$goods->getPhoto();?>" class="img-responsive">
+                    <input type="file" name="photo"><br>
+                    <div class="caption-full">
+                      <h4><a>Название: </a></h4><input class="form-control" type="text" name="name" value="<?= $goods->getName()?>">
+                        <h4 class=""><a>Цена:</a></h4><input class="form-control" type="number" name="cost" value="<?= $goods->getCost()?>">
+
+                        <h4 class=""><a>Количество:</a></h4><input class="form-control" type="number" name="count" value="<?= $goods->getCount()?>">
+                            <p><h4>Короткое описание: </h4><textarea class="form-control" name="short_description" style="width:90%" rows="6"><?= $goods->getShortDescription()?></textarea></p>
+                        <p><h4>Описание: </h4><textarea class="form-control" name="description" style="width:90%" rows="10"><?= $goods->getDescription()?></textarea></p>
+
+<h4>Категория: </h4>
+                        <select class="form-control" name="category">
+                            <?php foreach($categories as $item):?>
+                              <optgroup label="<?= $item['parent']->getName(); ?>">
+                                  <?php $is_selected = ($item['parent']->getId()==$goods->getCategory()->getId())? 'selected': ''; ?>
+                                  <?php if(!empty($item['children'])): ?>
+                                      <?php foreach($item['children'] as $child): ?>
+                                            <?php $is_selected = ($child->getId()==$goods->getCategory()->getId())? 'selected': ''; ?>
+                                            <option value="<?= $child->getId()?>" <?= $is_selected; ?>>
+                                                <?= $child->getName();?>
+                                            </option>
+                                      <?php endforeach; ?>
+                                  <?php endif; ?>
+                              </optgroup>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
+
+                    <button type="submit" name="Edit" class="btn btn-success ">Принять</button>
+                    <a href="<?= $this->url('admin', array('controller'=>'goods')) ?>" class="btn btn-default">
+                        Отменить
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        </form>
+        <a href="/admin/goods"><button class="btn btn-primary btn-lg">Back</button></a>
+
+
+    </div>

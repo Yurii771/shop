@@ -1,0 +1,28 @@
+<div class="c-cols-r-static">
+	<div class="col-md-12 search-result">
+		<div class="col-md-12" align="center">
+			<h1>Search Results</h1>
+			<h2 class="lead"><strong class="text-success"><?= count($goods) ?></strong> results were found for the search for <strong class="text-success"><?= '"' . $searchItem . '"' ?></strong></h2>
+		</div>
+		<div class="col-md-12 img-search">
+			<?php foreach ($goods as $g): ?>
+			<div class="col-md-4 search-good">
+				<div class="name-good"><h3>
+					<?php echo $g->getName() ?></h3>
+				</div><br/>
+				<img src="/img/goods/<?= $g->getPhoto() ?>" width="300" height="200"/><br/><br/>
+				<div id="ul-list">
+					<?php foreach ($categories as $c): ?>
+						<?php if ($g->getCategory()->getId() == $c->getId()): ?>
+							<i class="glyphicon glyphicon-tag">&nbsp;</i>Категория: <span><?= $c->getName() ?></span><br/><br/>
+						<?php endif; ?>
+					<?php endforeach; ?>
+					<i class="glyphicon glyphicon-th-list">&nbsp;</i>Количество: <span><?= $g->getCount() ?></span><br/><br/>
+					<i class="glyphicon glyphicon-thumbs-up">&nbsp;</i>Цена: <span><?= $g->getCost() ?></span>
+				</div><br/><br/>
+				<a href="/goods/view/<?= $g->getId() ?>" class="btn btn-info btn-sm">Перейти</a>
+			</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</div>

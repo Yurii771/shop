@@ -1,4 +1,83 @@
-<h1>Hi, Guest !!!</h1>
-<p> modul Guest <br/>
-    controller Index <br/>
-    action index <br/>
+<?php
+foreach ($sliderImg as $key => $val) {
+	$img_name = $val->getImg_way();
+	$names[$key] = $img_name;
+}
+?>
+<div class="c-cols-r-static" >
+	<!------------Carousel------------>
+	<div class="col-md-12 crsl" align="center" >
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<img class="img_slider" src="<?php echo "../img/" . $names[0] . '"' ?>" alt="UA">
+					<div class="carousel-caption">
+						<p class="sl-p">Все что пожелаете</p>
+						<p class="sl-p2">Животные на любой вкус</p>
+					</div>
+				</div>
+				<div class="item">
+					<img class="img_slider" src="<?php echo "../img/" . $names[1] . '"' ?>" alt="USA">
+					<div class="carousel-caption">
+						<p class="sl-p">Вас будут слушаться</p>
+						<p class="sl-p2">Мы поможем Вам с воспитанием питомца</p>
+					</div>
+				</div>
+				<div class="item">
+					<img class="img_slider" src="<?php echo "../img/" . $names[2] . '"' ?>" alt="GB">
+					<div class="carousel-caption">
+						<p class="sl-p">На любой вкус..</p>
+						<p class="sl-p2">Желаете чего-то необычного?</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-------------End carousel------------>
+
+	<!-------------Collage------------>
+	<div class="col-md-12 some" align="center" >
+		<div class="cllg">
+			<div class="collage-wrapper">
+				<?php
+				$str2 = '';
+				foreach ($categoriesId as $key => $val) {
+					$name = $val['name'];
+					$id = $val['id'];
+					$str2.= '<div class="collage-block" id="block' . ($key + 1) . '">';
+					$str2.= '<p><a href="/goods/index/' .$id. '">' . $name . '</a></p></div>';
+				}
+				echo $str2;
+				?>
+			</div>
+		</div>
+	</div>
+	<!------------End collage------------>
+	
+	<!------------Block with 3 animals------------>
+	<div class="col-md-12 items">
+		<div class="col-md-4 s-item" align="center">
+			<a href="/goods/index/39">
+				<img src="img/cat.jpg" alt=""/>
+				<h3>Котишки</h3>
+			</a>
+			<p>Мимишки</p>
+		</div>
+		<div class="col-md-4 s-item" align="center">
+			<a href="/goods/index/40"><img src="img/dog.jpg" alt=""/></a>
+			<h3>ЩЩЩенок</h3>
+			<p>Гав Гав</p>
+		</div>
+		<div class="col-md-4 s-item" align="center">
+			<a href="/goods/index/11"><img src="img/pig.jpg" alt=""/></a>
+			<h3>Свинка</h3>
+			<p>Пэппа</p>
+		</div>
+	</div>
+	<!------------End block with 3 animals------------>
+</div>

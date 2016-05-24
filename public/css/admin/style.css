@@ -1,0 +1,46 @@
+.content{
+    max-width: 1024px;
+    padding: 20px; 
+}
+
+/*----------------------------------------*/
+/*-------------- CATEGORIES ------------------*/
+/*----------------------------------------*/
+.panel-body .table:last-child{
+    margin: 0;
+}
+.panel-body .table tr:first-child td{
+    border-top: none;
+}
+.category_controls{
+    float: right;
+}
+.panel-heading .category_controls{
+    margin: 10px;
+}
+.panel-body .category_controls{
+    margin-right: 10px;
+}
+.panel .category_controls a{
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+/*----------------------------------------*/
+/*-------------- GOODS ------------------*/
+/*----------------------------------------*/
+#goods-table{
+	width: 100%;
+}
+#goods-table th{
+	text-align: center;
+	font-size: 16pt;
+	color: #2a6496;
+}
+#goods-table td{
+	font-size: 13pt;
+	padding: 10px;
+}
+.edit-but{
+	margin-bottom: 5px;
+}

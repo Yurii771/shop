@@ -1,0 +1,74 @@
+body{
+    padding-top: 70px;
+}
+
+/*-----------------------------------------------------------
+--------Count marker in cart image in header------------------
+-----------------------------------------------------------*/
+.cart{
+/*	float: right;
+	width: 70px;
+	height: 55px;
+	margin-right: 70px;
+	text-align: center;
+	margin-top: 15px;*/
+        position: relative;
+}
+
+.cartCount{
+    background: #ff7518;
+    color: black;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 11pt;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: none;
+}
+
+/*-----------------------------------------------------------
+-------------SITEMAP----------------------------------------------
+-----------------------------------------------------------*/
+.sitemap_container{
+    max-width: 1024px;
+    margin: auto;
+    padding: 10px 0;
+}
+
+.sitemap_page{
+    border-top: 1px solid silver;
+}
+
+.sitemap_page:first-of-type{
+    border-top: none;
+}
+
+.sitemap_page h2{
+    margin: 20px auto;
+}
+
+.sitemap_page1{
+    border: 1px solid silver;
+    margin: 10px 0;
+}
+
+.sitemap_page1 h3{
+    margin: 0;
+    font-size: 16pt;
+}
+.sitemap_page1 p{
+    margin: 18px 0;
+}
+
+.sitemap_page1_head, .sitemap_page1_body{
+    padding: 0 10px;
+}
+
+.sitemap_page1_head{
+    background: silver;
+    padding: 5px 10px;
+}

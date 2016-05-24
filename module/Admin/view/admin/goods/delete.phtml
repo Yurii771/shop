@@ -1,0 +1,12 @@
+<?php
+$title = 'Удаление товара';
+$this->headTitle($title);
+?>
+<h2>Вы уверены что хотите удалить товар?</h2>
+<h2><?php echo $goods->getName(); ?></h2>
+<form method="post">
+    <input type="submit" value="Удалить" class="btn btn-danger"/>
+    <a href="<?= $this->url('admin', array('controller'=>'goods')) ?>" class="btn btn-default">
+        Отменить
+    </a>
+</form>
