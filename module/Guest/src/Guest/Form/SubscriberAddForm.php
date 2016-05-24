@@ -14,7 +14,7 @@ class SubscriberAddForm extends Form {
 		// we want to ignore the name passed
 		parent::__construct('subscriberAddForm');
 		$this->setAttribute('method', 'post');
-		$this->setAttribute('action', 'subscriber/add');
+		$this->setAttribute('action', '/subscriber/add');
 		$this->setAttribute('class', 'bs-example form-horizontal');
 		$this->add(array(
 			'name' => 'email',

@@ -43,11 +43,13 @@
                     $str2.='<div class="collage-block" id="block' . ($key + 1) . '" style="background:' . sprintf('#%02X%02X%02X', rand(60, 255), rand(60, 255), rand(60, 255)) . '">';
                     $str2.='<select name="categorie' . ($key + 1) . '">';
                     foreach ($categories as $val) {
-                        $name2 = $val->getName();
-                        if ($name1 == $name2) {
-                            $str2.='<option selected>' . $name2 . '</option>';
-                        } else {
-                            $str2.='<option>' . $name2 . '</option>';
+                        if($val->getParent()){
+                            $name2 = $val->getName();
+                            if ($name1 == $name2) {
+                                $str2.='<option selected>' . $name2 . '</option>';
+                            } else {
+                                $str2.='<option>' . $name2 . '</option>';
+                            }
                         }
                     }
                     $str2.='</select></div>';

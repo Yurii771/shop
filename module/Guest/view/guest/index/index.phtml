@@ -47,7 +47,6 @@ foreach ($sliderImg as $key => $val) {
 				<?php
 				$str2 = '';
 				foreach ($categoriesId as $key => $val) {
-					//for($i=1; $i<=9; $i++){
 					$name = $val['name'];
 					$str2.= '<div class="collage-block" id="block' . ($key + 1) . '" style="background:' . sprintf('#%02X%02X%02X', rand(60, 255), rand(60, 255), rand(60, 255)) . '">';
 					//$str2.='<div class="collage-block-shadow" id="block-shadow' . $i . '">';

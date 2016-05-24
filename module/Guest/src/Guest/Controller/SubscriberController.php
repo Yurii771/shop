@@ -13,14 +13,10 @@ use Admin\Entity\Subscribers;
  */
 class SubscriberController extends BaseAdminController {
 
-//     public function addAction()
-//    {
-//       $email = trim($_POST["email"]);
-//$link= mysqli_connect('localhost', 'root', '', 'shop');
-//$query="INSERT INTO subscribers (email) values ('$email')";
-//$res= mysqli_query($link, $query);
-//    }
-
+    public function __construct($em) {
+        $this->_entityManager = $em;
+    }
+    
 	public function addAction() {
 		$form = new SubscriberAddForm();
 		$status = $message = '';
@@ -43,11 +39,6 @@ class SubscriberController extends BaseAdminController {
 			}
 		} else {
 			return array('form' => $form);
-		}
-		if ($message) {
-			$this->flashMessenger()
-					->setNamespace($status)
-					->addMessage($email);
 		}
 		$recepient = $email;
 		$sitename = "petbox.esy.es";
