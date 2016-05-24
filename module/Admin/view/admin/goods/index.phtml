@@ -1,39 +1,39 @@
-<!-- Page Header -->
-<div class="row">
-     <div class="col-md-12">
-         <h1>Управление товарами</h1>
-         <a href="/admin/goods/add" class="btn btn-primary">
-                 Добавить товар
-         </a>
-     </div>
-</div>
-<!-- /.row -->
-<hr/>
-
-<div class="col-md-12">
-	<table class="table table-hover" id="goods-table">
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>Фото</th>
-				<th>Наименование</th>
-				<th>Операции</th>
-			</tr>
-		</thead>
-		<tbody>
-		<?php $count = 1 ?>
-		<?php foreach($goods as $good):?>
-			<tr>
-				<td><?= $count ?></td>
-				<td><img src="/img/goods/<?= $good->getPhoto()?>" width="65" height="65"></td>
-				<td><?= $good->getName() ?></td>
-				<td>
-					<a class='btn btn-info btn-sm edit-but' href="/admin/goods/edit/<?= $good->getId() ?>">Редактировать</a>
-					<a class='btn btn-primary btn-sm' href="/admin/goods/delete/<?= $good->getId() ?>">Удалить</a>
-				</td>
-			</tr>
-		<?php $count++  ?>
-		<?php endforeach;?>
-		</tbody>
-	</table>
+<div class="c-cols-r-static">
+	<!-- Page Header -->
+	<div class="row">
+		 <div class="col-md-12">
+			 <h1>Управление товарами</h1>
+			 <a href="/admin/goods/add" class="btn btn-primary">
+					 Добавить товар
+			 </a>
+		 </div>
+	</div><hr/>
+	<!-- /.row -->
+	<div class="col-md-12">
+		<table class="table table-hover" id="goods-table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Фото</th>
+					<th>Наименование</th>
+					<th>Операции</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php $count = 1 ?>
+			<?php foreach($goods as $good):?>
+				<tr>
+					<td><?= $count ?></td>
+					<td><img src="/img/goods/<?= $good->getPhoto()?>" width="65" height="65"></td>
+					<td><?= $good->getName() ?></td>
+					<td>
+						<a class='btn btn-info btn-sm edit-but' href="/admin/goods/edit/<?= $good->getId() ?>">Редактировать</a>
+						<a class='btn btn-primary btn-sm' href="/admin/goods/delete/<?= $good->getId() ?>">Удалить</a>
+					</td>
+				</tr>
+			<?php $count++  ?>
+			<?php endforeach;?>
+			</tbody>
+		</table>
+	</div>
 </div>

@@ -48,9 +48,9 @@ foreach ($sliderImg as $key => $val) {
 				$str2 = '';
 				foreach ($categoriesId as $key => $val) {
 					$name = $val['name'];
-					$str2.= '<div class="collage-block" id="block' . ($key + 1) . '" style="background:' . sprintf('#%02X%02X%02X', rand(60, 255), rand(60, 255), rand(60, 255)) . '">';
-					//$str2.='<div class="collage-block-shadow" id="block-shadow' . $i . '">';
-					$str2.= '<p><a href="">' . $name . '</a></p></div>';
+					$id = $val['id'];
+					$str2.= '<div class="collage-block" id="block' . ($key + 1) . '">';
+					$str2.= '<p><a href="/goods/index/' .$id. '">' . $name . '</a></p></div>';
 				}
 				echo $str2;
 				?>
@@ -58,8 +58,8 @@ foreach ($sliderImg as $key => $val) {
 		</div>
 	</div>
 	<!------------End collage------------>
-
-
+	
+	<!------------Block with 3 animals------------>
 	<div class="col-md-12 items">
 		<div class="col-md-4 s-item" align="center">
 			<a href="/goods/index/39">
@@ -79,4 +79,5 @@ foreach ($sliderImg as $key => $val) {
 			<p>Пэпа</p>
 		</div>
 	</div>
+	<!------------End block with 3 animals------------>
 </div>

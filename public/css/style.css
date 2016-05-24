@@ -195,7 +195,6 @@ div.container a.brand {
 
 .inst{
 	padding-top: 20px;
-	text-align: center;
 }
 
 .inst h3{
@@ -205,7 +204,7 @@ div.container a.brand {
 }
 
 .inst ul{
-
+	
 }
 
 .inst ul>li{
@@ -214,7 +213,7 @@ div.container a.brand {
 	width: 100px;
 	height: 100px;
 	border-radius: 15%;
-	margin: 5px;
+	margin: 2px;
 }
 
 .inst-img{
@@ -295,7 +294,6 @@ div.container a.brand {
 	width: 100%;
 }
 .collage-wrapper a:hover{
-	background-color: #04a49c;
 	text-decoration: none;
 }
 .collage-wrapper .collage-block{ 
@@ -320,54 +318,63 @@ div.container a.brand {
 	height: 250px; 
 	top: 0; 
 	left: 0;
+	background-color: #04a49c;
 } 
 .collage-wrapper #block2{ 
 	width: 42.855%; 
 	height: 125px; 
 	top: 0; 
-	left: 28.57%; 
+	left: 28.57%;
+	background-color: #5DFF4B;
 } 
 .collage-wrapper #block3{ 
 	width: 14.285%; 
 	height: 125px; 
 	top: 125px; 
-	left: 28.57%; 
+	left: 28.57%;
+	background-color: #FF7C74;
 } 
 .collage-wrapper #block4{ 
 	width: 21.4275%; 
 	height: 250px; 
 	top: 250px; 
-	left: 0; 
+	left: 0;
+	background-color: #3E07E8;
 } 
 .collage-wrapper #block5{ 
 	width: 28.57%; 
 	height: 187.5px; 
 	top: 125px; 
-	left: 42.855%; 
+	left: 42.855%;
+	background-color: #63C7E8;
 } 
 .collage-wrapper #block6{ 
 	width: 21.4275%; 
 	height: 250px; 
 	top: 250px; 
-	left: 21.4275%; 
+	left: 21.4275%;
+	background-color: #FFA440;
 } 
 .collage-wrapper #block7{ 
 	width: 28.57%; 
 	height: 187.5px; 
 	top: 312.5px; 
-	left: 42.855%; 
+	left: 42.855%;
+	background-color: #0075FF;
 } 
 .collage-wrapper #block8{ 
 	width: calc(28.57% + 1px); 
 	height: 187.5px; 
 	top: 0; 
-	left: 71.425%; 
+	left: 71.425%;
+	background-color: #C32B75;
 } 
 .collage-wrapper #block9{ 
 	width: calc(28.57% + 1px); 
 	height: 312.5px; 
 	top: 187.5px; 
-	left: 71.425%; 
+	left: 71.425%;
+	background-color: #A48DFF;
 } 
 .collage-block p{ 
 	display: table-cell; 
@@ -420,7 +427,7 @@ div.container a.brand {
 	text-align: center;
 }
 .order_status{
-	width: 500px;
+	width: 60%;
 	margin: 15px auto;
 }
 .order_status th{

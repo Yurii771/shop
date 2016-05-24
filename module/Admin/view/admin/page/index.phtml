@@ -1,64 +1,73 @@
-<div class=""
-<h1>Управление главной страницей</h1>
-<hr/>
-<div class="admin-edit">
-    <div class="carousel">
-        <form enctype="multipart/form-data" method="POST" action="<?php echo $this->url('admin', array('controller'=>'page', 'action'=>'saveslider'))?>">
-            <div class="wrapper-edit">
-                <input type="file" name="image1" id="for1" accept="image/jpeg,image/png"/>
-                <input type="file" name="image2" id="for2" accept="image/jpeg,image/png"/>
-                <input type="file" name="image3" id="for3" accept="image/jpeg,image/png"/>
-            </div>
-            <input type="submit" name="add-slider" value="Ok" class="admin-sub"/>
-        </form>
-        <div class="wrapper">
-            <input type="radio" name="point" id="slide1" checked>
-            <input type="radio" name="point" id="slide2">
-            <input type="radio" name="point" id="slide3">
-            <div class="slider">
-                <?php
-                $str = '';
-                foreach ($sliderImg as $key => $val) {
-                    $img_name = $val->getImg_way();
-                    $str.='<div class="slides slide' . ($key+1) . '" style="background: url(../img/' . $img_name . ') no-repeat; background-size: 700px 350px;"></div>';
-                }
-                echo $str;
-                ?>
-            </div>	
-            <div class="controls">
-                <label for="slide1"></label>
-                <label for="slide2"></label>
-                <label for="slide3"></label>
-            </div>
-        </div>
-    </div>
-    <div class="collage">
-        <form method="POST" action="<?php echo $this->url('admin', array('controller'=>'page', 'action'=>'save'))?>">
-            <div class="collage-wrapper">
-                <?php
-                $str2 = '';
-                //var_dump($categories);
-                foreach ($categoriesId as $key => $val) {
-                    //for($i=1; $i<=9; $i++){
-                    $name1 = $val['name'];
-                    $str2.='<div class="collage-block" id="block' . ($key + 1) . '" style="background:' . sprintf('#%02X%02X%02X', rand(60, 255), rand(60, 255), rand(60, 255)) . '">';
-                    $str2.='<select name="categorie' . ($key + 1) . '">';
-                    foreach ($categories as $val) {
-                        if($val->getParent()){
-                            $name2 = $val->getName();
-                            if ($name1 == $name2) {
-                                $str2.='<option selected>' . $name2 . '</option>';
-                            } else {
-                                $str2.='<option>' . $name2 . '</option>';
-                            }
-                        }
-                    }
-                    $str2.='</select></div>';
-                }
-                echo $str2;
-                ?>
-            </div>
-            <input type="submit" name="add-col" value="Ok" class="admin-sub"/>
-        </form>
-    </div>
+<div class="c-cols-r-static">
+	<!-- Page Header -->
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Управление главной страницей</h1>
+			<a href="/admin/goods/add" class="btn btn-primary">Добавить товар</a>
+		</div>
+	</div><hr/>
+	<!-- /.row -->
+	<div class="col-md-12">
+		<div class="col-md-12 admin-edit">
+			<div class="carousel">
+				<form enctype="multipart/form-data" method="POST" action="<?php echo $this->url('admin', array('controller' => 'page', 'action' => 'saveslider')) ?>">
+					<div class="wrapper-edit">
+						<input type="file" name="image1" id="for1" accept="image/jpeg,image/png"/>
+						<input type="file" name="image2" id="for2" accept="image/jpeg,image/png"/>
+						<input type="file" name="image3" id="for3" accept="image/jpeg,image/png"/>
+					</div>
+					<button class="btn btn-info btn-sm admin-sub" name="add-slider">Сохранить</button>
+				</form>
+				<div class="wrapper">
+					<input type="radio" name="point" id="slide1" checked>
+					<input type="radio" name="point" id="slide2">
+					<input type="radio" name="point" id="slide3">
+					<div class="slider">
+						<?php
+						$str = '';
+						foreach ($sliderImg as $key => $val) {
+							$img_name = $val->getImg_way();
+							$str.='<div class="slides slide' . ($key + 1) . '" style="background: url(../img/' . $img_name . ') no-repeat;"></div>';
+						}
+						echo $str;
+						?>
+					</div>	
+					<div class="controls">
+						<label for="slide1"></label>
+						<label for="slide2"></label>
+						<label for="slide3"></label>
+					</div>
+				</div>
+			</div>
+			<div class="collage">
+				<form method="POST" action="<?php echo $this->url('admin', array('controller' => 'page', 'action' => 'save')) ?>">
+					<div class="collage-wrapper">
+						<?php
+						$str2 = '';
+						//var_dump($categories);
+						foreach ($categoriesId as $key => $val) {
+							//for($i=1; $i<=9; $i++){
+							$name1 = $val['name'];
+							$str2.='<div class="collage-block" id="block' . ($key + 1) . '" style="background:' . sprintf('#%02X%02X%02X', rand(60, 255), rand(60, 255), rand(60, 255)) . '">';
+							$str2.='<select name="categorie' . ($key + 1) . '">';
+							foreach ($categories as $val) {
+								if ($val->getParent()) {
+									$name2 = $val->getName();
+									if ($name1 == $name2) {
+										$str2.='<option selected>' . $name2 . '</option>';
+									} else {
+										$str2.='<option>' . $name2 . '</option>';
+									}
+								}
+							}
+							$str2.='</select></div>';
+						}
+						echo $str2;
+						?>
+					</div>
+					<button class="btn btn-info btn-sm admin-sub" name="add-col">Сохранить</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
