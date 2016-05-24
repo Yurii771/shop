@@ -1,9 +1,3 @@
-<style>
-    table, table th{
-        text-align: center;
-    }
-</style>
-
 <h1 align="center">Корзина</h1>
 <hr/>
 
@@ -20,17 +14,17 @@
 </div>
 
 <div class="row">
-    <div class="col-md-offset-1 col-md-10">
-        <table class="table">
+    <div class="col-md-12">
+        <table class="table table-hover" id="cart-table">
             <tr>
                 <th colspan="2">Товар</th>
-                <th style="width: 50px;">Кол-во</th>
-                <th style="width: 50px;">Стоимость</th>
-                <th style="width: 50px;"></th>
+                <th>Кол-во</th>
+                <th>Стоимость</th>
+                <th></th>
             </tr>
             <?php for ($i = 0; $i < count($cart); $i++): ?>
             <tr class="goods">
-                <td class="cart_col" style="width: 150px;">
+                <td class="cart_col">
                     <img class="cart_photo" src="/img/goods/<?php echo($cart[$i]['goods']->getPhoto()) ?>"/>
                 </td>
                 <td class="cart_col">
@@ -51,10 +45,7 @@
                     </h4>
                 </td>
                 <td>
-                    <a class="btn btn-default delete_goods" 
-                       href="<?= $this->url('guest', array('controller'=>'cart', 'action'=>'delete', 'id'=>$cart[$i]['goods']->getId())); ?>">
-                        Удалить
-                    </a>
+                    <a class="btn btn-default delete_goods" href="<?= $this->url('guest', array('controller'=>'cart', 'action'=>'delete', 'id'=>$cart[$i]['goods']->getId())); ?>">Удалить</a>
                 </td>
             </tr>
             <?php endfor; ?>
