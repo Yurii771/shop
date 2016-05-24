@@ -588,3 +588,38 @@ div.container a.brand {
 .row{
 	padding-bottom: 100px;
 }
+
+.search-result{
+	padding-bottom: 100px;
+}
+
+#meta-search{
+	text-align: center;
+}
+
+#meta-search li{
+	list-style-type: none;
+	margin-top: 15px;
+}
+
+.img-search{
+	text-align: center;
+}
+.img-search img{
+	border-radius: 10%;
+}
+.search-good{
+	height: 600px;
+}
+.name-good{
+	height: 100px;
+}
+
+.sl-p{
+	font-size: 22pt;
+	color: #fff;
+}
+.sl-p2{
+	font-size: 16pt;
+	color: #9acfea;
+}
