@@ -80,7 +80,7 @@ class GoodsController extends AbstractActionController
             $goods->setCost($this->getRequest()->getPost('cost'));
             $goods->setCount($this->getRequest()->getPost('count'));
 
-            if(isset($_FILES['photo']['name'])){
+            if(!empty($_FILES['photo']['name'])){
                 $file_info=$_FILES['photo'];
                 $ext= explode('.',$file_info['name'])[1];
                 $newName =$id.".".$ext;
